@@ -1,0 +1,19 @@
+---
+import Head, { type HeadProps } from "~/components/Head.astro";
+
+interface Props {
+  head: HeadProps;
+}
+
+const { head } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <Head {...head} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

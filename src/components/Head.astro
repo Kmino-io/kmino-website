@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+export type HeadProps = Props;
+
+const defaults: Props = {
+  title: "Kmino",
+  description: "Build with confidence. Scale with strategy.",
+};
+
+const { title, description } = Astro.props;
+---
+
+<title>{title}</title>
+
+<meta name="description" content={description ?? defaults.description} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Open Graph tags -->
+<meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.site} />
+<meta property="og:description" content={defaults.description} />
+<meta property="og:image" content="/og-image.png" />
+<meta property="og:image:alt" content="Kmino" />
