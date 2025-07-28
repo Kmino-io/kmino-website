@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Polite Type";
+  src: url("/fonts/PoliteType-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #f7532e;
+
+  --font-sans: "DM Sans", sans-serif;
+  --font-alt: "Polite Type", sans-serif;
+}
+
+@utility container {
+  margin-inline: auto;
+  max-width: 1440px;
+}

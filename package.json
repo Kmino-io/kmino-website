@@ -14,7 +14,10 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.4.2",
     "@astrojs/ts-plugin": "^1.10.4",
+    "@fontsource/dm-sans": "^5.2.6",
+    "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.4",
+    "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3"
   },
   "devDependencies": {

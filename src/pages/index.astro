@@ -1,7 +1,25 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import BottomWaves from "../assets/bottom-waves.png";
+import Image from "astro/components/Image.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <MainLayout head={{ title: "Home" }}>
-  <h1>Astro</h1>
+  <section class="bg-primary">
+    <div class="container flex max-w-[1080px] flex-col gap-[130px]">
+      <Navbar />
+
+      <h1
+        class="font-alt text-[68px] leading-[130%] tracking-[-0.02em] text-white"
+      >
+        Build with <br />confidence. <br />Scale with <br />strategy.
+      </h1>
+    </div>
+  </section>
+  <Image src={BottomWaves} alt="Bottom Waves" />
+
+  <section class="container mt-[120px]">
+    <h1 class="font-alt text-center text-4xl">What we Do</h1>
+  </section>
 </MainLayout>
