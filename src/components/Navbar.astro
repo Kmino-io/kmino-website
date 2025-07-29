@@ -1,11 +1,18 @@
 ---
-
+import Logo from "~/assets/logo.svg";
+import CTA from "./CTA.astro";
 ---
 
-<nav class="flex min-h-[80px] justify-between py-8 text-white">
-  <div>kmino</div>
+<nav
+  class="flex items-center justify-between py-4 text-white md:min-h-[80px] md:py-8"
+>
+  <div>
+    <a href="/#">
+      <Logo />
+    </a>
+  </div>
 
-  <div class="flex gap-[42px]">
+  <div class="hidden gap-[42px] lg:flex">
     <a href="/#what-we-do">What We Do</a>
     <a href="/#how-we-work">How We Work</a>
     <a href="/#projects">Projects</a>
@@ -13,6 +20,6 @@
   </div>
 
   <div>
-    <a> Talk to our team </a>
+    <CTA href="https://google.com">Talk to Our Team</CTA>
   </div>
 </nav>

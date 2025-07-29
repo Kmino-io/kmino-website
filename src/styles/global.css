@@ -17,5 +17,20 @@
 
 @utility container {
   margin-inline: auto;
-  max-width: 1440px;
+  /* 1412 + 28 = 1440. Maximum figma width */
+  max-width: 1412px;
+  padding-inline: 28px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotate 10s linear infinite;
 }

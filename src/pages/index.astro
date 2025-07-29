@@ -1,23 +1,45 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import BottomWaves from "../assets/bottom-waves.png";
-import Image from "astro/components/Image.astro";
+import BottomWaves from "../assets/bottom-waves.svg";
+import KminoText from "../assets/kmino-text.svg";
+import Stamp from "../assets/stamp.svg";
 import Navbar from "../components/Navbar.astro";
+import { HeroLine } from "~/components/HeroLine";
+import CTA from "../components/CTA.astro";
 ---
 
 <MainLayout head={{ title: "Home" }}>
-  <section class="bg-primary">
-    <div class="container flex max-w-[1080px] flex-col gap-[130px]">
-      <Navbar />
-
-      <h1
-        class="font-alt text-[68px] leading-[130%] tracking-[-0.02em] text-white"
+  <section class="bg-primary relative xl:min-h-[747px]">
+    <div class="relative z-10 container">
+      <div
+        class="mx-auto flex max-w-[1080px] flex-col gap-[120px] md:gap-[130px]"
       >
-        Build with <br />confidence. <br />Scale with <br />strategy.
-      </h1>
+        <Navbar />
+
+        <div class="relative space-y-11 pb-4 md:space-y-9">
+          <Stamp
+            class="rotating absolute -top-6 -left-6 h-16 w-16 md:-top-[60px] md:-left-9 md:h-[89px] md:w-[89px]"
+          />
+          <h1
+            class="font-alt text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
+          >
+            Build with <br />confidence. <br />Scale with <br />strategy.
+          </h1>
+
+          <CTA href="https://google.com"> Book a discovery call </CTA>
+        </div>
+      </div>
+
+      <div class="absolute right-9 -bottom-[60px] z-10 hidden md:block">
+        <KminoText />
+        <KminoText />
+      </div>
     </div>
+
+    <HeroLine client:load />
   </section>
-  <Image src={BottomWaves} alt="Bottom Waves" />
+
+  <BottomWaves class="-mt-1 h-auto lg:h-[172px]" />
 
   <section class="container mt-[120px]">
     <h1 class="font-alt text-center text-4xl">What we Do</h1>
