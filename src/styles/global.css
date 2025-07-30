@@ -11,6 +11,8 @@
 @theme {
   --color-primary: #f7532e;
 
+  --color-black: #1D1D1B;
+
   --font-sans: "DM Sans", sans-serif;
   --font-alt: "Polite Type", sans-serif;
 }
@@ -19,7 +21,21 @@
   margin-inline: auto;
   /* 1412 + 28 = 1440. Maximum figma width */
   max-width: 1412px;
-  padding-inline: 28px;
+  padding-inline: 16px;
+}
+
+@utility heading {
+  letter-spacing: -0.02em;
+  text-align: center;
+
+  @apply font-alt text-4xl leading-[1.3] font-semibold md:text-[43.66px];
+}
+
+@utility subheading {
+  letter-spacing: -0.02em;
+  text-align: center;
+
+  @apply font-alt text-xl leading-[1.3] md:text-[26px];
 }
 
 @keyframes rotate {

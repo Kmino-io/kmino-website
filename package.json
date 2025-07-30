@@ -22,6 +22,7 @@
     "astro": "^5.12.4",
     "framer-motion": "^12.23.11",
     "iconsax-reactjs": "^0.0.8",
+    "keen-slider": "^6.8.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "sharp": "^0.34.3",

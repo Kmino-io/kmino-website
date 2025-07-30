@@ -6,9 +6,11 @@ import Stamp from "../assets/stamp.svg";
 import Navbar from "../components/Navbar.astro";
 import { HeroLine } from "~/components/HeroLine";
 import CTA from "../components/CTA.astro";
+import { WhatWeDoLinesMobile } from "~/components/WhatWeDoLinesMobile";
+import { WhatWeDoSlider } from "~/components/WhatWeDoSlider";
 ---
 
-<MainLayout head={{ title: "Home" }}>
+<MainLayout head={{ title: "Kmino" }}>
   <section class="bg-primary relative xl:min-h-[747px]">
     <div class="relative z-10 container">
       <div
@@ -20,6 +22,7 @@ import CTA from "../components/CTA.astro";
           <Stamp
             class="rotating absolute -top-6 -left-6 h-16 w-16 md:-top-[60px] md:-left-9 md:h-[89px] md:w-[89px]"
           />
+
           <h1
             class="font-alt text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
           >
@@ -40,8 +43,16 @@ import CTA from "../components/CTA.astro";
   </section>
 
   <BottomWaves class="-mt-1 h-auto lg:h-[172px]" />
+  <WhatWeDoLinesMobile client:visible />
 
-  <section class="container mt-[120px]">
-    <h1 class="font-alt text-center text-4xl">What we Do</h1>
+  <section class="relative container mt-[120px] mb-[100px]" id="what-we-do">
+    <div class="relative z-10 mb-11 flex flex-col gap-6">
+      <h1 class="heading">What we Do</h1>
+      <p class="subheading text-primary mx-auto max-w-[341px]">
+        We help product leaders and founders move faster with:
+      </p>
+    </div>
+
+    <WhatWeDoSlider client:visible />
   </section>
 </MainLayout>
