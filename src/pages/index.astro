@@ -8,6 +8,7 @@ import { HeroLine } from "~/components/HeroLine";
 import CTA from "../components/CTA.astro";
 import { WhatWeDoLinesMobile } from "~/components/WhatWeDoLinesMobile";
 import { WhatWeDoSlider } from "~/components/WhatWeDoSlider";
+import { HowWeWorkSlider } from "~/components/HowWeWorkSlider";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -71,6 +72,17 @@ import { WhatWeDoSlider } from "~/components/WhatWeDoSlider";
       </p>
     </div>
 
-    <Stamp client:visible class="text-primary rotating ml-auto" />
+    <Stamp class="text-primary rotating ml-auto" />
+  </section>
+
+  <section class="container mt-[100px] mb-[120px]">
+    <div class="mb-11 md:mb-[100px]">
+      <h1 class="heading text-left">How we Work</h1>
+      <p class="subheading text-primary max-w-[341px] text-left">
+        Our Process. Your Advantage.
+      </p>
+    </div>
+
+    <HowWeWorkSlider client:visible={{ rootMargin: "200px" }} />
   </section>
 </MainLayout>
