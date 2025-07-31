@@ -22,9 +22,9 @@ function Card({ title, description, index, active, onClick }: CardProps) {
       }`}
       onClick={onClick}
     >
-      <span className="text-3xl">{index.padStart(2, "0")}</span>
+      <span className="font-alt text-3xl">{index.padStart(2, "0")}</span>
       <hr className="border-1" />
-      <h2 className="pe-8 text-3xl leading-[1.3] font-semibold">{title}</h2>
+      <h2 className="font-alt pe-8 text-3xl leading-[1.3]">{title}</h2>
       {active ? (
         <p className="pe-8 text-xl leading-[1.3]">{description}</p>
       ) : null}
@@ -82,7 +82,7 @@ export function HowWeWorkSlider() {
 
   return (
     <div className="-mx-6 sm:mx-0">
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className="keen-slider min-h-[290px]">
         {cards.map((card, idx) => (
           <Card
             key={idx}
