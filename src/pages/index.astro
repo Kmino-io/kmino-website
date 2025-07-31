@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import TopWaves from "../assets/top-waves-mobile.svg";
 import BottomWaves from "../assets/bottom-waves.svg";
 import KminoText from "../assets/kmino-text.svg";
 import ProjectsBg from "../assets/project-bg.svg";
@@ -107,5 +108,32 @@ import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
     <ProjectsSliderMobile client:idle />
 
     <ProjectsBg class="absolute -top-3 -z-10 lg:hidden" />
+  </section>
+
+  <TopWaves />
+
+  <section class="bg-primary -mt-1 text-[26px] text-white">
+    <Stamp class="rotating absolute right-12 text-black" />
+
+    <div class="container pt-[100px]">
+      <h1 class="heading mb-[73px] text-left">About Us</h1>
+
+      <div class="flex flex-col gap-8">
+        <p>
+          We’re a team of brazilian senior engineers and product thinkers who
+          don’t just ship — we partner.
+        </p>
+
+        <p>
+          We combine deep technical expertise with business-driven strategy to
+          help startups and scale-ups build faster, smarter, and with purpose.
+        </p>
+
+        <p>
+          Our focus is on long-term relationships, clear communication, and real
+          ownership — because true impact comes from teams that care.
+        </p>
+      </div>
+    </div>
   </section>
 </MainLayout>
