@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const testimonials = [
   {
     quote: "KMINO didn’t just deliver code — they helped us shape our roadmap.",
-    author: "Founder, SuperDapp",
+    author: "Founder, TechStartup",
   },
   {
     quote:
