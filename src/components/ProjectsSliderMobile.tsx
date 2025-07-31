@@ -47,8 +47,20 @@ export function ProjectsSliderMobile() {
     breakpoints: {
       "(min-width: 640px)": {
         slides: {
-          perView: 3.7,
+          perView: 2,
           spacing: 24,
+        },
+      },
+      "(min-width: 1024px)": {
+        slides: {
+          perView: 3,
+          spacing: 32,
+        },
+      },
+      "(min-width: 1280px)": {
+        slides: {
+          perView: 3.7,
+          spacing: 40,
         },
       },
     },

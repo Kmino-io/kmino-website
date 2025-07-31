@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import BottomWaves from "../assets/bottom-waves.svg";
 import KminoText from "../assets/kmino-text.svg";
+import ProjectsBg from "../assets/project-bg.svg";
 import Stamp from "../assets/stamp.svg";
 import Navbar from "../components/Navbar.astro";
 import { HeroLine } from "~/components/HeroLine";
@@ -94,7 +95,9 @@ import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
     <Testimonials client:visible={{ rootMargin: "200px" }} />
   </section>
 
-  <section class="container my-[60px] flex flex-col items-center">
+  <section
+    class="relative container my-[60px] flex flex-col items-center py-[100px]"
+  >
     <h1 class="heading mb-6 text-left">Trusted by Innovators Worldwide</h1>
 
     <p class="subheading text-primary mb-6 text-left">
@@ -102,5 +105,7 @@ import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
     </p>
 
     <ProjectsSliderMobile client:idle />
+
+    <ProjectsBg class="absolute -top-3 -z-10 lg:hidden" />
   </section>
 </MainLayout>
