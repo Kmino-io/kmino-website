@@ -9,6 +9,7 @@ import CTA from "../components/CTA.astro";
 import { WhatWeDoLinesMobile } from "~/components/WhatWeDoLinesMobile";
 import { WhatWeDoSlider } from "~/components/WhatWeDoSlider";
 import { HowWeWorkSlider } from "~/components/HowWeWorkSlider";
+import { Testimonials } from "~/components/Testimonials";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -84,5 +85,11 @@ import { HowWeWorkSlider } from "~/components/HowWeWorkSlider";
     </div>
 
     <HowWeWorkSlider client:visible={{ rootMargin: "200px" }} />
+  </section>
+
+  <section
+    class="container my-[100px] flex flex-col items-center lg:my-[200px]"
+  >
+    <Testimonials client:visible={{ rootMargin: "200px" }} />
   </section>
 </MainLayout>
