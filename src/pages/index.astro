@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import TopWaves from "../assets/top-waves-mobile.svg";
 import BottomWaves from "../assets/bottom-waves.svg";
+import Pathways from "../assets/pathways.svg";
 import KminoText from "../assets/kmino-text.svg";
 import ProjectsBg from "../assets/project-bg.svg";
 import Stamp from "../assets/stamp.svg";
@@ -13,6 +14,7 @@ import { WhatWeDoSlider } from "~/components/WhatWeDoSlider";
 import { HowWeWorkSlider } from "~/components/HowWeWorkSlider";
 import { Testimonials } from "~/components/Testimonials";
 import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
+import { Icon } from "astro-icon/components";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -112,7 +114,7 @@ import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
 
   <TopWaves />
 
-  <section class="bg-primary -mt-1 text-[26px] text-white">
+  <section class="bg-primary -mt-1 pb-32 text-[26px] text-white">
     <Stamp class="rotating absolute right-12 text-black" />
 
     <div class="container pt-[100px]">
@@ -136,4 +138,62 @@ import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
       </div>
     </div>
   </section>
+
+  <footer class="relative overflow-hidden bg-white">
+    <div
+      class="relative z-10 mt-[66px] mb-[66px] flex flex-col items-center bg-black py-12 text-center text-white"
+    >
+      <h2 class="font-alt text-primary mb-6 text-[22px] tracking-tight">
+        Ready to build something exceptional?
+      </h2>
+
+      <CTA href="https://google.com" color="inverted">
+        Book a discovery call
+      </CTA>
+    </div>
+
+    <Pathways
+      class="absolute -top-[432px] -left-[343px] w-[1440px] lg:-top-[400px] lg:left-0 lg:w-full"
+    />
+
+    <div class="relative z-10 flex flex-col items-center py-10">
+      <a
+        href="mailto:contact@kmino.dev"
+        class="mb-6 text-sm font-medium text-black/80"
+      >
+        contact@kmino.dev
+      </a>
+
+      <div class="mb-6 flex gap-6">
+        <a
+          href="https://x.com"
+          aria-label="X"
+          class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
+        >
+          <Icon name="ri:twitter-x-fill" size={19} />
+        </a>
+
+        <a
+          href="https://github.com/Kmino-io"
+          aria-label="X"
+          class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
+        >
+          <Icon name="ri:github-fill" size={19} />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/kminotech/"
+          aria-label="
+          X"
+          class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
+        >
+          <Icon name="ri:linkedin-fill" size={19} />
+        </a>
+      </div>
+      <div class="text-center text-sm text-black/80">
+        ©KMINO 2025, All rights reserved.
+        <a href="/terms" class="ml-1 underline">Terms of Service.</a>
+      </div>
+    </div>
+  </footer>
 </MainLayout>
