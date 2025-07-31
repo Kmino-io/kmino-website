@@ -10,6 +10,7 @@ import { WhatWeDoLinesMobile } from "~/components/WhatWeDoLinesMobile";
 import { WhatWeDoSlider } from "~/components/WhatWeDoSlider";
 import { HowWeWorkSlider } from "~/components/HowWeWorkSlider";
 import { Testimonials } from "~/components/Testimonials";
+import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -91,5 +92,15 @@ import { Testimonials } from "~/components/Testimonials";
     class="container my-[100px] flex flex-col items-center lg:my-[200px]"
   >
     <Testimonials client:visible={{ rootMargin: "200px" }} />
+  </section>
+
+  <section class="container my-[60px] flex flex-col items-center">
+    <h1 class="heading mb-6 text-left">Trusted by Innovators Worldwide</h1>
+
+    <p class="subheading text-primary mb-6 text-left">
+      We’ve helped startups and protocols scale their products, faster
+    </p>
+
+    <ProjectsSliderMobile client:idle />
   </section>
 </MainLayout>
