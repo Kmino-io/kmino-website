@@ -12,17 +12,23 @@ export function WhatWeDoSlider() {
     breakpoints: {
       "(min-width: 640px)": {
         slides: {
-          perView: 3.1,
+          perView: 2.1,
           spacing: 24,
+        },
+      },
+      "(min-width: 1024px)": {
+        slides: {
+          perView: 3.1,
+          spacing: 32,
         },
       },
     },
   });
 
   return (
-    <div className="-mx-4">
+    <div className="-mx-4 min-[1414px]:hidden sm:mx-0">
       <div ref={sliderRef} className="keen-slider">
-        <div className="keen-slider__slide bg-red-500">
+        <div className="keen-slider__slide">
           <WhatWeDoCard
             title="Business Advisory"
             description="Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed. A nunc sollicitudin ultrices mollis."

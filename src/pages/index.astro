@@ -15,6 +15,7 @@ import { HowWeWorkSlider } from "~/components/HowWeWorkSlider";
 import { Testimonials } from "~/components/Testimonials";
 import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
 import { Icon } from "astro-icon/components";
+import { WhatWeDoLines } from "../components/WhatWeDoLines";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -53,7 +54,10 @@ import { Icon } from "astro-icon/components";
 
   <WhatWeDoLinesMobile client:media="(max-width: 768px)" />
 
-  <section class="relative container mt-[120px] mb-[100px]" id="what-we-do">
+  <section
+    class="relative container mt-[120px] mb-[100px] lg:mb-[200px]"
+    id="what-we-do"
+  >
     <div class="relative z-10 mb-11 flex flex-col gap-6">
       <h1 class="heading">What we Do</h1>
       <p class="subheading text-primary mx-auto max-w-[341px]">
@@ -61,7 +65,70 @@ import { Icon } from "astro-icon/components";
       </p>
     </div>
 
-    <WhatWeDoSlider client:idle />
+    <WhatWeDoLines client:media="(min-width: 1414px)" />
+
+    <div
+      class="relative mx-auto mt-[79px] flex min-h-[856px] max-w-[1080px] justify-between text-[22px] tracking-tight max-[1414px]:hidden"
+    >
+      <Stamp class="text-primary rotating absolute -top-12 -right-10 z-10" />
+      <div class="flex flex-col justify-between">
+        <div
+          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+        >
+          <p class="font-semibold">Business Advisory</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
+            A nunc sollicitudin ultrices mollis.
+          </p>
+        </div>
+
+        <div
+          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+        >
+          <p class="font-semibold">Infrastructure and DevOps</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
+            A nunc sollicitudin ultrices mollis.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <div
+          class="bg-primary flex min-h-[347px] max-w-[382px] flex-col justify-center gap-4 border border-black px-[26px] text-white"
+        >
+          <p class="font-semibold">Web3 & Smart Contract Development</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
+            A nunc sollicitudin ultrices mollis.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-between">
+        <div
+          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+        >
+          <p class="font-semibold">Fullstack Web & Mobile Development</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
+            A nunc sollicitudin ultrices mollis.
+          </p>
+        </div>
+
+        <div
+          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+        >
+          <p class="font-semibold">Staff Augmentation</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
+            A nunc sollicitudin ultrices mollis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <WhatWeDoSlider client:media="(max-width: 1414px)" />
   </section>
 
   <section class="container flex flex-col gap-11">
