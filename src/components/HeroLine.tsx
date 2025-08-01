@@ -1,7 +1,38 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export function HeroLine() {
-  return (
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" && window.innerWidth < 408,
+  );
+
+  // Update isMobile state on window resize
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", () => {
+      setIsMobile(window.innerWidth < 408);
+    });
+  }
+
+  return isMobile ? (
+    <motion.svg
+      width="497"
+      height="154"
+      viewBox="0 0 497 154"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute bottom-24 -left-20"
+    >
+      <motion.path
+        d="M4.5 31.1958L70.4883 39.1006L113.106 122.617H496.5"
+        stroke="#E64A27"
+        strokeWidth="61.1766"
+        fill="none"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 2, ease: "easeInOut" }}
+      />
+    </motion.svg>
+  ) : (
     <motion.svg
       width="100%"
       height="517"
