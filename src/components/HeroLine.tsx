@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function HeroLine() {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" && window.innerWidth < 408,
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Update isMobile state on window resize
-  if (typeof window !== "undefined") {
-    window.addEventListener("resize", () => {
-      setIsMobile(window.innerWidth < 408);
-    });
-  }
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 408);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return isMobile ? (
     <motion.svg
