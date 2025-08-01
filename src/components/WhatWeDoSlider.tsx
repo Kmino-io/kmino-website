@@ -26,7 +26,7 @@ export function WhatWeDoSlider() {
   });
 
   return (
-    <div className="-mx-4 min-[1414px]:hidden sm:mx-0">
+    <div className="-mx-4 min-[1414px]:hidden lg:mx-0">
       <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide">
           <WhatWeDoCard
