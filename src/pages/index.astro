@@ -16,6 +16,7 @@ import { Testimonials } from "~/components/Testimonials";
 import { ProjectsSliderMobile } from "~/components/ProjectsSliderMobile";
 import { Icon } from "astro-icon/components";
 import { WhatWeDoLines } from "../components/WhatWeDoLines";
+import { WhyKminoLine } from "~/components/WhyKminoLine";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -131,29 +132,41 @@ import { WhatWeDoLines } from "../components/WhatWeDoLines";
     <WhatWeDoSlider client:media="(max-width: 1414px)" />
   </section>
 
-  <section class="container flex flex-col gap-11">
-    <h1 class="heading text-left">Why Kmino?</h1>
+  <section class="relative flex flex-col items-end">
+    <WhyKminoLine client:media="(min-width: 1024px)" />
 
-    <div class="flex flex-col gap-4 text-xl">
-      <p>We bring world-class tech talent with senior-level experience.</p>
-      <p>
-        <strong>High Skill, Competitive Rates:</strong> Scale efficiently without
-        sacrificing quality
-      </p>
-      <p>
-        <strong>Seamless Integration:</strong> Your goals become our mission
-      </p>
+    <div class="container flex max-w-[1000px] lg:justify-end">
+      <div class="w-fit space-y-11 lg:max-w-[381px]">
+        <h1 class="heading text-left">Why Kmino?</h1>
+
+        <div
+          class="flex flex-col gap-4 text-xl tracking-tight lg:gap-8 lg:text-[26px]"
+        >
+          <p>We bring world-class tech talent with senior-level experience.</p>
+          <p>
+            <strong>High Skill, Competitive Rates:</strong> Scale efficiently without
+            sacrificing quality
+          </p>
+          <p>
+            <strong>Seamless Integration:</strong> Your goals become our mission
+          </p>
+        </div>
+      </div>
     </div>
 
-    <Stamp class="text-primary rotating ml-auto" />
+    <Stamp class="text-primary rotating ml-auto lg:hidden" />
   </section>
 
-  <section class="container mt-[100px] mb-[120px]">
-    <div class="mb-11 md:mb-[100px]">
+  <section class="container mt-[100px] mb-[120px] lg:mt-[200px]">
+    <div class="relative mb-11 md:mb-[100px]">
       <h1 class="heading text-left">How we Work</h1>
       <p class="subheading text-primary max-w-[341px] text-left">
         Our Process. Your Advantage.
       </p>
+
+      <Stamp
+        class="text-primary rotating absolute top-0 right-0 hidden lg:block"
+      />
     </div>
 
     <HowWeWorkSlider client:visible={{ rootMargin: "200px" }} />

@@ -26,7 +26,8 @@ export function HeroLine() {
         strokeWidth="61.1766"
         fill="none"
         initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 2, ease: "easeInOut" }}
       />
     </motion.svg>
@@ -46,7 +47,8 @@ export function HeroLine() {
         strokeWidth="89"
         fill="none"
         initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 2, ease: "easeInOut" }}
       />
     </motion.svg>
