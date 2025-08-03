@@ -1,6 +1,6 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { WhatWeDoCard } from "~/components/WhatWeDoCard.tsx";
+import { WhatWeDoCard } from "~/home/WhatWeDoCard.tsx";
 
 export function WhatWeDoSlider() {
   const [sliderRef] = useKeenSlider({
