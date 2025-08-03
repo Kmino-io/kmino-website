@@ -115,7 +115,7 @@ export function HowWeWorkSlider() {
         ))}
       </div>
 
-      <div className="mt-12 flex gap-8 ps-4">
+      <div className="mt-12 flex gap-8 pe-4">
         <button
           className="bg-primary rounded-full p-[11px] hover:not-disabled:cursor-pointer disabled:opacity-50"
           disabled={!sliderRef || currentSlide === 0}

@@ -70,7 +70,7 @@ export function ProjectsSliderMobile() {
   });
 
   return (
-    <div className="flex w-full flex-col items-center">
+    <div className="flex w-full flex-col items-center min-[1079px]:hidden">
       <div ref={sliderRef} className="keen-slider h-fit w-full">
         {projects.map((project, idx) => (
           <div
