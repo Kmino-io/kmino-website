@@ -21,7 +21,7 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
-  <section class="bg-primary relative xl:min-h-[747px]">
+  <section class="bg-primary relative overflow-hidden xl:min-h-[747px]">
     <div class="relative z-10 container">
       <div
         class="mx-auto flex max-w-[1080px] flex-col gap-[120px] md:gap-[130px]"
@@ -54,12 +54,12 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
 
   <BottomWaves class="-mt-1 h-auto lg:h-[172px]" />
 
-  <WhatWeDoLinesMobile client:media="(max-width: 768px)" />
-
   <section
-    class="relative container mt-[120px] mb-[100px] lg:mb-[200px]"
+    class="relative container overflow-hidden pt-[120px] pb-[100px] lg:mb-[200px]"
     id="what-we-do"
   >
+    <WhatWeDoLinesMobile client:media="(max-width: 768px)" />
+
     <div class="relative z-10 mb-11 flex flex-col gap-6">
       <h1 class="heading">What we Do</h1>
       <p class="subheading text-primary mx-auto max-w-[341px]">
@@ -68,6 +68,8 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
     </div>
 
     <WhatWeDoLines client:media="(min-width: 1414px)" />
+
+    <WhatWeDoSlider client:media="(max-width: 1414px)" />
 
     <div
       class="relative mx-auto mt-[79px] flex min-h-[856px] max-w-[1080px] justify-between text-[22px] tracking-tight max-[1414px]:hidden"
@@ -129,11 +131,9 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
         </div>
       </div>
     </div>
-
-    <WhatWeDoSlider client:media="(max-width: 1414px)" />
   </section>
 
-  <section class="relative flex flex-col items-end">
+  <section class="relative flex flex-col items-end overflow-hidden py-24">
     <WhyKminoLine client:media="(min-width: 1024px)" />
 
     <div class="container flex max-w-[1000px] lg:justify-end">
@@ -158,7 +158,7 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
     <Stamp class="text-primary rotating ml-auto lg:hidden" />
   </section>
 
-  <section class="container mt-[100px] mb-[120px] lg:mt-[200px]">
+  <section class="container mt-[70px] mb-[120px] overflow-hidden lg:mt-[200px]">
     <div class="relative mb-11 md:mb-[100px]">
       <h1 class="heading text-left">How we Work</h1>
       <p class="subheading text-primary max-w-[341px] text-left">
@@ -180,7 +180,7 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
   </section>
 
   <section
-    class="relative container my-[60px] flex flex-col items-center py-[100px]"
+    class="sticky -top-[400px] z-10 container my-[60px] flex flex-col items-center overflow-hidden py-[100px] lg:-top-20"
   >
     <h1 class="heading mb-6 text-left">Trusted by Innovators Worldwide</h1>
 
@@ -195,13 +195,17 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
     <ProjectsBg class="absolute -top-3 -z-10 lg:hidden" />
   </section>
 
-  <TopWaves />
+  <TopWaves class="relative z-20" />
 
-  <section class="bg-primary -mt-1 pb-32 text-[26px] text-white lg:text-[34px]">
+  <section
+    class="bg-primary relative z-20 -mt-1 pb-32 text-[26px] text-white lg:text-[34px]"
+  >
     <Stamp class="rotating absolute right-12 text-black" />
 
-    <div class="container max-w-[942px] pt-[100px]">
-      <h1 class="heading mb-[73px] text-left lg:mb-[68px]">About Us</h1>
+    <div class="relative container max-w-[942px] pt-[100px]">
+      <h1 class="heading relative z-10 mb-[73px] text-left lg:mb-[68px]">
+        About Us
+      </h1>
 
       <div class="flex flex-col gap-8 tracking-tighter">
         <p>
@@ -222,7 +226,7 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
     </div>
   </section>
 
-  <footer class="relative overflow-hidden bg-white">
+  <footer class="relative z-20 overflow-hidden bg-white">
     <div
       class="relative z-10 mt-[66px] mb-[66px] flex flex-col items-center bg-black py-12 text-center text-white"
     >

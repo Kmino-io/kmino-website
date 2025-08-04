@@ -16,7 +16,7 @@ export function WhatWeDoLinesMobile() {
       viewBox="0 0 1233 642"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="pointer-events-none absolute top-[500px] -left-28 -z-10 md:hidden"
+      className="pointer-events-none absolute -top-[75px] -left-1/3 -z-10 md:hidden"
     >
       {paths.map((d, i) => (
         <motion.path

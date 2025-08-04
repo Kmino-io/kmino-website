@@ -92,7 +92,7 @@ export function ProjectsSliderMobile() {
           </div>
         ))}
       </div>
-      <div className="mt-11 flex gap-2">
+      <div className="mt-2 flex gap-2">
         {projects.map((_, idx) => (
           <button
             key={idx}

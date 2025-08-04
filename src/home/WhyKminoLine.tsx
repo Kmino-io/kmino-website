@@ -9,7 +9,7 @@ export function WhyKminoLine() {
       viewBox="0 0 1440 497"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute -top-5 left-0 z-[-1] hidden lg:block"
+      className="absolute top-[75px] left-0 z-[-1] hidden lg:block"
     >
       <motion.path
         d="M-24 452.5H667L739 45H1461"
