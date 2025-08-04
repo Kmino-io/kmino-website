@@ -170,7 +170,7 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
       />
     </div>
 
-    <HowWeWorkSlider client:visible={{ rootMargin: "200px" }} />
+    <HowWeWorkSlider client:visible={{ rootMargin: "300px" }} />
   </section>
 
   <section
@@ -197,13 +197,13 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
 
   <TopWaves />
 
-  <section class="bg-primary -mt-1 pb-32 text-[26px] text-white">
+  <section class="bg-primary -mt-1 pb-32 text-[26px] text-white lg:text-[34px]">
     <Stamp class="rotating absolute right-12 text-black" />
 
-    <div class="container pt-[100px]">
-      <h1 class="heading mb-[73px] text-left">About Us</h1>
+    <div class="container max-w-[942px] pt-[100px]">
+      <h1 class="heading mb-[73px] text-left lg:mb-[68px]">About Us</h1>
 
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-8 tracking-tighter">
         <p>
           We’re a team of brazilian senior engineers and product thinkers who
           don’t just ship — we partner.
@@ -226,7 +226,9 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
     <div
       class="relative z-10 mt-[66px] mb-[66px] flex flex-col items-center bg-black py-12 text-center text-white"
     >
-      <h2 class="font-alt text-primary mb-6 text-[22px] tracking-tight">
+      <h2
+        class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[81px]"
+      >
         Ready to build something exceptional?
       </h2>
 
