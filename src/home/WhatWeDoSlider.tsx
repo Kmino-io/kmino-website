@@ -38,7 +38,7 @@ export function WhatWeDoSlider() {
         <div className="keen-slider__slide">
           <WhatWeDoCard
             title="Staff Augmentation"
-            description="Embedded engineers who ship from week one. Outcome: immediate velocity without micromanagement."
+            description="Embedded engineers who ship from week one. Immediate velocity without micromanagement."
           />
         </div>
 
@@ -60,7 +60,7 @@ export function WhatWeDoSlider() {
         <div className="keen-slider__slide">
           <WhatWeDoCard
             title="AI development"
-            description="Custom LLMs, RAG systems, intelligent automation. Outcome: AI that actually works in production, not just demos."
+            description="Custom LLMs, RAG systems, intelligent automation. AI that actually works in production, not just demos."
           />
         </div>
       </div>
