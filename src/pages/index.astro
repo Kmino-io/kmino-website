@@ -18,6 +18,7 @@ import { Icon } from "astro-icon/components";
 import { WhatWeDoLines } from "../home/WhatWeDoLines";
 import { WhyKminoLine } from "~/home/WhyKminoLine";
 import { ProjectsAccordion } from "../home/ProjectsAccordion";
+import { FadeIn } from "~/components/FadeIn";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -180,19 +181,25 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
   </section>
 
   <section
-    class="sticky -top-[400px] z-10 container my-[60px] flex flex-col items-center overflow-hidden py-[100px] lg:-top-20"
+    class="sticky -top-[400px] z-10 container my-[60px] overflow-hidden py-[100px] lg:-top-20"
   >
-    <h1 class="heading mb-6 text-left">Trusted by Innovators Worldwide</h1>
+    <FadeIn
+      client:visible
+      delay={0.3}
+      className="flex w-full flex-col items-center lg:items-start"
+    >
+      <h1 class="heading mb-6 text-left">Trusted by Innovators Worldwide</h1>
 
-    <p class="subheading text-primary mb-6 text-left">
-      We’ve helped startups and protocols scale their products, faster
-    </p>
+      <p class="subheading text-primary mb-6 text-left lg:mb-14">
+        We’ve helped startups and protocols scale their products, faster
+      </p>
 
-    <ProjectsSliderMobile client:media="(max-width: 1079px)" />
+      <ProjectsSliderMobile client:media="(max-width: 1079px)" />
 
-    <ProjectsAccordion client:media="(min-width: 1080px)" />
+      <ProjectsAccordion client:media="(min-width: 1080px)" />
 
-    <ProjectsBg class="absolute -top-3 -z-10 lg:hidden" />
+      <ProjectsBg class="absolute -top-3 -z-10 lg:hidden" />
+    </FadeIn>
   </section>
 
   <TopWaves class="relative z-20" />
