@@ -54,29 +54,36 @@ export function HowWeWorkSlider() {
 
   const cards = [
     {
-      title: "Discovery & Advisory",
-      description:
-        "We dive deep into your challenges to propose the right tech approach — no fluff, just clarity.",
+      title: "Discover",
+      description: "Align on outcomes, constraints, and acceptance criteria.",
     },
     {
-      title: "Team Onboarding & Integration",
+      title: "Design",
       description:
-        "We blend in fast. Our teams work as an extension of yours — collaborative, transparent, feedback-driven.",
+        "Architecture, and baseline tests (AI‑assisted, human‑approved).",
     },
     {
-      title: "Agile Delivery. Quality Focus",
+      title: "Build",
       description:
-        "We deliver in sprints, with clear milestones and technical ownership. No micromanagement needed.",
+        "LLM‑assisted implementation behind style/coverage gates; pair on risky areas.",
     },
     {
-      title: "Continuous Feedback Loop",
+      title: "Test",
       description:
-        "We prioritize communication, adaptability, and long-term thinking — because your growth is our success.",
+        "Contract/property tests, fuzzing where relevant; security checks in CI.",
     },
     {
-      title: "Knowledge Sharing & Long-Term Partnerships",
+      title: "Deploy",
+      description: "CI/CD with feature flags or canaries; rollback plans.",
+    },
+    {
+      title: "Improve",
       description:
-        "We're not just builders. We're partners committed to your evolution.",
+        "Track lead time, review latency, defect escape rate; update playbooks weekly.",
+    },
+    {
+      title: "Definition of Done",
+      description: "Tests, docs, and acceptance criteria met, no exceptions.",
     },
   ];
 
@@ -131,7 +138,7 @@ export function HowWeWorkSlider() {
                 }
               }
 
-              if (currentSlide >= 2) {
+              if (currentSlide >= 1) {
                 instanceRef.current?.prev();
               }
 

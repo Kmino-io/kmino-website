@@ -8,31 +8,33 @@ const projects = [
   {
     number: "01",
     title: "SuperDapp",
-    description: "Social meets Web3 with a seamless super app",
+    description: "Communication platform meets Web3 in a super app.",
     image: "/images/superdapp-preview.png",
   },
   {
     number: "02",
     title: "Pali Wallet & Pali Mobile",
-    description: "Non-custodial wallet with multisig and mobile-ready UX",
+    description: "Non‑custodial cryptocurrency wallet.",
     image: "/images/pali-preview.png",
   },
   {
     number: "03",
     title: "Syscoin Ecosystem",
-    description: "Full-stack contributions to one of the most scalable L1s",
+    description: "Full‑stack blockchain contributions with staff augmentation.",
     image: "/images/pegasys-preview.png",
   },
   {
     number: "04",
     title: "Lunos",
-    description: "Fintech meets design-driven development",
+    description:
+      "Web3 app that allows users to buy insurance using cryptocurrency. Fintech meets design-driven development",
     image: "/images/lunos-preview.png",
   },
   {
     number: "05",
     title: "Luxy",
-    description: "NFT marketplace, done right",
+    description:
+      "Multi-chain NFT marketplace, giving creators and users the right tools",
     image: "/images/luxy-preview.png",
   },
 ];

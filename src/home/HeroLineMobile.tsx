@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 
-export function HeroLine() {
+export function HeroLineMobile() {
   return (
     <motion.svg
       width="100%"
-      height="517"
+      height="154"
+      viewBox="0 0 497 154"
       preserveAspectRatio="none"
-      viewBox="0 0 1440 517"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-[245px] hidden md:block"
+      className="absolute bottom-[365px] -left-10 w-[497px] min-[497px]:left-0 min-[497px]:w-full md:hidden"
     >
       <motion.path
-        d="M-46.5 339L49.5 350.5L111.5 472H1009L1490.5 33"
+        d="M4.5 31.1958L70.4883 39.1006L113.106 122.617H496.5"
         stroke="#E64A27"
-        strokeWidth="89"
+        strokeWidth="61.1766"
         fill="none"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}

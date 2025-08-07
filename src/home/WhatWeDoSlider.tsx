@@ -30,37 +30,37 @@ export function WhatWeDoSlider() {
       <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide">
           <WhatWeDoCard
-            title="Business Advisory"
-            description="Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed. A nunc sollicitudin ultrices mollis."
-          />
-        </div>
-
-        <div className="keen-slider__slide">
-          <WhatWeDoCard
             title="Fullstack Web & Mobile Development"
-            description="Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed. A nunc sollicitudin ultrices mollis."
-          />
-        </div>
-
-        <div className="keen-slider__slide">
-          <WhatWeDoCard
-            title="Web3 & Smart Contract Development"
-            color="primary"
-            description="Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed. A nunc sollicitudin ultrices mollis."
-          />
-        </div>
-
-        <div className="keen-slider__slide">
-          <WhatWeDoCard
-            title="Infrastructure and DevOps"
-            description="Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed. A nunc sollicitudin ultrices mollis."
+            description="TypeScript/Node, React/React Native, modern APIs. Predictable delivery, clean architecture, clear docs."
           />
         </div>
 
         <div className="keen-slider__slide">
           <WhatWeDoCard
             title="Staff Augmentation"
-            description="Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed. A nunc sollicitudin ultrices mollis."
+            description="Embedded engineers who ship from week one. Outcome: immediate velocity without micromanagement."
+          />
+        </div>
+
+        <div className="keen-slider__slide">
+          <WhatWeDoCard
+            title="Web3 & Smart Contract Development"
+            description="Auditable contracts, gas‑aware design, test‑first workflows. Security and upgrade paths you can trust."
+            color="primary"
+          />
+        </div>
+
+        <div className="keen-slider__slide">
+          <WhatWeDoCard
+            title="Product & Delivery Advisory"
+            description="Beyond tech. We help you refine your product vision, sharpen your positioning, craft a compelling brand, and even connect with investors: everything you need to build with purpose and raise with confidence."
+          />
+        </div>
+
+        <div className="keen-slider__slide">
+          <WhatWeDoCard
+            title="AI development"
+            description="Custom LLMs, RAG systems, intelligent automation. Outcome: AI that actually works in production, not just demos."
           />
         </div>
       </div>

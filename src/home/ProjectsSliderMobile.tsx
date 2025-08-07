@@ -5,33 +5,40 @@ import { useState } from "react";
 const projects = [
   {
     title: "SuperDapp",
-    subtitle: "Social meets Web3 with a seamless super app",
-    description: "Social meets Web3 with a seamless super app",
+    subtitle: "Communication platform meets Web3 in a super app.",
+    description: "Communication platform meets Web3 in a super app.",
     image: "/images/superdapp-preview.png", // Replace with your image path
     number: "01",
   },
   {
     title: "Pali Wallet & Pali Mobile",
-    subtitle: "Non-custodial wallet with multisig and mobile-ready UX",
-    description: "Non-custodial wallet with multisig and mobile-ready UX",
+    subtitle: "Non‑custodial cryptocurrency wallet.",
+    description: "Non‑custodial cryptocurrency wallet.",
     image: "/images/pali-preview.png", // Replace with your image path
     number: "02",
   },
   {
     title: "Syscoin Ecosystem",
-    subtitle: "Full-stack contributions to one of the most scalable L1s",
+    subtitle: "Full‑stack blockchain contributions with staff augmentation.",
+    description: "Full‑stack blockchain contributions with staff augmentation.",
     image: "/images/pegasys-preview.png", // Replace with your image path
     number: "03",
   },
   {
     title: "Lunos",
-    subtitle: "Fintech meets design-driven development",
+    subtitle:
+      "Web3 app that allows users to buy insurance using cryptocurrency. Fintech meets design-driven development",
+    description:
+      "Web3 app that allows users to buy insurance using cryptocurrency. Fintech meets design-driven development",
     image: "/images/lunos-preview.png", // Replace with your image path
     number: "04",
   },
   {
     title: "Luxy",
-    subtitle: "NFT marketplace, done right",
+    subtitle:
+      "Multi-chain NFT marketplace, giving creators and users the right tools",
+    description:
+      "Multi-chain NFT marketplace, giving creators and users the right tools",
     image: "/images/luxy-preview.png", // Replace with your image path
     number: "05",
   },

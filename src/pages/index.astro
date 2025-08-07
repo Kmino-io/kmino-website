@@ -8,6 +8,7 @@ import ProjectsBg from "../assets/project-bg.svg";
 import Stamp from "../assets/stamp.svg";
 import Navbar from "../components/Navbar.astro";
 import { HeroLine } from "~/home/HeroLine";
+import { HeroLineMobile } from "~/home/HeroLineMobile";
 import CTA from "../components/CTA.astro";
 import { WhatWeDoLinesMobile } from "~/home/WhatWeDoLinesMobile";
 import { WhatWeDoSlider } from "~/home/WhatWeDoSlider";
@@ -22,38 +23,48 @@ import { FadeIn } from "~/components/FadeIn";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
-  <section class="bg-primary relative overflow-hidden xl:min-h-[747px]">
-    <div class="relative z-10 container">
-      <div
-        class="mx-auto flex max-w-[1080px] flex-col gap-[120px] md:gap-[130px]"
-      >
-        <Navbar />
+  <section class="relative overflow-hidden xl:min-h-[747px]">
+    <div class="bg-primary relative">
+      <div class="relative z-10 container">
+        <div
+          class="mx-auto flex max-w-[1080px] flex-col gap-[120px] md:gap-[130px]"
+        >
+          <Navbar />
 
-        <div class="relative space-y-11 pb-4 md:space-y-9">
-          <Stamp
-            class="rotating absolute -top-9 -left-6 h-16 w-16 text-white md:-top-[60px] md:-left-9 md:h-[89px] md:w-[89px]"
-          />
+          <div class="relative space-y-11 pb-4 md:space-y-6">
+            <Stamp
+              class="rotating absolute -top-9 -left-6 h-16 w-16 text-white md:-top-[60px] md:-left-9 md:h-[89px] md:w-[89px]"
+            />
 
-          <h1
-            class="font-alt text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
-          >
-            Build with <br />confidence. <br />Scale with <br />strategy.
-          </h1>
+            <h1
+              class="font-alt text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
+            >
+              Velocity <br /> without <br /> compromise.
+            </h1>
 
-          <CTA href="https://google.com"> Book a discovery call </CTA>
+            <p class="max-w-xl text-xl text-white">
+              High-performance, distributed squads with AI-accelerated delivery
+              and product advisory. Scoped plan in 48 hours. <br /><br />You own
+              the IP, repos, and infra. Every merge passes human review, tests,
+              and security checks.
+            </p>
+
+            <CTA href="https://google.com"> Book a discovery call </CTA>
+          </div>
+        </div>
+
+        <div class="absolute right-9 -bottom-[60px] z-10 hidden md:block">
+          <KminoText />
+          <KminoText />
         </div>
       </div>
 
-      <div class="absolute right-9 -bottom-[60px] z-10 hidden md:block">
-        <KminoText />
-        <KminoText />
-      </div>
+      <HeroLine client:media="(min-width: 768px)" />
+      <HeroLineMobile client:media="(max-width: 768px)" />
     </div>
 
-    <HeroLine client:load />
+    <BottomWaves class="-mt-1 h-auto lg:h-[172px]" />
   </section>
-
-  <BottomWaves class="-mt-1 h-auto lg:h-[172px]" />
 
   <section
     class="relative container overflow-hidden pt-[120px] pb-[100px] lg:mb-[200px]"
@@ -80,20 +91,20 @@ import { FadeIn } from "~/components/FadeIn";
         <div
           class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
         >
-          <p class="font-semibold">Business Advisory</p>
+          <p class="font-semibold">Fullstack Web & Mobile Development</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
-            A nunc sollicitudin ultrices mollis.
+            TypeScript/Node, React/React Native, modern APIs. Predictable
+            delivery, clean architecture, clear docs.
           </p>
         </div>
 
         <div
           class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
         >
-          <p class="font-semibold">Infrastructure and DevOps</p>
+          <p class="font-semibold">Staff Augmentation</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
-            A nunc sollicitudin ultrices mollis.
+            Embedded engineers who ship from week one. Outcome: immediate
+            velocity without micromanagement.
           </p>
         </div>
       </div>
@@ -104,8 +115,8 @@ import { FadeIn } from "~/components/FadeIn";
         >
           <p class="font-semibold">Web3 & Smart Contract Development</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
-            A nunc sollicitudin ultrices mollis.
+            Auditable contracts, gas‑aware design, test‑first workflows.
+            Security and upgrade paths you can trust.
           </p>
         </div>
       </div>
@@ -114,20 +125,22 @@ import { FadeIn } from "~/components/FadeIn";
         <div
           class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
         >
-          <p class="font-semibold">Fullstack Web & Mobile Development</p>
+          <p class="font-semibold">Product & Delivery Advisory</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
-            A nunc sollicitudin ultrices mollis.
+            Beyond tech. We help you refine your product vision, sharpen your
+            positioning, craft a compelling brand, and even connect with
+            investors: everything you need to build with purpose and raise with
+            confidence.
           </p>
         </div>
 
         <div
           class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
         >
-          <p class="font-semibold">Staff Augmentation</p>
+          <p class="font-semibold">AI development</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Quis id tincidunt amet sed.
-            A nunc sollicitudin ultrices mollis.
+            Custom LLMs, RAG systems, intelligent automation. Outcome: AI that
+            actually works in production, not just demos.
           </p>
         </div>
       </div>
@@ -144,14 +157,20 @@ import { FadeIn } from "~/components/FadeIn";
         <div
           class="flex flex-col gap-4 text-xl tracking-tight lg:gap-8 lg:text-[26px]"
         >
-          <p>We bring world-class tech talent with senior-level experience.</p>
           <p>
-            <strong>High Skill, Competitive Rates:</strong> Scale efficiently without
-            sacrificing quality
+            <strong>Elite Tech Teams, AI-Accelerated</strong><br />Small,
+            high-performance squads that integrate fast, ship reliably, and stay
+            aligned to your goals.
           </p>
           <p>
-            <strong>Seamless Integration:</strong> Your goals become our mission
+            <strong>Built-In Excellence</strong><br />Playbooks, mentorship, and
+            weekly training are baked into every sprint.
           </p>
+          <p>
+            <strong>Own Everything</strong><br />Your code, your infra—clean
+            docs and smooth handovers guaranteed.
+          </p>
+          <p>If you want dependable, maintainable velocity—we should talk.</p>
         </div>
       </div>
     </div>
@@ -174,14 +193,14 @@ import { FadeIn } from "~/components/FadeIn";
     <HowWeWorkSlider client:visible={{ rootMargin: "300px" }} />
   </section>
 
-  <section
+  <!-- <section
     class="container my-[100px] flex flex-col items-center lg:my-[200px]"
   >
     <Testimonials client:visible={{ rootMargin: "200px" }} />
-  </section>
+  </section> -->
 
   <section
-    class="sticky -top-[400px] z-10 container my-[60px] overflow-hidden py-[100px] lg:-top-20"
+    class="sticky -top-[400px] z-10 container my-[60px] overflow-hidden py-[100px] lg:-top-24"
   >
     <FadeIn
       client:visible
@@ -214,22 +233,38 @@ import { FadeIn } from "~/components/FadeIn";
         About Us
       </h1>
 
-      <div class="flex flex-col gap-8 tracking-tighter">
-        <p>
-          We’re a team of brazilian senior engineers and product thinkers who
-          don’t just ship — we partner.
-        </p>
+      <FadeIn client:visible>
+        <div class="flex flex-col gap-8 tracking-tighter">
+          <p>
+            We’ve been building software for close to a decade now. Writing
+            code, yes, but also learning how teams succeed, and how they fail.
+          </p>
 
-        <p>
-          We combine deep technical expertise with business-driven strategy to
-          help startups and scale-ups build faster, smarter, and with purpose.
-        </p>
+          <p>
+            After years working in different dev houses and big corporate, we
+            saw the same patterns repeat: rushed delivery, poor communication,
+            and tech decisions disconnected from the real business goals.
+          </p>
 
-        <p>
-          Our focus is on long-term relationships, clear communication, and real
-          ownership — because true impact comes from teams that care.
-        </p>
-      </div>
+          <p>Eventually, we decided we could do better.</p>
+
+          <p>
+            Lately, we’ve seen AI get thrown into dev pipelines without a plan,
+            promising the world, and delivering technical debt instead.
+          </p>
+
+          <p>
+            But we’ve also seen how much better things go when there’s clear
+            thinking, real care, and actual ownership. If used right, AI can
+            power up all of this, instead of getting in the way.
+          </p>
+
+          <p>
+            That’s why we started Kmino. To build better paths, and help you do
+            the same.
+          </p>
+        </div>
+      </FadeIn>
     </div>
   </section>
 
@@ -240,9 +275,12 @@ import { FadeIn } from "~/components/FadeIn";
       <h2
         class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[81px]"
       >
-        Ready to build something exceptional?
+        Ready to upgrade your velocity?
       </h2>
-
+      <p class="mx-auto mb-6 max-w-[600px] px-4 text-white lg:text-lg">
+        Book a 30‑min fit call. We’ll review goals, identify risks, and return a
+        scoped plan in 48 hours
+      </p>
       <CTA href="https://google.com" color="inverted">
         Book a discovery call
       </CTA>
@@ -254,33 +292,26 @@ import { FadeIn } from "~/components/FadeIn";
 
     <div class="relative z-10 flex flex-col items-center py-10">
       <a
-        href="mailto:contact@kmino.dev"
+        href="mailto:contact@kmino.io"
         class="mb-6 text-sm font-medium text-black/80"
       >
-        contact@kmino.dev
+        contact@kmino.io
       </a>
 
       <div class="mb-6 flex gap-6">
         <a
-          href="https://x.com"
-          aria-label="X"
-          class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
-        >
-          <Icon name="ri:twitter-x-fill" size={19} />
-        </a>
-
-        <a
           href="https://github.com/Kmino-io"
-          aria-label="X"
+          aria-label="GitHub"
           class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
+          target="_blank"
         >
           <Icon name="ri:github-fill" size={19} />
         </a>
 
         <a
           href="https://www.linkedin.com/company/kminotech/"
-          aria-label="
-          X"
+          aria-label="LinkedIn"
+          target="_blank"
           class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
         >
           <Icon name="ri:linkedin-fill" size={19} />
@@ -288,7 +319,6 @@ import { FadeIn } from "~/components/FadeIn";
       </div>
       <div class="text-center text-sm text-black/80">
         ©KMINO 2025, All rights reserved.
-        <a href="/terms" class="ml-1 underline">Terms of Service.</a>
       </div>
     </div>
   </footer>
