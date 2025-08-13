@@ -2,7 +2,6 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import TopWaves from "../assets/top-waves-mobile.svg";
 import BottomWaves from "../assets/bottom-waves.svg";
-import Pathways from "../assets/pathways.svg";
 import KminoText from "../assets/kmino-text.svg";
 import ProjectsBg from "../assets/project-bg.svg";
 import Stamp from "../assets/stamp.svg";
@@ -15,11 +14,11 @@ import { WhatWeDoSlider } from "~/home/WhatWeDoSlider";
 import { HowWeWorkSlider } from "~/home/HowWeWorkSlider";
 // import { Testimonials } from "~/home/Testimonials";
 import { ProjectsSliderMobile } from "~/home/ProjectsSliderMobile";
-import { Icon } from "astro-icon/components";
 import { WhatWeDoLines } from "../home/WhatWeDoLines";
 import { WhyKminoLine } from "~/home/WhyKminoLine";
 import { ProjectsAccordion } from "../home/ProjectsAccordion";
 import { FadeIn } from "~/components/FadeIn";
+import Footer from "../components/Footer.astro";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -273,61 +272,5 @@ import { FadeIn } from "~/components/FadeIn";
     </div>
   </section>
 
-  <footer class="relative z-20 overflow-hidden bg-white">
-    <div
-      class="relative z-10 mt-[66px] mb-[66px] flex flex-col items-center bg-black py-12 text-center text-white"
-    >
-      <h2
-        class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[65px] xl:text-[81px]"
-      >
-        Ready to build something exceptional?
-      </h2>
-      <p class="mx-auto mb-6 max-w-[600px] px-4 text-white lg:text-lg">
-        Book a 30‑min fit call. We’ll review goals, identify risks, and return a
-        scoped plan in 48 hours
-      </p>
-      <CTA
-        href="https://calendar.app.google/bptKpG7DXXLZve3r5"
-        color="inverted"
-      >
-        Book a discovery call
-      </CTA>
-    </div>
-
-    <Pathways
-      class="absolute -top-[432px] -left-[343px] w-[1440px] lg:-top-[400px] lg:left-0 lg:w-full"
-    />
-
-    <div class="relative z-10 flex flex-col items-center py-10">
-      <a
-        href="mailto:contact@kmino.io"
-        class="mb-6 text-sm font-medium text-black/80"
-      >
-        contact@kmino.io
-      </a>
-
-      <div class="mb-6 flex gap-6">
-        <a
-          href="https://github.com/Kmino-io"
-          aria-label="GitHub"
-          class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
-          target="_blank"
-        >
-          <Icon name="ri:github-fill" size={19} />
-        </a>
-
-        <a
-          href="https://www.linkedin.com/company/kminotech/"
-          aria-label="LinkedIn"
-          target="_blank"
-          class="bg-primary/20 text-primary flex items-center rounded-sm border p-2 transition hover:opacity-80"
-        >
-          <Icon name="ri:linkedin-fill" size={19} />
-        </a>
-      </div>
-      <div class="text-center text-sm text-black/80">
-        ©KMINO 2025, All rights reserved.
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </MainLayout>

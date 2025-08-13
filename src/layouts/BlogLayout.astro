@@ -1,0 +1,11 @@
+---
+import Navbar from "../components/Navbar.astro";
+import MainLayout from "./MainLayout.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<MainLayout head={{ title: "Blog" }}>
+  <Navbar />
+  <slot />
+  <Footer />
+</MainLayout>

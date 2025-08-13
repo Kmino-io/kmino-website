@@ -1,6 +1,8 @@
 ---
 import Logo from "~/assets/logo.svg";
 import CTA from "./CTA.astro";
+
+const currentURL = Astro.url;
 ---
 
 <script is:inline>
@@ -20,23 +22,31 @@ import CTA from "./CTA.astro";
   });
 </script>
 
-<nav
-  class="flex items-center justify-between py-4 text-white md:min-h-[80px] md:py-8"
->
-  <div>
-    <a href="/#">
-      <Logo />
-    </a>
-  </div>
+<nav class="bg-primary py-4 text-white md:min-h-[80px] md:py-8">
+  <div class="mx-auto flex max-w-[1080px] items-center justify-between px-4">
+    <div>
+      <a href="/#">
+        <Logo />
+      </a>
+    </div>
 
-  <div class="hidden gap-[42px] lg:flex">
-    <a href="/#what-we-do">What We Do</a>
-    <a href="/#how-we-work">How We Work</a>
-    <a href="/#projects">Projects</a>
-    <a href="/#about-us">About Us</a>
-  </div>
+    <div class="hidden gap-[42px] lg:flex">
+      <a href="/#what-we-do">What We Do</a>
+      <a href="/#how-we-work">How We Work</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#about-us">About Us</a>
+      <a
+        href="/blog"
+        class={currentURL.pathname.includes("/blog")
+          ? "underline font-semibold"
+          : ""}
+      >
+        Blog
+      </a>
+    </div>
 
-  <div>
-    <CTA href="https://t.me/m/9XViCz7NM2Y5">Talk to Our Team</CTA>
+    <div>
+      <CTA href="https://t.me/m/9XViCz7NM2Y5">Talk to Our Team</CTA>
+    </div>
   </div>
 </nav>
