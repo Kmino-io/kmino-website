@@ -25,7 +25,7 @@ So without further ado, let's get to it!
 
 # The Right Tool for the Right Job
 
-While we don't get to AGI, AI is just another tool in every developer's toolkit. A really powerful tool, yes. But a tool nonetheless.
+While we don't get to AGI [Artificial General Intelligence](https://cloud.google.com/discover/what-is-artificial-general-intelligence), AI is just another tool in every developer's toolkit. A really powerful tool, yes. But a tool nonetheless.
 
 That being the case, every developer, junior or not, should learn how to use it effectively, as they would with Gitflow, command line, or IDE shortcuts.
 
