@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import { getEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
+import { format } from "date-fns";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -19,6 +20,11 @@ const { Content } = await render(post);
 
 const authorSlug = post.data.author;
 const author = await getEntry("authors", authorSlug);
+
+const postUrl = Astro.url?.href || "";
+const postTitle = post.data.title;
+const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`;
+const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
 ---
 
 <BlogLayout frontmatter={post.data}>
@@ -28,46 +34,114 @@ const author = await getEntry("authors", authorSlug);
     height={300}
     width={900}
     layout="full-width"
-    class="mb-8 max-h-[300px] w-full object-cover"
+    class="mb-11 max-h-[300px] w-full object-cover"
   />
 
-  <div class="prose mx-auto">
+  <div
+    class="prose prose-neutral prose-headings:font-alt prose-h1:text-[31px] mx-auto px-4"
+  >
+    <div class="not-prose mb-8 flex items-center justify-between">
+      <a
+        class="font-alt flex items-center gap-2 text-sm no-underline"
+        href="/blog"
+      >
+        <Icon name="ri:arrow-left-line" size={18} />
+        All articles
+      </a>
+
+      <p class="font-alt text-[#7A7A7A]">
+        Posted on {format(post.data.pubDate, "MMMM dd, yyyy")}
+      </p>
+    </div>
+
     <Content />
+
+    <div class="mt-[100px] flex w-full items-center gap-4">
+      <p class="text-primary font-medium">Tags</p>
+
+      <div
+        class="scrollbar-none -mr-4 flex w-full flex-1 gap-4 overflow-x-auto pe-4"
+      >
+        {
+          post.data.tags.map((tag) => {
+            return (
+              <a
+                href={`/blog/tags/${tag}`}
+                class="bg-primary/20 text-primary shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm no-underline"
+              >
+                {tag}
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
 
     {
       author && (
-        <aside class="not-prose bg-primary flex w-fit min-w-[504px] gap-10 rounded-sm p-6 text-white">
-          <Image
-            src={author.data.image.url}
-            alt={author.data.image.alt}
-            width={88}
-            height={88}
-            loading="lazy"
-          />
+        <div class="not-prose mt-[100px]">
+          <h2 class="font-alt mb-6 text-[25px]">About the author</h2>
+          <aside class="bg-primary flex w-full gap-10 rounded-sm p-6 text-white md:min-w-[504px] lg:w-fit">
+            <Image
+              src={author.data.image.url}
+              alt={author.data.image.alt}
+              width={88}
+              height={88}
+              loading="lazy"
+            />
 
-          <div class="flex flex-col">
-            <p class="font-alt text-[23px] leading-[27px]">
-              {author.data.name}
-            </p>
+            <div class="flex flex-col">
+              <p class="font-alt text-[23px] leading-[27px]">
+                {author.data.name}
+              </p>
 
-            <p class="text-sm leading-[18px]">{author.data.jobDescription}</p>
+              <p class="text-sm leading-[18px]">{author.data.jobDescription}</p>
 
-            <div class="mt-3.5 flex gap-5">
-              {author.data.socials.map((social) => (
-                <a
-                  href={social.url}
-                  target="_blank"
-                  class="text-sm text-white/80 hover:text-white"
-                  aria-label={social.title}
-                  title={social.title}
-                >
-                  <Icon name={social.icon} size={28} class="text-white" />
-                </a>
-              ))}
+              <div class="mt-3.5 flex gap-5">
+                {author.data.socials.map((social) => (
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    class="text-sm text-white/80 hover:text-white"
+                    aria-label={social.title}
+                    title={social.title}
+                  >
+                    <Icon name={social.icon} size={28} class="text-white" />
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
-        </aside>
+          </aside>
+        </div>
       )
     }
+
+    <div
+      class="not-prose text-primary mx-auto mt-6 flex w-fit items-center gap-4"
+    >
+      <p class="font-medium">Share:</p>
+
+      <a
+        class="rounded-full border-[1.25px] border-black p-2.5"
+        target="_blank"
+        href={twitterShareUrl}
+        rel="noopener noreferrer"
+        aria-label="Share on Twitter"
+        title="Share on Twitter"
+      >
+        <Icon name="ri:twitter-x-line" size={19} />
+      </a>
+
+      <a
+        class="rounded-full border-[1.25px] border-black p-2.5"
+        target="_blank"
+        href={linkedinShareUrl}
+        rel="noopener noreferrer"
+        aria-label="Share on LinkedIn"
+        title="Share on LinkedIn"
+      >
+        <Icon name="ri:linkedin-fill" size={19} />
+      </a>
+    </div>
   </div>
 </BlogLayout>
