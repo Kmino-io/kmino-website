@@ -51,3 +51,8 @@
 .rotating {
   animation: rotate 10s linear infinite;
 }
+
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}

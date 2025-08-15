@@ -1,66 +1,32 @@
 ---
 import { getCollection } from "astro:content";
 import BlogLayout from "../layouts/BlogLayout.astro";
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import BlogBanner from "~/components/BlogBanner.astro";
 
 const allPosts = await getCollection("blog");
 
-const tags = ["Web3", "AI", "Mobile Apps", "Product Design", "Market Research"];
+const allPostsData = allPosts.map((post) => post.data);
 ---
 
 <BlogLayout>
-  <div
-    class="relative flex h-[516px] flex-col justify-end pb-[107px] text-white"
-  >
-    <Image
-      src="/images/blog-banner.png"
-      width={1440}
-      height={516}
-      alt="Blog Banner"
-      loading="eager"
-      class="absolute inset-0 -z-10 max-h-[516px] w-full object-cover"
-    />
+  <BlogBanner posts={allPostsData} />
 
-    <div
-      class="container flex w-full max-w-[1240px] items-center justify-between"
+  <div
+    class="container my-[60px] flex max-w-[1240px] flex-col items-center justify-between gap-6 lg:my-[100px] lg:flex-row"
+  >
+    <h2
+      class="font-alt max-w-[500px] text-[22px] lg:text-[32px] xl:max-w-[733px]"
     >
-      <h1 class="font-alt text-6xl">Blog</h1>
-
-      <div class="space-y-3">
-        <p>Filter Articles:</p>
-        <div class="flex flex-wrap gap-2">
-          <button
-            class="font-alt rounded-full border-[1.5px] px-6 py-3 text-sm hover:cursor-pointer hover:bg-white/10"
-          >
-            All
-          </button>
-
-          {
-            tags.map((tag) => {
-              return (
-                <button class="font-alt rounded-full border-[1.5px] px-6 py-3 text-sm hover:cursor-pointer hover:bg-white/10">
-                  {tag}
-                </button>
-              );
-            })
-          }
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="container my-[100px] flex max-w-[1240px] items-center justify-between"
-  >
-    <h2 class="font-alt max-w-[733px] text-[32px] leading-[41px]">
       Keep up with the latest trends, insights, and strategies for digital
       products.
     </h2>
 
-    <label class="relative flex-1">
+    <form method="GET" action="/blog" class="relative flex-1">
       <span class="hidden">Search input</span>
       <input
+        type="text"
+        name="search"
         placeholder="Search for your interests"
         class="font-alt w-full rounded-full border-[1.5px] border-black/30 bg-black/5 px-6 py-3 text-sm outline-black hover:border-black/50"
       />
@@ -70,7 +36,7 @@ const tags = ["Web3", "AI", "Mobile Apps", "Product Design", "Market Research"];
         size="18"
         class="absolute top-1/2 right-6 -translate-y-1/2"
       />
-    </label>
+    </form>
   </div>
 
   <div class="container max-w-[1240px]">
