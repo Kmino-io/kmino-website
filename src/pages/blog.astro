@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import BlogLayout from "../layouts/BlogLayout.astro";
 import { Icon } from "astro-icon/components";
 import BlogBanner from "~/components/BlogBanner.astro";
+import BlogCard from "~/components/BlogCard.astro";
+import { twMerge } from "tailwind-merge";
 
 const allPosts = await getCollection("blog");
 
@@ -10,7 +12,7 @@ const allPostsData = allPosts.map((post) => post.data);
 ---
 
 <BlogLayout>
-  <BlogBanner posts={allPostsData} />
+  <BlogBanner posts={allPostsData} tag="" />
 
   <div
     class="container my-[60px] flex max-w-[1240px] flex-col items-center justify-between gap-6 lg:my-[100px] lg:flex-row"
@@ -22,7 +24,7 @@ const allPostsData = allPosts.map((post) => post.data);
       products.
     </h2>
 
-    <form method="GET" action="/blog" class="relative flex-1">
+    <form method="GET" action="/blog" class="relative w-full flex-1">
       <span class="hidden">Search input</span>
       <input
         type="text"
@@ -39,19 +41,23 @@ const allPostsData = allPosts.map((post) => post.data);
     </form>
   </div>
 
-  <div class="container max-w-[1240px]">
-    <ul class="list-inside list-disc">
-      {
-        allPosts.map((post) => {
+  <div
+    class={twMerge(
+      "container max-w-[1240px] grid gap-8 lg:gap-[100px]",
+      allPosts.length > 2 && "grid-cols-3 gap-8",
+    )}
+  >
+    {
+      allPosts
+        .sort((a, b) => {
           return (
-            <li class="mb-4">
-              <a href={`/blog/${post.id}`} class="text-primary underline">
-                {post.data.title}
-              </a>
-            </li>
+            new Date(b.data.pubDate).getTime() -
+            new Date(a.data.pubDate).getTime()
           );
         })
-      }
-    </ul>
+        .map((post) => {
+          return <BlogCard post={post} />;
+        })
+    }
   </div>
 </BlogLayout>

@@ -5,9 +5,10 @@ import { tv } from "tailwind-variants";
 interface Props {
   href: string;
   color?: "default" | "inverted";
+  self?: boolean;
 }
 
-const { href, color = "default" } = Astro.props;
+const { href, color = "default", self = false } = Astro.props;
 
 const cta = tv({
   slots: {
@@ -31,7 +32,12 @@ const cta = tv({
 const { base, bg } = cta({ color });
 ---
 
-<a class={base()} href={href} target="_blank" rel="noopener noreferrer">
+<a
+  class={base()}
+  href={href}
+  target={self ? "_self" : "_blank"}
+  rel="noopener noreferrer"
+>
   <span class={bg()}>
     <ArrowRight size={16} className="relative z-50" />
   </span>

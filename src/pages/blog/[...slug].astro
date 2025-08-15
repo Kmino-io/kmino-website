@@ -21,7 +21,7 @@ const authorSlug = post.data.author;
 const author = await getEntry("authors", authorSlug);
 ---
 
-<BlogLayout>
+<BlogLayout frontmatter={post.data}>
   <Image
     src={post.data.image.url}
     alt={post.data.image.alt}

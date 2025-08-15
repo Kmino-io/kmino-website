@@ -66,7 +66,7 @@ Another powerful usage of AI is to do end-to-end changes of entire pieces of cod
 
 AI can absolutely be used for that, and engineering teams extract a lot of value from it. However, depending on the codebase, you may hit a brick wall called the **context window**.
 
-In short, the context window of an AI model, when we talk about software engineering, is the amount of code it can consider in its reasoning before suggesting a solution. Powerful models have longer context windows, but your average model does not. If you try to go down this route without a proper model, you'll see that the AI will provide solutions, but most of the time, they will *feel* right while going way over what you actually need.
+In short, the context window of an AI model, when we talk about software engineering, is the amount of code it can consider in its reasoning before suggesting a solution. Powerful models have longer context windows, but your average model does not. If you try to go down this route without a proper model, you'll see that the AI will provide solutions, but most of the time, they will _feel_ right while going way over what you actually need.
 
 We'll cover this in more detail in upcoming articles.
 
@@ -86,7 +86,7 @@ The second is a less-talked-about topic: using AI as a **learning tool**. In the
 2. Talk to a more senior dev
 3. Read the official documentation
 
-All of these are great, but they meant leaving your coding environment, searching online, reading through multiple answers, finding the correct topic in the documentation, and so on. Once this was done, you were already out of the *zone*, and the momentum was lost.
+All of these are great, but they meant leaving your coding environment, searching online, reading through multiple answers, finding the correct topic in the documentation, and so on. Once this was done, you were already out of the _zone_, and the momentum was lost.
 
 Now you can do all of this without ever leaving your IDE. If you can reduce these small periods of looking stuff up online over a year, you will be miles in front of the competition, shipping faster, and becoming a better engineer.
 
@@ -98,9 +98,9 @@ As mentioned in the opening section, AI is a tool, and although I disagree that 
 
 In the coding context, there are some simple instructions that you can add explicitly to your prompts that have made a lot of difference for me:
 
-- *Don't overengineer any solutions*
-- *Don't touch the files' structure without being explicitly asked to*
-- *Don't change files outside of the requested scope*
+- _Don't overengineer any solutions_
+- _Don't touch the files' structure without being explicitly asked to_
+- _Don't change files outside of the requested scope_
 
 If you're using coding agents, a more structured instruction file is even better. This will be used as a reference for the agent when doing whatever work is required. Here is [a great example of an instructions file](https://ampcode.com/AGENT.md) by Geoffrey Huntley from [Amp Code](https://ampcode.com).
 
@@ -114,7 +114,7 @@ Especially at these uncertain times, it's imperative that you have AI-generated 
 
 This is great if you're in a big corporation, but even if you're using tools to review AI and human-generated code, I strongly believe this should be just another extra step in your code reviewing process, and you still need a human engineer doing the final checks.
 
-That is also true for whatever documentation you're creating with AI, as it may create topics and example instructions that *feel* right, but don't execute properly.
+That is also true for whatever documentation you're creating with AI, as it may create topics and example instructions that _feel_ right, but don't execute properly.
 
 ## Conclusion
 

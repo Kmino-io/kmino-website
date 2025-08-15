@@ -2,9 +2,11 @@
 import { Image } from "astro:assets";
 import type { InferEntrySchema } from "astro:content";
 import banner from "../assets/blog-banner.png";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   posts: InferEntrySchema<"blog">[];
+  tag: string;
 }
 
 const { posts } = Astro.props;
@@ -42,23 +44,36 @@ const tagsArray = Array.from(tags);
       <p class="font-alt mb-3 text-sm">Filter Articles:</p>
       <div class="flex w-max min-w-full gap-2">
         <a
-          class="font-alt shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10"
+          class={twMerge(
+            "font-alt shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
+            Astro.props.tag === "" && "bg-white text-black hover:bg-white/90",
+          )}
           href="/blog"
         >
           All
         </a>
 
         {
-          tagsArray.map((tag) => {
-            return (
-              <a
-                href={`/blog/tags/${tag}`}
-                class="font-alt shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10"
-              >
-                {tag}
-              </a>
-            );
-          })
+          tagsArray
+            .sort((a, b) => {
+              if (a === Astro.props.tag) return -1;
+              if (b === Astro.props.tag) return 1;
+              return a.localeCompare(b);
+            })
+            .map((tag) => {
+              return (
+                <a
+                  href={`/blog/tags/${tag}`}
+                  class={twMerge(
+                    "font-alt shrink-0 rounded-full border-[1.5px] border-white px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
+                    tag === Astro.props.tag &&
+                      "bg-white text-black hover:bg-white/90",
+                  )}
+                >
+                  {tag}
+                </a>
+              );
+            })
         }
       </div>
     </div>
