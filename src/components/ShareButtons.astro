@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import type { InferEntrySchema } from "astro:content";
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  post: InferEntrySchema<"blog">;
+  className?: string;
+}
+
+const { post, className } = Astro.props;
+
+const postUrl = Astro.url?.href || "";
+const postTitle = post.title;
+
+const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`;
+const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
+---
+
+<div
+  class={twMerge(
+    "not-prose text-primary flex w-fit items-center gap-4 md:flex-col",
+    className,
+  )}
+>
+  <p class="font-medium">Share:</p>
+
+  <a
+    class="rounded-full border-[1.25px] border-black p-2.5"
+    target="_blank"
+    href={twitterShareUrl}
+    rel="noopener noreferrer"
+    aria-label="Share on Twitter"
+    title="Share on Twitter"
+  >
+    <Icon name="ri:twitter-x-line" size={19} />
+  </a>
+
+  <a
+    class="rounded-full border-[1.25px] border-black p-2.5"
+    target="_blank"
+    href={linkedinShareUrl}
+    rel="noopener noreferrer"
+    aria-label="Share on LinkedIn"
+    title="Share on LinkedIn"
+  >
+    <Icon name="ri:linkedin-fill" size={19} />
+  </a>
+</div>
