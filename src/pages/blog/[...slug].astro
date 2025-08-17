@@ -34,13 +34,15 @@ const author = await getEntry("authors", authorSlug);
     class="mb-11 max-h-[300px] w-full object-cover"
   />
 
-  <div class="container block px-4 md:flex md:gap-[100px]">
-    <div class="sticky top-0 hidden h-fit flex-1 justify-end md:flex">
+  <div
+    class="container block max-w-[1440px] justify-center gap-[100px] px-4 md:flex md:px-[100px]"
+  >
+    <div class="sticky top-0 hidden h-fit justify-end md:flex">
       <ShareButtons post={post.data} className="sticky top-0" />
     </div>
 
     <div
-      class="prose prose-neutral prose-headings:font-alt prose-h1:text-[31px] relative mx-auto"
+      class="prose prose-neutral prose-headings:font-alt prose-h1:text-[31px] relative"
     >
       <div class="not-prose mb-8 flex items-center justify-between">
         <a
@@ -105,7 +107,7 @@ const author = await getEntry("authors", authorSlug);
       <ShareButtons post={post.data} className="mx-auto mt-6 md:hidden" />
     </div>
 
-    <div class="sticky top-0 hidden h-fit flex-1 lg:block">
+    <div class="sticky top-0 hidden h-fit w-fit lg:block">
       <PostTags tags={post.data.tags} />
     </div>
   </div>
