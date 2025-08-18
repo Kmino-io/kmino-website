@@ -2,6 +2,7 @@
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
 export type HeadProps = Props;
@@ -11,7 +12,7 @@ const defaults: Props = {
   description: "Build with confidence. Scale with strategy.",
 };
 
-const { title, description } = Astro.props;
+const { title, description, image = `${Astro.site}og-image.png` } = Astro.props;
 
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
@@ -23,7 +24,7 @@ const schemaJson = JSON.stringify({
     "https://www.linkedin.com/company/kminotech",
     "https://github.com/Kmino-io",
   ],
-  description: description || defaults.description,
+  description: defaults.description,
 });
 ---
 
@@ -45,7 +46,7 @@ const schemaJson = JSON.stringify({
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.site} />
 <meta property="og:description" content={description || defaults.description} />
-<meta property="og:image" content={`${Astro.site}og-image.png`} />
+<meta property="og:image" content={image} />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -60,6 +61,6 @@ const schemaJson = JSON.stringify({
   name="twitter:description"
   content={description || defaults.description}
 />
-<meta name="twitter:image" content={`${Astro.site}og-image.png`} />
+<meta name="twitter:image" content={image} />
 
 <script type="application/ld+json" is:inline set:html={schemaJson} />

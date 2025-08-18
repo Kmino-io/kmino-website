@@ -1,0 +1,33 @@
+---
+import type { InferEntrySchema } from "astro:content";
+
+interface Props {
+  tags: InferEntrySchema<"blog">["tags"];
+  className?: string;
+}
+
+const { tags, className } = Astro.props;
+---
+
+<div
+  class={`flex w-full items-center gap-4 lg:flex-col lg:items-start ${className}`}
+>
+  <p class="text-primary font-medium">Tags</p>
+
+  <div
+    class="scrollbar-none -mr-4 flex w-full flex-1 gap-4 overflow-x-auto pe-4 lg:mr-0 lg:flex-col"
+  >
+    {
+      tags.map((tag) => {
+        return (
+          <a
+            href={`/blog/tags/${tag}`}
+            class="bg-primary/20 text-primary shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm no-underline lg:w-fit"
+          >
+            {tag}
+          </a>
+        );
+      })
+    }
+  </div>
+</div>

@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import type { InferEntrySchema } from "astro:content";
+import banner from "../assets/blog-banner.png";
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  posts: InferEntrySchema<"blog">[];
+  tag: string;
+}
+
+const { posts } = Astro.props;
+
+const tags = new Set<string>();
+
+posts.forEach((post) => {
+  post.tags.forEach((tag) => {
+    tags.add(tag);
+  });
+});
+
+const tagsArray = Array.from(tags);
+---
+
+<div
+  class="relative flex h-[276px] flex-col justify-end overflow-hidden pb-4 text-white lg:h-[516px] lg:pb-[107px]"
+>
+  <Image
+    src={banner}
+    width={1440}
+    height={516}
+    alt="Blog Banner"
+    loading="eager"
+    decoding="sync"
+    class="absolute inset-0 -z-10 h-full max-h-[276px] w-full object-cover lg:max-h-[516px]"
+  />
+
+  <div
+    class="container flex w-full max-w-[1240px] flex-col items-start justify-between gap-6 max-[886px]:-mr-4 lg:flex-row lg:items-center"
+  >
+    <h1 class="font-alt text-4xl lg:text-6xl">Blog</h1>
+
+    <div class="scrollbar-none w-full max-w-[650px] overflow-x-auto lg:w-fit">
+      <p class="font-alt mb-3 text-sm">Filter Articles:</p>
+      <div class="flex w-max min-w-full gap-2">
+        <a
+          class={twMerge(
+            "font-alt shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
+            Astro.props.tag === "" && "bg-white text-black hover:bg-white/90",
+          )}
+          href="/blog"
+        >
+          All
+        </a>
+
+        {
+          tagsArray
+            .sort((a, b) => {
+              if (a === Astro.props.tag) return -1;
+              if (b === Astro.props.tag) return 1;
+              return a.localeCompare(b);
+            })
+            .map((tag) => {
+              return (
+                <a
+                  href={`/blog/tags/${tag}`}
+                  class={twMerge(
+                    "font-alt shrink-0 rounded-full border-[1.5px] border-white px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
+                    tag === Astro.props.tag &&
+                      "bg-white text-black hover:bg-white/90",
+                  )}
+                >
+                  {tag}
+                </a>
+              );
+            })
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+---
+import Navbar from "../components/Navbar.astro";
+import MainLayout from "./MainLayout.astro";
+import Footer from "../components/Footer.astro";
+import type { InferEntrySchema } from "astro:content";
+
+interface Props {
+  frontmatter?: InferEntrySchema<"blog">;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout
+  head={{
+    title: frontmatter?.title || "Blog",
+    description:
+      frontmatter?.description ||
+      "Blog posts about digital products, design, and development.",
+    image: frontmatter?.image?.url,
+  }}
+>
+  <Navbar />
+  <slot />
+  <Footer />
+</MainLayout>

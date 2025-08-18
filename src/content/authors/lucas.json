@@ -1,0 +1,20 @@
+{
+  "name": "Lucas Souza",
+  "image": {
+    "url": "https://avatars.githubusercontent.com/u/29847191?v=4",
+    "alt": "Lucas Souza Profile Picture"
+  },
+  "jobDescription": "Web Developer",
+  "socials": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/LucasCodr",
+      "icon": "ri:github-fill"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lucas-souza-11547414a/",
+      "icon": "ri:linkedin-box-fill"
+    }
+  ]
+}
