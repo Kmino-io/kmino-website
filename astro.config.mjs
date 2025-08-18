@@ -9,6 +9,10 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://kmino.io",
   integrations: [sitemap(), react(), icon()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   vite: {
     plugins: [tailwindcss()],
   },
