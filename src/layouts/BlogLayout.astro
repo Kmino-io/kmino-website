@@ -20,7 +20,7 @@ const { frontmatter } = Astro.props;
     image: frontmatter?.image?.url,
   }}
 >
-  <Navbar client:visible />
+  <Navbar />
   <slot />
   <Footer />
 </MainLayout>

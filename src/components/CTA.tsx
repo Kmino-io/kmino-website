@@ -1,14 +1,12 @@
----
 import { ArrowRight } from "iconsax-reactjs";
+import type { PropsWithChildren } from "react";
 import { tv } from "tailwind-variants";
 
-interface Props {
+interface Props extends PropsWithChildren {
   href: string;
   color?: "default" | "inverted";
   self?: boolean;
 }
-
-const { href, color = "default", self = false } = Astro.props;
 
 const cta = tv({
   slots: {
@@ -29,20 +27,26 @@ const cta = tv({
   },
 });
 
-const { base, bg } = cta({ color });
----
+export default function CTA({
+  href,
+  color = "default",
+  self,
+  children,
+}: Props) {
+  const { base, bg } = cta({ color });
 
-<a
-  class={base()}
-  href={href}
-  target={self ? "_self" : "_blank"}
-  rel="noopener noreferrer"
->
-  <span class={bg()}>
-    <ArrowRight size={16} className="relative z-50" />
-  </span>
+  return (
+    <a
+      className={base()}
+      href={href}
+      target={self ? "_self" : "_blank"}
+      rel="noopener noreferrer"
+    >
+      <span className={bg()}>
+        <ArrowRight size={16} className="relative z-50" />
+      </span>
 
-  <div class="z-20 transition-all duration-300">
-    <slot />
-  </div>
-</a>
+      <div className="z-20 transition-all duration-300">{children}</div>
+    </a>
+  );
+}
