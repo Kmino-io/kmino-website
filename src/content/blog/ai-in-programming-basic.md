@@ -13,7 +13,7 @@ author: "bruno"
 
 Hello and welcome to the first Kmino blog post! 🎉
 
-Kmino was born out of the desire to make Software Engineering right, ship real digital products that deliver tangible value to our customers, using the right tools, practices, and processes for each one.
+Kmino was born out of the desire to make Software Engineering better, ship real digital products that deliver tangible value to our customers, using the right tools, practices, and processes for each one.
 
 We're just starting and, in the coming weeks, we have much to share related to Software Engineering, Product Management, AI, and entrepreneurship in general, so make sure to follow our [LinkedIn page](https://www.linkedin.com/company/kminotech/), where we'll share every time there is a new post out!
 
