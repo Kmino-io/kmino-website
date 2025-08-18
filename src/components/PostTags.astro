@@ -15,14 +15,15 @@ const { tags, className } = Astro.props;
   <p class="text-primary font-medium">Tags</p>
 
   <div
-    class="scrollbar-none -mr-4 flex w-full flex-1 gap-4 overflow-x-auto pe-4 lg:mr-0 lg:flex-col"
+    class="scrollbar-none -mr-4 flex w-full flex-1 gap-4 overflow-x-auto pe-4 lg:mr-0 lg:flex-col lg:pe-0"
   >
     {
       tags.map((tag) => {
         return (
           <a
             href={`/blog/tags/${tag}`}
-            class="bg-primary/20 text-primary shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm no-underline lg:w-fit"
+            title={tag}
+            class="bg-primary/20 text-primary shrink-0 overflow-hidden rounded-full border-[1.5px] px-6 py-3 text-sm text-ellipsis whitespace-nowrap no-underline lg:w-full"
           >
             {tag}
           </a>

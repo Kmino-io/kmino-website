@@ -15,7 +15,7 @@ interface Props {
 
 export default function BlogCard({ post }: Props) {
   return (
-    <div>
+    <a href={`/blog/${post.id}`} className="group">
       <img
         src={post.data.image.url}
         alt={post.data.image.alt || "Blog post image"}
@@ -34,10 +34,9 @@ export default function BlogCard({ post }: Props) {
         </p>
 
         <CTA href={`/blog/${post.id}`} color="inverted" self>
-          {" "}
           Read more
         </CTA>
       </div>
-    </div>
+    </a>
   );
 }

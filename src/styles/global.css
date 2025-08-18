@@ -19,6 +19,7 @@
 
   --max-lines-3: 3;
   --max-lines-2: 2;
+  --max-lines-1: 1;
 }
 
 @utility container {
