@@ -35,7 +35,12 @@ export function BlogExplorer({ posts }: Props) {
         <form className="relative w-full flex-1">
           <span className="hidden">Search input</span>
 
+          <label htmlFor="search-input" className="sr-only">
+            Search blog posts
+          </label>
+
           <input
+            id="search-input"
             type="text"
             name="search"
             placeholder="Search for your interests"
