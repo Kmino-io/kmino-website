@@ -6,12 +6,17 @@ import "@fontsource/dm-sans/600.css";
 import "@fontsource/dm-sans/700.css";
 
 import Head, { type HeadProps } from "~/components/Head.astro";
+import CTA from "~/components/CTA.astro";
+import { twMerge } from "tailwind-merge";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   head: HeadProps;
 }
 
 const { head } = Astro.props;
+
+const currentURL = Astro.url;
 ---
 
 <html lang="en">
@@ -19,9 +24,71 @@ const { head } = Astro.props;
     <meta charset="utf-8" />
     <Head {...head} />
   </head>
-  <body>
+  <body class="relative">
     <main class="relative">
       <slot />
     </main>
+
+    <div id="mobile-menu-overlay">
+      <div class="mobile-menu-panel bg-primary rounded-s-lg px-6 py-10">
+        <div>
+          <CTA href="https://t.me/m/9XViCz7NM2Y5" color="default">
+            Talk to Our Team
+          </CTA>
+        </div>
+
+        <div class="flex w-full flex-col items-center gap-4">
+          <a
+            href="/#about-us"
+            class="w-full rounded-full py-2 text-center text-lg text-white"
+            >About Us</a
+          >
+
+          <a
+            href="/#how-we-work"
+            class="w-full rounded-full py-2 text-center text-lg text-white"
+          >
+            How We Work
+          </a>
+
+          <a
+            href="/#projects"
+            class="w-full rounded-full py-2 text-center text-lg text-white"
+          >
+            Projects
+          </a>
+
+          <a
+            href="/blog"
+            class={twMerge(
+              "text-lg text-white w-full py-2 rounded-full text-center",
+              currentURL.pathname.includes("/blog") && "bg-white text-black",
+            )}
+          >
+            Blog
+          </a>
+        </div>
+
+        <div class="mb-6 flex gap-6">
+          <a
+            href="https://github.com/Kmino-io"
+            aria-label="GitHub"
+            class="flex items-center rounded-full border bg-white/30 p-2 text-white transition hover:opacity-80"
+            target="_blank"
+          >
+            <Icon name="ri:github-fill" size={19} />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/kminotech/"
+            aria-label="LinkedIn"
+            target="_blank"
+            class="flex items-center rounded-full border bg-white/30 p-2 text-white transition hover:opacity-80"
+          >
+            <Icon name="ri:linkedin-fill" size={19} />
+          </a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

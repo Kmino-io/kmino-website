@@ -1,12 +1,20 @@
 ---
 import Logo from "~/assets/logo.svg";
 import CTA from "./CTA.astro";
+import { Icon } from "astro-icon/components";
+import { twMerge } from "tailwind-merge";
 
 const currentURL = Astro.url;
 ---
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
+    // Move the menu overlay to the end of <body> for portal-like behavior
+    const menuOverlay = document.getElementById("mobile-menu-overlay");
+    if (menuOverlay && menuOverlay.parentNode !== document.body) {
+      document.body.appendChild(menuOverlay);
+    }
+
     document.querySelectorAll('a[href^="/#"]').forEach((link) => {
       link.addEventListener("click", function (e) {
         const hash = this.getAttribute("href").replace("/#", "");
@@ -14,16 +22,90 @@ const currentURL = Astro.url;
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: "smooth" });
-          // Optionally update the hash in the URL
           history.replaceState(null, null, `/#${hash}`);
         }
+
+        if (menuOverlay && menuOverlay.classList.contains("open")) {
+          menuOverlay.classList.remove("open");
+        }
       });
+    });
+
+    menuOverlay?.querySelectorAll('a[href^="/"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        menuOverlay.classList.remove("open");
+      });
+    });
+
+    const menuBtn = document.getElementById("mobile-menu-btn");
+
+    if (menuBtn && menuOverlay) {
+      menuBtn.addEventListener("click", () => {
+        menuOverlay.classList.add("open");
+      });
+    }
+
+    menuOverlay.addEventListener("click", (e) => {
+      if (e.target === menuOverlay) {
+        menuOverlay.classList.remove("open");
+      }
     });
   });
 </script>
 
+<style is:global>
+  #mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  #mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #mobile-menu-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+    transition: background 0.2s;
+  }
+
+  .mobile-menu-panel {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    max-width: 248px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-primary);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #mobile-menu-overlay.open .mobile-menu-panel {
+    transform: translateX(0);
+    z-index: 50;
+  }
+</style>
+
 <nav class="bg-primary py-4 text-white md:min-h-[80px] md:py-8">
-  <div class="mx-auto flex max-w-[1080px] items-center justify-between px-4">
+  <div
+    class="mx-auto flex max-w-[1240px] items-center justify-between px-4 lg:px-0"
+  >
     <div>
       <a href="/#">
         <Logo />
@@ -45,8 +127,14 @@ const currentURL = Astro.url;
       </a>
     </div>
 
-    <div>
+    <div class="hidden lg:flex">
       <CTA href="https://t.me/m/9XViCz7NM2Y5">Talk to Our Team</CTA>
+    </div>
+
+    <div class="lg:hidden">
+      <button id="mobile-menu-btn" class="flex">
+        <Icon name="ri:menu-fill" size={22} />
+      </button>
     </div>
   </div>
 </nav>
