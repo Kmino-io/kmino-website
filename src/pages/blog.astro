@@ -12,5 +12,5 @@ const allPostsData = allPosts.map((post) => post.data);
 <BlogLayout>
   <BlogBanner posts={allPostsData} tag="" />
 
-  <BlogExplorer posts={allPosts} client:visible />
+  <BlogExplorer posts={allPosts} client:load />
 </BlogLayout>

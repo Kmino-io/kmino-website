@@ -1,9 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
-import { twMerge } from "tailwind-merge";
 import BlogBanner from "~/components/BlogBanner.astro";
-import BlogCard from "~/components/BlogCard";
+import { BlogExplorer } from "~/components/BlogExplorer";
 import BlogLayout from "~/layouts/BlogLayout.astro";
 
 export async function getStaticPaths() {
@@ -34,50 +32,5 @@ const allPostsData = allPosts.map((post) => post.data);
 <BlogLayout>
   <BlogBanner posts={allPostsData} tag={tag} />
 
-  <div
-    class="container my-[60px] flex max-w-[1240px] flex-col items-center justify-between gap-6 lg:my-[100px] lg:flex-row"
-  >
-    <h2
-      class="font-alt max-w-[500px] text-[22px] lg:text-[32px] xl:max-w-[733px]"
-    >
-      Keep up with the latest trends, insights, and strategies for digital
-      products.
-    </h2>
-
-    <form method="GET" action="/blog" class="relative w-full flex-1">
-      <span class="hidden">Search input</span>
-      <input
-        type="text"
-        name="search"
-        placeholder="Search for your interests"
-        class="font-alt w-full rounded-full border-[1.5px] border-black/30 bg-black/5 px-6 py-3 text-sm outline-black hover:border-black/50"
-      />
-
-      <Icon
-        name="ri:search-2-line"
-        size="18"
-        class="absolute top-1/2 right-6 -translate-y-1/2"
-      />
-    </form>
-  </div>
-
-  <div
-    class={twMerge(
-      "container max-w-[1240px] grid gap-8 lg:gap-[100px]",
-      posts.length > 2 && "grid-cols-3 gap-8",
-    )}
-  >
-    {
-      posts
-        .sort((a, b) => {
-          return (
-            new Date(b.data.pubDate).getTime() -
-            new Date(a.data.pubDate).getTime()
-          );
-        })
-        .map((post) => {
-          return <BlogCard post={post} />;
-        })
-    }
-  </div>
+  <BlogExplorer posts={posts} client:load />
 </BlogLayout>
