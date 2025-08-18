@@ -35,7 +35,7 @@ export default function BlogCard({ post }: Props) {
 
         <CTA href={`/blog/${post.id}`} color="inverted" self>
           {" "}
-          Read more{" "}
+          Read more
         </CTA>
       </div>
     </div>
