@@ -1,0 +1,20 @@
+{
+  "name": "David Potolski Lafetá",
+  "image": {
+    "url": "/blog/david-pfp.png",
+    "alt": "David Potolski Lafeta Profile Picture"
+  },
+  "jobDescription": "Co-founder",
+  "socials": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/potolski",
+      "icon": "ri:github-fill"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/davidpotolskilafeta/",
+      "icon": "ri:linkedin-box-fill"
+    }
+  ]
+}
