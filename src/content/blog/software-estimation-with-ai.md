@@ -79,7 +79,7 @@ Still talking about Lunos, we used Claude to double-check if all of our user flo
 
 **Remain largely human dependent, with AI providing minimal time savings**. System architecture decisions require deep understanding of business context, technical constraints, and long-term maintenance implications where AI assistance remains limited.
 
-C**omplex debugging, particularly issues involving system interactions or subtle timing problems, continues to require human expertise**. While AI can suggest potential causes and debugging approaches, the detective work of identifying root causes remains primarily developer-driven.
+**Complex debugging, particularly issues involving system interactions or subtle timing problems, continues to require human expertise**. While AI can suggest potential causes and debugging approaches, the detective work of identifying root causes remains primarily developer-driven.
 
 User experience design and stakeholder communication represent areas where human insight, empathy, and context understanding remain irreplaceable, though AI tools can assist with research and documentation tasks.
 
