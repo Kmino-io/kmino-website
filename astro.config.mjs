@@ -14,6 +14,7 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
   vite: {
+    // @ts-ignore
     plugins: [tailwindcss()],
   },
 });
