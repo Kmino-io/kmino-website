@@ -1,4 +1,5 @@
 {
+  "language_servers": ["!biome", "..."],
   "lsp": {
     "biome": {
       "settings": {

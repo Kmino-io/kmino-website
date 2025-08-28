@@ -21,7 +21,7 @@ const projects = [
     number: "03",
     title: "Syscoin Ecosystem",
     description: "Full‑stack blockchain contributions with staff augmentation.",
-    image: "/images/pegasys-preview.png",
+    image: "/images/syscoin.png",
   },
   {
     number: "04",
