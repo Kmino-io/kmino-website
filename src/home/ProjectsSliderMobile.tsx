@@ -21,7 +21,7 @@ const projects = [
     title: "Syscoin Ecosystem",
     subtitle: "Full‑stack blockchain contributions with staff augmentation.",
     description: "Full‑stack blockchain contributions with staff augmentation.",
-    image: "/images/pegasys-preview.png", // Replace with your image path
+    image: "/images/syscoin.png", // Replace with your image path
     number: "03",
   },
   {
