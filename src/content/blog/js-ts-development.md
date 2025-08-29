@@ -9,7 +9,7 @@ tags: [JavaScript, TypeScript, Software Architecture, SDKs, API Design]
 author: "claudio"
 ---
 
-# An Opinionated Approach to JavaScript & TypeScript Development
+# An Opinionated Approach to Javascript & TypeScript Development
 
 Welcome to Kmino — this time we talk code 🤓!
 
@@ -25,6 +25,8 @@ And for those of you in a hurry, here’s the TL;DR of what’s ahead:
 1. **JS/TS offers multiple ways to structure code.**
 2. **We’ve seen both functional-first and OOP-first codebases at scale.**
 3. **A disciplined OOP approach creates APIs and SDKs that last — less refactor pain, easier onboarding, fewer bugs.**
+
+---
 
 ## OOP vs Functional in JS/TS
 
@@ -60,3 +62,76 @@ Here’s a simple diagram contrasting the “clean” lifecycle flow of a class 
 - [7 Reasons to Outlaw React’s Functional Components](https://medium.com/%40housecor/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c)
 - [React Hooks vs. Classes: The Ultimate Comparison](https://www.bitovi.com/blog/react-hooks-vs-classes-the-ultimate-comparison)
 - [Everything You Thought You Knew About React Functional Components Is Wrong](https://medium.com/codex/everything-you-thought-you-knew-about-react-functional-components-is-wrong-baf2dfc4f6f)
+
+## JSDoc & TypeScript: Scaling APIs & SDKs
+
+So we can forget to talk about the typing system which can be really empower your class usage. At Kmino, we believe that **syntax sugar and IntelliSense aren’t just “nice-to-haves.”** They create a **navigation system** you can trust—making your methods, classes, and objects easier to reuse with purpose, and reducing the need to repeatedly check docs or guess what things do.
+
+Think of it this way: in the complex world of databases, a simple piece of metadata like an index can transform performance. Similarly, **TypeScript and JSDoc function as metadata for your code**. They don’t change runtime behavior, but they significantly enhance how you, your automation, and even AI tools understand, navigate, and build robust systems.
+
+### Practical Benefits
+
+- **Autocomplete:** Write code faster and more accurately.
+- **Inline docs:** Your IDE becomes the documentation.
+- **SDK usability:** Your users don’t guess—they get guardrails and clarity.
+
+### Generics & Templates in Action
+
+With **generics**, you create abstractions that are both reusable and type-safe:
+
+```ts
+class Dog<TBreed> {
+  constructor(public breed: TBreed) {}
+
+  bark(): void {
+    console.log("Woof!");
+  }
+  eat(food: string): void {
+    console.log(`${this.breed} eats ${food}`);
+  }
+}
+
+// Usage
+const yorkie = new Dog<"Yorkshire">("Yorkshire");
+const rottweiler = new Dog<"Rottweiler">("Rottweiler");
+```
+
+Each instance shares behavior (`bark`, `eat`) but carries breed-specific data like `furType`, `diseases`, or `energyLevel`, all handled safely thanks to typing.
+
+### Real-World Impact
+
+We’ve used these patterns in production SDKs and APIs, yielding:
+
+- Cleaner code
+- Easier onboarding
+- Fewer refactors
+- A more cost-effective future for our customers
+
+In short: **clear typing = happy future developers.**
+
+---
+
+### Meta Easter Egg
+
+![MetaMetalGreymon](https://tse3.mm.bing.net/th/id/OIP.lDe069Q6vjWxUDFO0wOCrgHaGl?pid=Api)
+_MetaMetalGreymon — our favorite metaphor for metadata 🦖_
+
+---
+
+### Further Reading
+
+- [TypeScript Handbook: Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html) — Official docs on building reusable abstractions
+- [JSDoc Official Guide](https://jsdoc.app/about-getting-started.html) — The basics of documenting JS projects properly
+- [TypeScript vs JSDoc: Which One Should You Use?](https://blog.logrocket.com/typescript-vs-jsdoc/) — Great breakdown of trade-offs
+
+## Closing Thoughts
+
+That’s all for today, folks! We hope this gave you a glimpse into how we think and build at Kmino — from the paradigms of **OOP vs FP (Functional Programming)** to the “little extras” like **JSDoc and TypeScript** that turn code into a more reliable, business-aligned system.
+
+Our main takeaway is simple: **both paradigms have value**, but when dealing with real-world complexity we tend to stick with classes. Even if they add a bit of overhead or feel less reusable at the method level, the payoff in lifecycle clarity, memory management, abstraction, and alignment with business logic is worth it every single time.
+
+And remember — you can supercharge those foundations with metadata like **JSDoc or TypeScript**, which improve navigation, usability, and developer happiness. We didn’t even dive into **TDD/BDD methodologies**, but that’s a rabbit hole we’ll leave for another day. 😉
+
+If you’re still hungry for more, here’s a teaser: **we’re cooking a new open-source repo for blockchain data indexing.** This has been battle-tested in an NFT marketplace project, and we’ll share how these concepts helped us design a fast, robust, and elegant codebase — outperforming general-purpose indexers and subgraph solutions. Stay tuned for that post!
+
+Thanks for reading this far — and see you next week! 🚀
