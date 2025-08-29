@@ -19,6 +19,21 @@ const { head } = Astro.props;
 const currentURL = Astro.url;
 ---
 
+<script
+  type="text/partytown"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-LR0FTNP6RF"></script>
+
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-LR0FTNP6RF");
+</script>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
