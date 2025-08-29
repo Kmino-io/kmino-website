@@ -68,3 +68,19 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
+
+/* Inline code styling inside prose (exclude fenced code blocks) */
+.prose :where(code):not(:where(pre code)) {
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+/* Remove typography plugin backticks around inline code */
+.prose :where(code)::before,
+.prose :where(code)::after {
+  content: none !important;
+}

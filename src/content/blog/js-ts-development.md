@@ -9,7 +9,7 @@ tags: [JavaScript, TypeScript, Software Architecture, SDKs, API Design]
 author: "claudio"
 ---
 
-# An Opinionated Approach to Javascript & TypeScript Development
+# An Opinionated Approach to JavaScript & TypeScript Development
 
 Welcome to Kmino — this time we talk code 🤓!
 
