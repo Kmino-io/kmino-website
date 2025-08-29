@@ -3,7 +3,7 @@ title: "An Opinionated Approach to JavaScript & TypeScript Development"
 description: "Why we favor OOP over purely functional code in JS/TS — and how inheritance, typing, and JSDoc make APIs and SDKs scalable, maintainable, and future-proof."
 pubDate: 2025-09-01
 image:
-  url: https://images.unsplash.com/photo-1605902711622-cfb43c4437d3?q=80&w=2070&auto=format&fit=crop
+  url: https://images.unsplash.com/photo-1644035656974-9f979761e6a1?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   alt: JavaScript & TypeScript Craftsmanship
 tags: [JavaScript, TypeScript, Software Architecture, SDKs, API Design]
 author: "claudio"
@@ -15,8 +15,8 @@ Welcome to Kmino — this time we talk code 🤓!
 
 To share a bit of our internal culture and the way we approach software, we decided to pick a slightly polemic topic: **OOP vs Functional Programming**. Along the way, we’ll also touch on how to use **IntelliSense** in your favor, and why good typing matters so much for developers consuming your SDKs or working inside your codebase.
 
-💡 Spoiler #1: never type objects as `any` — it’s 2025, we can do better.  
-💡 Spoiler #2: if you can, always go TypeScript. If not, at least use **JSDoc + a solid linter pipeline**.
+- Spoiler #1: never type objects as `any` — it’s 2025, we can do better.  
+- Spoiler #2: if you can, always go TypeScript. If not, at least use **JSDoc + a solid linter pipeline**.
 
 We’ve worked with multiple languages and frameworks, but since JS/TS dominates most modern stacks, that’s where we’ll focus here.
 
@@ -130,7 +130,7 @@ That’s all for today, folks! We hope this gave you a glimpse into how we think
 
 Our main takeaway is simple: **both paradigms have value**, but when dealing with real-world complexity we tend to stick with classes. Even if they add a bit of overhead or feel less reusable at the method level, the payoff in lifecycle clarity, memory management, abstraction, and alignment with business logic is worth it every single time.
 
-And remember — you can supercharge those foundations with metadata like **JSDoc or TypeScript**, which improve navigation, usability, and developer happiness. We didn’t even dive into **TDD/BDD methodologies**, but that’s a rabbit hole we’ll leave for another day. 😉
+And remember — you can supercharge those foundations with metadata like **JSDoc or TypeScript**, which improve navigation, usability, and developer happiness. We didn’t even dive into **TDD/BDD methodologies**, but that’s a rabbit hole we’ll leave for another day. 
 
 If you’re still hungry for more, here’s a teaser: **we’re cooking a new open-source repo for blockchain data indexing.** This has been battle-tested in an NFT marketplace project, and we’ll share how these concepts helped us design a fast, robust, and elegant codebase — outperforming general-purpose indexers and subgraph solutions. Stay tuned for that post!
 
