@@ -30,7 +30,7 @@ And for those of you in a hurry, here’s the TL;DR of what’s ahead:
 
 ## OOP vs Functional in JS/TS
 
-I won’t go as far as saying the React team openly regrets the shift to functional components—but even React veterans admit the move brought some baggage. Hooks solved real problems, but they also introduced new ones: **memory leaks, stale closures, harder-to-read lifecycles, and business logic that’s less intuitive at first glance**.
+I won’t go as far as saying the React team openly regrets the shift to functional components, but even React veterans admit the move brought some baggage. Hooks solved real problems, but they also introduced new ones: **memory leaks, stale closures, harder-to-read lifecycles, and business logic that’s less intuitive at first glance**.
 
 A good example is a post titled [_7 Reasons to Outlaw React’s Functional Components_](https://medium.com/%40housecor/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c), which argues that class components remain simpler and more predictable, especially for stateful logic and lifecycle control.
 
