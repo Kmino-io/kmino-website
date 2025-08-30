@@ -45,7 +45,7 @@ So, here’s our stance:
 
 In future posts we’ll dig deeper into things like `extends` vs `implements`, protected vs private, and how to mix OOP and functional styles when it actually makes sense.
 
-Until then, if this resonated, drop us a line at **read@kmino.io** with what you’d like us to cover next.
+Until then, if this resonated, drop us a line at our [LinkedIn](https://www.linkedin.com/company/kminotech/) with what you’d like us to cover next.
 
 ---
 
