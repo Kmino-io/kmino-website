@@ -130,7 +130,7 @@ That’s all for today, folks! We hope this gave you a glimpse into how we think
 
 Our main takeaway is simple: **both paradigms have value**, but when dealing with real-world complexity we tend to stick with classes. Even if they add a bit of overhead or feel less reusable at the method level, the payoff in lifecycle clarity, memory management, abstraction, and alignment with business logic is worth it every single time.
 
-And remember — you can supercharge those foundations with metadata like **JSDoc or TypeScript**, which improve navigation, usability, and developer happiness. We didn’t even dive into **TDD/BDD methodologies**, but that’s a rabbit hole we’ll leave for another day. 
+And remember: You can supercharge those foundations with metadata like **JSDoc or TypeScript**, which improve navigation, usability, and developer happiness. We didn’t even dive into **TDD/BDD methodologies**, but that’s a rabbit hole we’ll leave for another day. 
 
 If you’re still hungry for more, here’s a teaser: **we’re cooking a new open-source repo for blockchain data indexing.** This has been battle-tested in an NFT marketplace project, and we’ll share how these concepts helped us design a fast, robust, and elegant codebase — outperforming general-purpose indexers and subgraph solutions. Stay tuned for that post!
 
