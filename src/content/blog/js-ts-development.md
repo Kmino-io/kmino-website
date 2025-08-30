@@ -36,7 +36,7 @@ A good example is a post titled [_7 Reasons to Outlaw React’s Functional Compo
 
 Now, don’t get me wrong—I love functional programming. Pure functions, static utilities, helpers you can reuse everywhere? Great. But when you’re building something complex—SDKs, APIs, or apps with a lot of moving parts—**OOP shines**. With encapsulation, inheritance, interfaces, and protected/private members, you keep logic clean, business concepts clear, and onboarding easier for new devs.
 
-At Kmino, we’ve seen this play out in real projects. Take [Pali Wallet](https://paliwallet.com), one of our oldest products. Our first attempt leaned hard into React’s functional style. The result? Buggy code, constant state issues, and 10+ user complaints a week. After refactoring to class-based modules—`EVMManager`, `UTXOManager`, and so on—bugs dropped dramatically. Complaints went from weekly emails to one every few months. Encapsulation and clear business logic gave developers a map instead of a maze.
+At Kmino, we’ve seen this play out in real projects. Take [Pali Wallet](https://paliwallet.com), one of our oldest products. Our first attempt leaned hard into React’s functional style. The result? Buggy code, constant state issues, and several user complaints a week. After refactoring to class-based modules—`EVMManager`, `UTXOManager`, and so on—bugs dropped dramatically. Complaints went from weekly emails to one every few months. Encapsulation and clear business logic gave developers a map instead of a maze.
 
 So, here’s our stance:
 
