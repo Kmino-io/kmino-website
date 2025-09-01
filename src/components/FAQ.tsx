@@ -13,25 +13,25 @@ const faqs = [
     number: "02",
     question: "How do you keep quality high if you move fast?",
     answer:
-      "We use proven processes, code reviews, and automated testing to ensure quality at speed.",
+      "Gatekeeping via tests, static analysis, and reviews; strict Definition of Done; weekly retros and playbook updates.",
   },
   {
     number: "03",
     question: "Will we be locked in?",
     answer:
-      "No. We build with open standards and provide full documentation, so you’re always in control.",
+      "No. You own the repo, infra, CI, and docs. We train your team before exit if desired.",
   },
   {
     number: "04",
     question: "Do you work with regulated teams?",
     answer:
-      "Yes. We have experience working with regulated industries and can adapt to your compliance needs.",
+      "Yes. We align with SOC 2, GDPR, and security reviews. We avoid public model exposure without consent.",
   },
   {
     number: "05",
     question: "What’s the fastest way to start?",
     answer:
-      "Just reach out! We’ll schedule a call to understand your needs and get started quickly.",
+      "Share your roadmap. We’ll propose a pilot or 6‑week plan within 48 hours.",
   },
 ];
 

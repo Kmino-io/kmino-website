@@ -21,8 +21,8 @@ import { FadeIn } from "~/components/FadeIn";
 import Footer from "../components/Footer.astro";
 import { HowWeHelpCards } from "~/home/HowWeHelpCards";
 import { HowWeHelpLine } from "~/home/HowWeHelpLine";
-import { ScrollReveal } from "~/components/ScrollReveal";
 import { FAQ } from "~/components/FAQ";
+import { HowItWorksList } from "~/home/HowItWorksList";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -230,7 +230,7 @@ import { FAQ } from "~/components/FAQ";
     </FadeIn>
   </section>
 
-  <section class="relative">
+  <section class="relative mb-[100px] lg:mb-[200px]">
     <HowWeHelpLine
       client:visible
       className="absolute -top-5 -z-10 hidden md:block xl:left-64"
@@ -248,40 +248,19 @@ import { FAQ } from "~/components/FAQ";
       <HowWeHelpCards client:visible={{ rootMargin: "300px" }} />
 
       <div
-        class="mt-[60px] mb-[60px] flex w-full flex-col items-start justify-between gap-6 lg:mb-[200px] lg:flex-row lg:items-center"
+        class="mt-[60px] mb-10 flex w-full flex-col items-start justify-between gap-6 lg:flex-row lg:items-center"
       >
         <h1 class="heading lg:mb-32">How it Works:</h1>
-
-        <ul
-          class="flex flex-col items-end gap-8 text-xl tracking-tight lg:text-[28px]"
-        >
-          <li>
-            <ScrollReveal client:visible delay={0.1}>
-              Dependable daily overlap,
-            </ScrollReveal>
-          </li>
-          <li>
-            <ScrollReveal client:visible delay={0.2}>
-              Clear comunications,
-            </ScrollReveal>
-          </li>
-          <li>
-            <ScrollReveal client:visible delay={0.3}>
-              Enterprise-friendly contracts,
-            </ScrollReveal>
-          </li>
-          <li>
-            <ScrollReveal client:visible delay={0.4}>
-              6‑week initial runway or 2‑sprint pilot,
-            </ScrollReveal>
-          </li>
-          <li>
-            <ScrollReveal client:visible delay={0.5}>
-              High-performance staffing.
-            </ScrollReveal>
-          </li>
-        </ul>
+        <HowItWorksList client:visible={{ rootMargin: "600px" }} />
       </div>
+
+      <CTA
+        href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+        color="inverted"
+        className="mx-auto"
+      >
+        Book a discovery call
+      </CTA>
     </div>
   </section>
 
