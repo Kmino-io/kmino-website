@@ -11,40 +11,27 @@ export function HowItWorksList() {
     const items = listRef.current?.querySelectorAll("li");
     if (!items) return;
 
-    items.forEach((item, i) => {
-      gsap.fromTo(
-        item,
-        { opacity: 0.3, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          delay: i * 0.15,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top center+=100",
-            end: "bottom center+=100",
-            scrub: 0.5,
-            onEnter: () => {
-              gsap.to(item, { opacity: 1, duration: 0.3 });
-            },
-            onLeaveBack: () => {
-              gsap.to(item, { opacity: 0.3, duration: 1 });
-            },
-            onLeave: () => {
-              gsap.to(item, { opacity: 0.1, duration: 1 });
-            },
-            onEnterBack: () => {
-              gsap.to(item, { opacity: 1, duration: 0.3 });
-            },
-          },
-        },
-      );
+    gsap.set(items, { opacity: 0.1, y: 40, scale: 0.95 });
+
+    const anim = gsap.to(items, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: listRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+        scrub: true,
+      },
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      anim.scrollTrigger?.kill();
+      anim.kill();
     };
   }, []);
 

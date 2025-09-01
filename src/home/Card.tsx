@@ -60,7 +60,7 @@ export function Card({
       </motion.div>
 
       <div className="mt-4 flex w-full items-center justify-between text-[22px] underline hover:cursor-pointer">
-        <span>Learn more</span>
+        <span className={isExpanded ? "opacity-0" : ""}>Learn more</span>
         <span
           className={twMerge(
             "group-hover:bg-primary flex h-[48px] w-[48px] items-center justify-center rounded-full bg-gray-100 transition-colors duration-300",
