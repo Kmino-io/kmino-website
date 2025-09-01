@@ -34,9 +34,9 @@ I won’t go as far as saying the React team openly regrets the shift to functio
 
 A good example is a post titled [_7 Reasons to Outlaw React’s Functional Components_](https://medium.com/%40housecor/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c), which argues that class components remain simpler and more predictable, especially for stateful logic and lifecycle control.
 
-Now, don’t get me wrong. I love functional programming. Pure functions, static utilities, helpers you can reuse everywhere? Great. But when you’re building something complex—SDKs, APIs, or apps with a lot of moving parts—**OOP shines**. With encapsulation, inheritance, interfaces, and protected/private members, you keep logic clean, business concepts clear, and onboarding easier for new devs.
+Now, don’t get me wrong, I love functional programming. Pure functions, static utilities, helpers you can reuse everywhere? Great. But when you’re building something complex—SDKs, APIs, or apps with a lot of moving parts—**OOP shines**. With encapsulation, inheritance, interfaces, and protected/private members, you keep logic clean, business concepts clear, and onboarding easier for new devs.
 
-At Kmino, we’ve seen this play out in real projects. Take [Pali Wallet](https://paliwallet.com), one of our oldest products. Our first attempt leaned hard into React’s functional style. The result? Buggy code, constant state issues, and several user complaints a week. After refactoring to class-based modules the `EVMManager`, `UTXOManager`, and so on—bugs dropped dramatically. Complaints went from weekly emails to one every few months. Encapsulation and clear business logic gave developers a map instead of a maze.
+At Kmino, we’ve seen this play out in real projects. Take [Pali Wallet](https://paliwallet.com), one of our oldest products. Our first attempt leaned hard into React’s functional style. The result? Buggy code, constant state issues, and several user complaints a week. After refactoring to class-based modules the `EVMManager`, `UTXOManager`, and so on, bugs dropped dramatically. Complaints went from weekly emails to one every few months. Encapsulation and clear business logic gave developers a map instead of a maze.
 
 So, here’s our stance:
 
@@ -65,7 +65,7 @@ Here’s a simple diagram contrasting the “clean” lifecycle flow of a class 
 
 ## JSDoc & TypeScript: Scaling APIs & SDKs
 
-So we can forget to talk about the typing system which can really be empowering to your class usage. At Kmino, we believe that **syntax sugar and IntelliSense aren’t just “nice-to-haves.”** They create a **navigation system** you can trust making your methods, classes, and objects easier to reuse with purpose, and reducing the need to repeatedly check docs or guess what things do.
+So we can't forget to talk about the typing system which can really empower to your class usage. At Kmino, we believe that **syntax sugar and IntelliSense aren’t just “nice-to-haves.”** They create a **navigation system** you can trust making your methods, classes, and objects easier to reuse with purpose, and reducing the need to repeatedly check docs or guess what things do.
 
 Think of it this way: in the complex world of databases, a simple piece of metadata like an index can transform performance. Similarly, **TypeScript and JSDoc function as metadata for your code**. They don’t change runtime behavior, but they significantly enhance how you, your automation, and even AI tools understand, navigate, and build robust systems.
 
@@ -132,6 +132,6 @@ Our main takeaway is simple: **both paradigms have value**, but when dealing wit
 
 And remember: You can supercharge those foundations with metadata like **JSDoc or TypeScript**, which improve navigation, usability, and developer happiness. We didn’t even dive into **TDD/BDD methodologies**, but that’s a rabbit hole we’ll leave for another day. 
 
-If you’re still hungry for more, here’s a teaser: **we’re cooking a new open-source repo for blockchain data indexing.** This has been battle-tested in an NFT marketplace project, and we’ll share how these concepts helped us design a fast, robust, and elegant codebase. Outperforming general-purpose indexers and subgraph solutions. Stay tuned for that post!
+If you’re still hungry for more, here’s a teaser: **we’re cooking a new open-source repo for blockchain data indexing.** This has been battle-tested in an NFT marketplace project, and we’ll share how these concepts helped us design a fast, robust, and elegant codebase, outperforming general-purpose indexers and subgraph solutions. Don't forget to follow us on [LinkedIn](https://www.linkedin.com/company/kminotech/) for more info on that!
 
 Thanks for reading this far and see you next week! 🚀
