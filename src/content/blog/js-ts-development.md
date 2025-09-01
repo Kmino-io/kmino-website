@@ -65,7 +65,7 @@ Here’s a simple diagram contrasting the “clean” lifecycle flow of a class 
 
 ## JSDoc & TypeScript: Scaling APIs & SDKs
 
-So we can't forget to talk about the typing system which can really empower to your class usage. At Kmino, we believe that **syntax sugar and IntelliSense aren’t just “nice-to-haves.”** They create a **navigation system** you can trust making your methods, classes, and objects easier to reuse with purpose, and reducing the need to repeatedly check docs or guess what things do.
+So we can't forget to talk about the typing system which can really empower your class usage. At Kmino, we believe that **syntax sugar and IntelliSense aren’t just “nice-to-haves.”** They create a **navigation system** you can trust making your methods, classes, and objects easier to reuse with purpose, and reducing the need to repeatedly check docs or guess what things do.
 
 Think of it this way: in the complex world of databases, a simple piece of metadata like an index can transform performance. Similarly, **TypeScript and JSDoc function as metadata for your code**. They don’t change runtime behavior, but they significantly enhance how you, your automation, and even AI tools understand, navigate, and build robust systems.
 
