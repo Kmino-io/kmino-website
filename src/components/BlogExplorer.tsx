@@ -59,8 +59,8 @@ export function BlogExplorer({ posts }: Props) {
 
       <div
         className={twMerge(
-          "container grid max-w-[1240px] gap-8 lg:gap-[100px]",
-          posts.length > 2 && "grid-cols-3 gap-8",
+          "container grid max-w-[1240px] gap-8 xl:gap-[100px]",
+          posts.length > 2 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
         )}
       >
         {filteredPosts
