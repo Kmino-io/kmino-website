@@ -44,7 +44,7 @@ export function BlogExplorer({ posts }: Props) {
             type="text"
             name="search"
             placeholder="Search for your interests"
-            className="font-alt w-full rounded-full border-[1.5px] border-black/30 bg-black/5 px-6 py-3 text-sm outline-black hover:border-black/50"
+            className="w-full rounded-full border-[1.5px] border-black/30 bg-black/5 px-6 py-3 text-sm outline-black hover:border-black/50"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             autoComplete="off"

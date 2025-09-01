@@ -25,7 +25,7 @@ export default function BlogCard({ post }: Props) {
       <div className="flex flex-col gap-3 py-6">
         <p>Posted on {format(post.data.pubDate, "MMMM dd, yyyy")}</p>
 
-        <h2 className="font-alt max-lines-2 text-[25px] leading-[29px]">
+        <h2 className="max-lines-2 text-[25px] leading-[29px]">
           {post.data.title}
         </h2>
 

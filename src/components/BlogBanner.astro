@@ -45,7 +45,7 @@ const tagsArray = Array.from(tags);
       <div class="flex w-max min-w-full gap-2">
         <a
           class={twMerge(
-            "font-alt shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
+            "shrink-0 rounded-full border-[1.5px] px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
             Astro.props.tag === "" && "bg-white text-black hover:bg-white/90",
           )}
           href="/blog"
@@ -65,7 +65,7 @@ const tagsArray = Array.from(tags);
                 <a
                   href={`/blog/tags/${tag}`}
                   class={twMerge(
-                    "font-alt shrink-0 rounded-full border-[1.5px] border-white px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
+                    "shrink-0 rounded-full border-[1.5px] border-white px-6 py-3 text-sm whitespace-nowrap hover:cursor-pointer hover:bg-white/10",
                     tag === Astro.props.tag &&
                       "bg-white text-black hover:bg-white/90",
                   )}
