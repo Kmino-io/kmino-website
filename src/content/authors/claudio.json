@@ -1,0 +1,20 @@
+{
+  "name": "Claudio Vilas Boas",
+  "image": {
+    "url": "/blog/claudio-pfp.png",
+    "alt": "Claudio Vilas Boas Profile Picture"
+  },
+  "jobDescription": "Co-founder",
+  "socials": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/claudiovb",
+      "icon": "ri:github-fill"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/claudio-vilas-boas-b85555b9/",
+      "icon": "ri:linkedin-box-fill"
+    }
+  ]
+}
