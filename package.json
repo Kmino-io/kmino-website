@@ -26,6 +26,7 @@
     "astro-icon": "^1.1.5",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.23.11",
+    "gsap": "^3.13.0",
     "iconsax-reactjs": "^0.0.8",
     "keen-slider": "^6.8.6",
     "react": "^19.1.1",

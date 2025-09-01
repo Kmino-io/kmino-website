@@ -6,6 +6,7 @@ interface Props extends PropsWithChildren {
   href: string;
   color?: "default" | "inverted";
   self?: boolean;
+  className?: string;
 }
 
 const cta = tv({
@@ -32,12 +33,13 @@ export default function CTA({
   color = "default",
   self,
   children,
+  className,
 }: Props) {
   const { base, bg } = cta({ color });
 
   return (
     <a
-      className={base()}
+      className={base({ className })}
       href={href}
       target={self ? "_self" : "_blank"}
       rel="noopener noreferrer"
