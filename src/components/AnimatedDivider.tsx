@@ -22,6 +22,7 @@ export const AnimatedDivider = (props: SVGProps<SVGSVGElement>) => {
         preserveAspectRatio="none"
         height={103}
         fill="none"
+        viewBox="0 0 1440 103"
         {...props}
       >
         <g clipPath="url(#a)">
