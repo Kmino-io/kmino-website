@@ -1,0 +1,16 @@
+{
+    "name": "Michiel",
+    "image": {
+      "url": "/blog/david-pfp.png",
+      "alt": "Michiel Profile Picture"
+    },
+    "jobDescription": "Advisor",
+    "socials": [
+      {
+        "title": "LinkedIn",
+        "url": "https://www.linkedin.com/in/TODO",
+        "icon": "ri:linkedin-box-fill"
+      }
+    ]
+  }
+  
