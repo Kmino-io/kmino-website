@@ -126,6 +126,9 @@ export function HowWeWorkSlider() {
         <button
           className="bg-primary rounded-full p-[11px] hover:not-disabled:cursor-pointer disabled:opacity-50"
           disabled={!sliderRef || currentSlide === 0}
+          aria-label="Previous Slide"
+          title="Previous Slide"
+          type="button"
           onClick={() => {
             if (instanceRef) {
               if (typeof instanceRef.current?.options.slides === "object") {
@@ -152,6 +155,9 @@ export function HowWeWorkSlider() {
         <button
           className="bg-primary rounded-full p-[11px] hover:not-disabled:cursor-pointer disabled:opacity-50"
           disabled={!sliderRef || currentSlide === cards.length - 1}
+          aria-label="Next Slide"
+          title="Next Slide"
+          type="button"
           onClick={() => {
             if (instanceRef) {
               if (typeof instanceRef.current?.options.slides === "object") {

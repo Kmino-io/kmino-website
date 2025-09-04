@@ -222,9 +222,15 @@ import { AnimatedDivider } from "~/components/AnimatedDivider";
         We’ve helped startups and protocols scale their products, faster
       </p>
 
-      <ProjectsSliderMobile client:media="(max-width: 1079px)" />
+      <ProjectsSliderMobile
+        client:media="(max-width: 1079px)"
+        client:visible={{ rootMargin: "800px" }}
+      />
 
-      <ProjectsAccordion client:media="(min-width: 1080px)" />
+      <ProjectsAccordion
+        client:media="(min-width: 1080px)"
+        client:visible={{ rootMargin: "500px" }}
+      />
 
       <ProjectsBg class="absolute -top-3 -z-10 lg:hidden" />
     </FadeIn>

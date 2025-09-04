@@ -30,7 +30,7 @@ export function Card({
       layout
       transition={{ layout: { duration: 0.4, ease: "easeInOut" } }}
     >
-      <h3 className="mb-6 text-[22px] font-semibold">{title}</h3>
+      <h2 className="mb-6 text-[22px] font-semibold">{title}</h2>
 
       <p className="text-secondary text-[22px]">{description}</p>
 
