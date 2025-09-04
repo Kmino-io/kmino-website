@@ -20,9 +20,9 @@ import { ProjectsAccordion } from "../home/ProjectsAccordion";
 import { FadeIn } from "~/components/FadeIn";
 import Footer from "../components/Footer.astro";
 import { HowWeHelpCards } from "~/home/HowWeHelpCards";
-import { HowWeHelpLine } from "~/home/HowWeHelpLine";
 import { FAQ } from "~/components/FAQ";
 import { HowItWorksList } from "~/home/HowItWorksList";
+import { AnimatedDivider } from "~/components/AnimatedDivider";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -208,7 +208,7 @@ import { HowItWorksList } from "~/home/HowItWorksList";
   </section> -->
 
   <section
-    class="relative container mt-0 mb-[100px] overflow-hidden lg:-top-56 lg:mt-[400px]"
+    class="relative container my-[100px] mt-0 overflow-hidden lg:my-[200px]"
     id="projects"
   >
     <FadeIn
@@ -230,12 +230,9 @@ import { HowItWorksList } from "~/home/HowItWorksList";
     </FadeIn>
   </section>
 
-  <section class="relative mb-[100px] lg:mb-[200px]">
-    <HowWeHelpLine
-      client:visible
-      className="absolute -top-5 -z-10 hidden md:block xl:left-64"
-    />
+  <AnimatedDivider client:media="(min-width: 768px)" />
 
+  <section class="relative mt-[100px] mb-[100px] lg:mt-[200px] lg:mb-[200px]">
     <div class="mx-auto max-w-[1080px] px-4 xl:px-0">
       <div class="mb-[60px] space-y-6">
         <h1 class="heading">How KMINO can help you</h1>
