@@ -1,16 +1,11 @@
 {
-    "name": "Michiel",
+    "name": "Michiel Näring",
     "image": {
-      "url": "/blog/david-pfp.png",
+      "url": "/blog/michiel-pfp.jpg",
       "alt": "Michiel Profile Picture"
     },
     "jobDescription": "Advisor",
     "socials": [
-      {
-        "title": "LinkedIn",
-        "url": "https://www.linkedin.com/in/TODO",
-        "icon": "ri:linkedin-box-fill"
-      }
+      
     ]
   }
-  
