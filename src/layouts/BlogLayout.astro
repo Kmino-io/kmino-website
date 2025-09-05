@@ -17,7 +17,11 @@ const { frontmatter } = Astro.props;
     description:
       frontmatter?.description ||
       "Blog posts about digital products, design, and development.",
-    image: frontmatter?.image?.url,
+    image: frontmatter?.image,
+    isBlogPost: true,
+    author: frontmatter?.author || "Kmino",
+    pubDate: frontmatter?.pubDate,
+    tags: frontmatter?.tags,
   }}
 >
   <Navbar />

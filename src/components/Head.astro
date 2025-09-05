@@ -1,20 +1,46 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
-  image?: string;
+  image?: {
+    url: string;
+    alt: string;
+  };
+  tags?: string[];
+  author?: string;
+  pubDate?: Date | string;
+  isBlogPost?: boolean;
 }
 
 export type HeadProps = Props;
 
-const defaults: Props = {
+const defaults = {
   title: "Kmino",
   description: "Build with confidence. Scale with strategy.",
+  image: {
+    url: `${Astro.site}og-image.png`,
+    alt: "Kmino",
+  },
 };
 
-const { title, description, image = `${Astro.site}og-image.png` } = Astro.props;
+const {
+  title = defaults.title,
+  description = defaults.description,
+  image = defaults.image,
+  tags,
+  author,
+  pubDate,
+  isBlogPost,
+} = Astro.props;
 
-const schemaJson = JSON.stringify({
+const canonicalUrl = `${Astro.site}${Astro.url.pathname.replace("/", "")}`;
+const publishedDateISO = pubDate
+  ? typeof pubDate === "string"
+    ? pubDate
+    : pubDate.toISOString()
+  : undefined;
+
+const orgJson = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Kmino",
@@ -26,41 +52,91 @@ const schemaJson = JSON.stringify({
   ],
   description: defaults.description,
 });
+
+const blogPostJson =
+  isBlogPost && title && description && author && publishedDateISO
+    ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description,
+        author: {
+          "@type": "Person",
+          name: author,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Kmino",
+          logo: {
+            "@type": "ImageObject",
+            url: `${Astro.site}favicon.svg`,
+          },
+        },
+        datePublished: publishedDateISO,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": canonicalUrl,
+        },
+        keywords: tags?.join(", "),
+        url: canonicalUrl,
+        inLanguage: "en",
+        image: {
+          "@type": "ImageObject",
+          url: image?.url,
+          caption: image?.alt,
+        },
+      })
+    : null;
 ---
 
 <title>{title.includes("Kmino") ? title : `${title} | Kmino`}</title>
 
-<meta name="description" content={description || defaults.description} />
+<meta name="description" content={description} />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#F7532E" />
 
+{tags && tags.length > 0 && <meta name="keywords" content={tags.join(", ")} />}
+{author && <meta name="author" content={author} />}
+{publishedDateISO && <meta name="date" content={publishedDateISO} />}
+
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link
-  rel="canonical"
-  href={`${Astro.site}${Astro.url.pathname.replace("/", "")}`}
-/>
+<link rel="canonical" href={canonicalUrl} />
 
 <!-- Open Graph tags -->
 <meta property="og:title" content={title} />
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.site} />
-<meta property="og:description" content={description || defaults.description} />
-<meta property="og:image" content={image} />
+<meta property="og:type" content={isBlogPost ? "article" : "website"} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image?.url} />
 <meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Kmino" />
+<meta property="og:image:alt" content={image?.alt} />
 
 <!-- Twitter Card tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:domain" content="kmino.io" />
-<meta property="twitter:url" content={Astro.site} />
+<meta property="twitter:url" content={canonicalUrl} />
 <meta name="twitter:title" content={title} />
-<meta
-  name="twitter:description"
-  content={description || defaults.description}
-/>
-<meta name="twitter:image" content={image} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image?.url} />
+<meta name="twitter:image:alt" content={image?.alt} />
 
-<script type="application/ld+json" is:inline set:html={schemaJson} />
+{
+  isBlogPost && publishedDateISO && author && (
+    <>
+      <meta property="article:published_time" content={publishedDateISO} />
+      <meta property="article:author" content={author} />
+      {tags?.map((tag) => (
+        <meta property="article:tag" content={tag} />
+      ))}
+    </>
+  )
+}
+
+<script type="application/ld+json" is:inline set:html={orgJson} />
+
+{
+  blogPostJson && (
+    <script type="application/ld+json" is:inline set:html={blogPostJson} />
+  )
+}
