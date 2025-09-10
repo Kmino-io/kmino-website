@@ -1,0 +1,105 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import CTA from "../components/CTA";
+import Stamp from "../assets/stamp.svg";
+import { HeroLine } from "~/home/HeroLine";
+import { HeroLineMobile } from "~/home/HeroLineMobile";
+import BottomWaves from "../assets/bottom-waves.svg";
+import KminoText from "../assets/kmino-text.svg";
+import { AnimatedDivider } from "~/components/AnimatedDivider";
+import { ClientsSlider } from "../mvp/ClientsSlider";
+import Footer from "../components/Footer.astro";
+import { MVPFAQ } from "~/mvp/MVPFAQ";
+---
+
+<MainLayout head={{ title: "Kmino" }}>
+  <section class="relative overflow-hidden xl:min-h-[747px]">
+    <div class="bg-primary relative">
+      <div class="relative z-10 container">
+        <div
+          class="mx-auto flex max-w-[1080px] flex-col gap-[120px] md:gap-[130px]"
+        >
+          <div class="-mx-4 md:mx-0">
+            <Navbar />
+          </div>
+
+          <div class="relative space-y-11 pb-4 md:space-y-6">
+            <Stamp
+              class="rotating absolute right-0 h-[89px] w-[89px] text-white"
+              aria-hidden="true"
+            />
+
+            <h1
+              class="font-alt text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
+            >
+              Get your MVP — <br />
+              Fast, clear, fixed priced
+            </h1>
+
+            <p class="max-w-xl text-xl text-white">
+              From idea to live MVP in 4 weeks — fixed price, zero <br
+              />surprises
+            </p>
+
+            <nav aria-label="primary actions" class="flex gap-6">
+              <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5">
+                Book your free call
+              </CTA>
+
+              <CTA href="#offer" self color="outline">
+                See what's included
+              </CTA>
+            </nav>
+          </div>
+        </div>
+
+        <div
+          class="absolute right-9 -bottom-[120px] z-10 hidden md:block"
+          aria-hidden="true"
+        >
+          <KminoText />
+          <KminoText />
+        </div>
+      </div>
+
+      <HeroLine client:media="(min-width: 768px)" className="bottom-[165px]" />
+      <HeroLineMobile client:media="(max-width: 768px)" />
+    </div>
+
+    <BottomWaves class="-mt-1 h-auto lg:h-[172px]" aria-hidden="true" />
+  </section>
+
+  <section id="offer" class="my-[100px]">
+    <div class="relative z-10 mb-11 flex flex-col gap-6">
+      <h2 class="heading">What we Offer</h2>
+      <p class="subheading text-primary mx-auto">
+        We help product leaders and founders move faster with:
+      </p>
+    </div>
+  </section>
+
+  <AnimatedDivider client:media="(min-width: 768px)" />
+
+  <section class="container my-[100px] flex max-w-[1080px] flex-col gap-8">
+    <h2 class="heading text-left">
+      Needing something bigger <br /> or more complex?
+    </h2>
+    <p class="max-w-[452px]">
+      Kmino can help you scale from the MVP to a live product. Book a call to
+      understand our customized solutions for your business.
+    </p>
+    <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5" color="inverted">
+      Schedule a custom call
+    </CTA>
+  </section>
+
+  <section class="bg-primary space-y-[68px] py-[180px] text-white">
+    <h2 class="heading">Join Companies building faster with Kmino</h2>
+    <ClientsSlider client:visible />
+  </section>
+
+  <MVPFAQ client:visible />
+
+  <Footer callout="Ready to launch faster?" description="" />
+</MainLayout>

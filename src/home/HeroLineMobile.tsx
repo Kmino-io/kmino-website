@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
-export function HeroLineMobile() {
+export function HeroLineMobile(props: { className?: string }) {
   return (
     <motion.svg
       width="100%"
@@ -9,7 +10,10 @@ export function HeroLineMobile() {
       preserveAspectRatio="none"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-[365px] -left-10 w-[497px] min-[497px]:left-0 min-[497px]:w-full md:hidden"
+      className={twMerge(
+        "absolute bottom-[365px] -left-10 w-[497px] min-[497px]:left-0 min-[497px]:w-full md:hidden",
+        props.className,
+      )}
     >
       <motion.path
         d="M4.5 31.1958L70.4883 39.1006L113.106 122.617H496.5"

@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 
 interface Props extends PropsWithChildren {
   href: string;
-  color?: "default" | "inverted";
+  color?: "default" | "inverted" | "outline";
   self?: boolean;
   className?: string;
 }
@@ -23,6 +23,10 @@ const cta = tv({
       inverted: {
         base: "bg-primary text-black hover:text-black",
         bg: "bg-white after:bg-white",
+      },
+      outline: {
+        base: "border border-white text-white",
+        bg: "bg-primary",
       },
     },
   },

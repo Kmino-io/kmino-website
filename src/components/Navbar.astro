@@ -3,7 +3,12 @@ import Logo from "~/assets/logo.svg";
 import CTA from "./CTA";
 import { Icon } from "astro-icon/components";
 
+interface Props {
+  showNav?: boolean;
+}
+
 const currentURL = Astro.url;
+const { showNav = true } = Astro.props;
 ---
 
 <script is:inline>
@@ -112,18 +117,26 @@ const currentURL = Astro.url;
     </div>
 
     <div class="hidden gap-[42px] lg:flex">
-      <a href="/#what-we-do">What We Do</a>
-      <a href="/#how-we-work">How We Work</a>
-      <a href="/#projects">Projects</a>
-      <a href="/#about-us">About Us</a>
-      <a
-        href="/blog"
-        class={currentURL.pathname.includes("/blog")
-          ? "underline font-semibold"
-          : ""}
-      >
-        Blog
-      </a>
+      {
+        showNav ? null : (
+          <>
+            <a href="/#what-we-do">What We Do</a>
+            <a href="/#how-we-work">How We Work</a>
+            <a href="/#projects">Projects</a>
+            <a href="/#about-us">About Us</a>
+            <a
+              href="/blog"
+              class={
+                currentURL.pathname.includes("/blog")
+                  ? "font-semibold underline"
+                  : ""
+              }
+            >
+              Blog
+            </a>
+          </>
+        )
+      }
     </div>
 
     <div class="hidden lg:flex">
