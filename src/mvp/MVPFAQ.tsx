@@ -1,6 +1,6 @@
 import { FAQ, type FAQType } from "~/components/FAQ.tsx";
-import { twMerge } from "tailwind-merge";
 import { useMemo, useState } from "react";
+import { Tabs } from "~/components/Tabs";
 
 type MVPTabProps = {
   active: number;
@@ -9,54 +9,75 @@ type MVPTabProps = {
 
 const tabs = ["MVP", "Web3 MVP"];
 
-export function MVPTab({ active, setActive }: MVPTabProps) {
-  return (
-    <div className="flex w-fit items-center rounded-full bg-[#F7532E1A] p-1.5">
-      {tabs.map((label, idx) => (
-        <button
-          key={label}
-          onClick={() => setActive(idx)}
-          className={twMerge(
-            "rounded-full px-8 py-2 text-lg font-medium transition-colors hover:cursor-pointer focus:outline-none",
-            active === idx
-              ? "bg-primary text-white shadow-sm"
-              : "text-primary bg-transparent",
-          )}
-        >
-          {label}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 const mvpFaqs: FAQType[] = [
   {
     number: "01",
-    question: "What is a Web3 MVP?",
+    question: "How long does it take to deliver the MVP?",
     answer:
-      "A Web3 MVP is a minimum viable product that leverages blockchain technology to provide a basic functionality or feature that can be tested and validated by users.",
+      "Typically 4–6 weeks, depending on complexity and your availability for feedback.",
   },
   {
     number: "02",
-    question: "Why should I build a Web3 MVP?",
+    question: "What technologies do you use?",
     answer:
-      "Building a Web3 MVP allows you to quickly test and validate your idea, gather feedback from users, and build a strong foundation for your Web3 project.",
+      "We use modern, scalable stacks like React, Next.js, Node.js, and for Web3 projects, Solidity/Foundry/Hardhat.",
+  },
+  {
+    number: "03",
+    question: "Do you include mobile apps?",
+    answer:
+      "We focus on web-first solutions. Your MVP will look great on mobile browsers, but native iOS/Android apps aren’t included.",
+  },
+  {
+    number: "04",
+    question: "Is design included?",
+    answer:
+      "Yes, we deliver a clean and functional UI/UX for the MVP scope. Extra branding or advanced design work can be discussed as add-ons.",
+  },
+  {
+    number: "05",
+    question: "What if I need more features after the MVP is done?",
+    answer:
+      "No problem — we offer post-MVP support and can discuss a roadmap for v2.0 or a custom solution.",
+  },
+  {
+    number: "06",
+    question: "Do you handle deployment?",
+    answer:
+      "Yes, we deploy your MVP to the cloud (AWS, Vercel, or similar) so you can start testing immediately.",
   },
 ];
 
 const web3Faqs: FAQType[] = [
   {
     number: "01",
-    question: "What is Web3?",
+    question: "What chains do you support?",
     answer:
-      "Web3 is the next generation of the internet that is built on blockchain technology, decentralized applications, and smart contracts.",
+      "We support EVM-compatible chains like Ethereum, Polygon, BNB Chain, and Rollux, plus custom integrations upon request.",
   },
   {
     number: "02",
-    question: "What are the benefits of Web3?",
+    question: "Do you help with smart contract audits?",
     answer:
-      "Web3 offers greater transparency, security, and control over data, as well as the potential for new business models and revenue streams.",
+      "We provide basic testing and security best practices. For full audits, we partner with third-party security firms.",
+  },
+  {
+    number: "03",
+    question: "Can you integrate wallets like MetaMask?",
+    answer:
+      "Yes, Web3 MVPs include wallet integrations for user onboarding and transactions.",
+  },
+  {
+    number: "04",
+    question: "Do you help launch tokens or NFTs?",
+    answer:
+      "We can implement smart contracts and minting features. Tokenomics or large-scale launches require separate discussions.",
+  },
+  {
+    number: "05",
+    question: "How do you handle gas fees and scalability?",
+    answer:
+      "We design smart contracts with efficiency in mind and can integrate Layer 2 solutions if needed.",
   },
 ];
 
@@ -76,7 +97,12 @@ export function MVPFAQ() {
       <div className="mx-auto flex max-w-[1080px] flex-col items-start gap-0 px-4 xl:px-0">
         <div className="mb-10 flex w-full items-center justify-between">
           <h1 className="heading">FAQ</h1>
-          <MVPTab active={activeTab} setActive={setActiveTab} />
+          <Tabs
+            active={activeTab}
+            setActive={setActiveTab}
+            tabs={["MVP", "Web3 MVP"]}
+            variant="primary"
+          />
         </div>
 
         <FAQ faqs={faqs} />

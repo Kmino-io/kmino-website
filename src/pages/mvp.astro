@@ -11,6 +11,7 @@ import { AnimatedDivider } from "~/components/AnimatedDivider";
 import { ClientsSlider } from "../mvp/ClientsSlider";
 import Footer from "../components/Footer.astro";
 import { MVPFAQ } from "~/mvp/MVPFAQ";
+import { Pricing } from "~/mvp/Pricing";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -70,13 +71,15 @@ import { MVPFAQ } from "~/mvp/MVPFAQ";
     <BottomWaves class="-mt-1 h-auto lg:h-[172px]" aria-hidden="true" />
   </section>
 
-  <section id="offer" class="my-[100px]">
+  <section id="offer" class="my-[100px] flex flex-col items-center">
     <div class="relative z-10 mb-11 flex flex-col gap-6">
       <h2 class="heading">What we Offer</h2>
       <p class="subheading text-primary mx-auto">
         We help product leaders and founders move faster with:
       </p>
     </div>
+
+    <Pricing client:load />
   </section>
 
   <AnimatedDivider client:media="(min-width: 768px)" />
