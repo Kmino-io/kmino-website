@@ -135,13 +135,58 @@ import { Icon } from "astro-icon/components";
 
   <MVPFAQ client:visible />
 
-  <Footer callout="Ready to launch faster?" description="">
-    <CTA
-      slot="cta"
-      href="https://calendar.app.google/bptKpG7DXXLZve3r5"
-      color="inverted"
+  <Footer description="">
+    <div
+      slot="children"
+      class="flex w-full flex-col items-center justify-center px-4 md:gap-11 lg:flex-row"
     >
-      Book your free call
-    </CTA>
+      <h2
+        class="font-alt text-primary mb-6 text-left text-[22px] tracking-tight md:text-[65px] lg:max-w-[508px] xl:text-[81px]"
+      >
+        Ready to launch <br class="hidden lg:block" /> faster?
+      </h2>
+
+      <form class="w-full max-w-[530px] space-y-6">
+        <label class="flex flex-col items-start gap-2">
+          <span class="text-lg">Label</span>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            class="w-full rounded-lg border-[1px] border-white/30 p-3 shadow-sm outline-none md:p-4"
+            placeholder="Placeholder"
+          />
+        </label>
+
+        <label class="flex flex-col items-start gap-2">
+          <span class="text-lg">Label</span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full rounded-lg border-[1px] border-white/30 p-3 shadow-sm outline-none md:p-4"
+            placeholder="Placeholder"
+          />
+        </label>
+
+        <label class="flex flex-col items-start gap-2">
+          <span class="text-lg">Label</span>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            class="w-full rounded-lg border-[1px] border-white/30 p-3 shadow-sm outline-none md:p-4"
+            placeholder="Placeholder"
+          />
+        </label>
+
+        <CTA
+          href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+          color="inverted"
+        >
+          Start my MVP
+        </CTA>
+      </form>
+    </div>
   </Footer>
 </MainLayout>

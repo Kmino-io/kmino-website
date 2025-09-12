@@ -2,6 +2,7 @@
 import CTA from "./CTA";
 import { Icon } from "astro-icon/components";
 import Pathways from "../assets/pathways.svg";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   callout?: string;
@@ -18,11 +19,15 @@ const {
   <div
     class="relative z-10 mt-[66px] mb-[66px] flex flex-col items-center bg-black py-12 text-center text-white"
   >
-    <h2
-      class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[65px] xl:text-[81px]"
-    >
-      {callout}
-    </h2>
+    {
+      Astro.slots.has("children") ? (
+        <slot name="children" />
+      ) : (
+        <h2 class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[65px] xl:text-[81px]">
+          {callout}
+        </h2>
+      )
+    }
 
     {
       description && (
@@ -35,7 +40,7 @@ const {
     {
       Astro.slots.has("cta") ? (
         <slot name="cta" />
-      ) : (
+      ) : Astro.slots.has("children") ? null : (
         <CTA
           href="https://calendar.app.google/bptKpG7DXXLZve3r5"
           color="inverted"

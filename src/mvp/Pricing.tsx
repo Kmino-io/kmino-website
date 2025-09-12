@@ -230,7 +230,7 @@ function PricingTabs() {
 
 export function Pricing() {
   return (
-    <div className="flex w-full flex-col items-center">
+    <div className="mb-[68px] flex w-full flex-col items-center">
       <PricingTabs />
     </div>
   );
