@@ -81,6 +81,6 @@ Out of scope for v1: ongoing feature work, heavy branding/marketing sites, compl
 
 Block 60–90 minutes. Fill it with your team. If your happy path doesn’t fit on one page, cut scope until it does. Bring this to our free call—we’ll pressure‑test it and turn it into a concrete 4–6 week plan.
 
-Ready to move fast? Book a free call and let’s turn the worksheet into a live MVP.
+Ready to move fast? [Book a free call](https://calendar.app.google/bptKpG7DXXLZve3r5) and let’s turn the worksheet into a live MVP.
 
 Thanks for reading, and make sure to follow us on [LinkedIn](https://www.linkedin.com/company/kminotech/)!
