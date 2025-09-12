@@ -173,6 +173,7 @@ type ExpandablePricingCardProps = {
   excluded: string[];
   expanded: boolean;
   onExpand: () => void;
+  description?: string;
 };
 
 function ExpandablePricingCard({
@@ -185,6 +186,7 @@ function ExpandablePricingCard({
   excluded,
   expanded,
   onExpand,
+  description,
 }: ExpandablePricingCardProps) {
   return (
     <button
@@ -204,6 +206,7 @@ function ExpandablePricingCard({
         <span className="rounded py-1 text-2xl font-bold">{price}</span>
       </div>
       <div className="mb-2 text-lg">{subtitle}</div>
+      {description && <div className="text-md mb-2">{description}</div>}
       <div className="text-md font-alt mb-2">{delivery}</div>
 
       {expanded && (
@@ -280,6 +283,7 @@ function PricingCards() {
       subtitle: "Fixed price",
       price: "$10k",
       oldPrice: "$15k",
+      description: "Backend + Frontend.",
       delivery: "4-week delivery",
       included: mvpItems,
       excluded: mvpExcludes,
@@ -287,6 +291,7 @@ function PricingCards() {
     {
       title: "Web3 MVP in a Box",
       subtitle: "Fixed price",
+      description: "Smart contracts + dApp frontend.",
       price: "$15k",
       oldPrice: "$20k",
       delivery: "6-week delivery",

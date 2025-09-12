@@ -118,7 +118,7 @@ const { showNav = true } = Astro.props;
 
     <div class="hidden gap-[42px] lg:flex">
       {
-        showNav ? null : (
+        !showNav ? null : (
           <>
             <a href="/#what-we-do">What We Do</a>
             <a href="/#how-we-work">How We Work</a>
