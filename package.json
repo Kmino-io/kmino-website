@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^3.4.2",
     "@astrojs/ts-plugin": "^1.10.4",
     "@fontsource/dm-sans": "^5.2.6",
+    "@heroui/react": "^2.8.4",
     "@iconify-json/ri": "^1.2.5",
     "@iconify/react": "^6.0.0",
     "@tailwindcss/vite": "^4.1.11",

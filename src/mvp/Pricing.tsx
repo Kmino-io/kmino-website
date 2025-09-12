@@ -1,3 +1,4 @@
+import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
@@ -162,67 +163,149 @@ const web3Excludes = [
   "Native mobile app development for App Store / Play Store",
 ];
 
-function PricingTabs() {
-  const [activeTab, setActiveTab] = useState(0);
+type ExpandablePricingCardProps = {
+  title: string;
+  subtitle: string;
+  price: string;
+  oldPrice?: string;
+  delivery: string;
+  included: string[];
+  excluded: string[];
+  expanded: boolean;
+  onExpand: () => void;
+};
+
+function ExpandablePricingCard({
+  title,
+  subtitle,
+  price,
+  oldPrice,
+  delivery,
+  included,
+  excluded,
+  expanded,
+  onExpand,
+}: ExpandablePricingCardProps) {
+  return (
+    <button
+      type="button"
+      aria-expanded={expanded}
+      onClick={onExpand}
+      className={twMerge(
+        "hover:border-primary group flex h-fit w-full flex-col border border-black bg-white px-6 py-8 text-left leading-7 transition-colors duration-300 hover:cursor-pointer focus:outline-none",
+        expanded && "bg-primary border-transparent text-white",
+      )}
+    >
+      <h2 className="mb-2 text-[22px] font-semibold">{title}</h2>
+      <div className="mb-2 flex items-center gap-2">
+        {oldPrice && (
+          <span className="text-xl line-through opacity-80">{oldPrice}</span>
+        )}
+        <span className="rounded py-1 text-2xl font-bold">{price}</span>
+      </div>
+      <div className="mb-2 text-lg">{subtitle}</div>
+      <div className="text-md font-alt mb-2">{delivery}</div>
+
+      {expanded && (
+        <div className="mt-6">
+          <h3 className="font-alt mb-2 text-xl">What's included</h3>
+          <ul className="mb-16 space-y-2">
+            {included.map((item, idx) => (
+              <li key={idx} className="flex items-center gap-3 text-lg">
+                <span className="relative">
+                  <Icon
+                    icon="ri:checkbox-circle-fill"
+                    fontSize="22px"
+                    className="relative z-20 rounded-full text-green-800"
+                    fill="red"
+                  />
+
+                  <span className="absolute top-1 left-1 z-10 h-3 w-3 rounded-full bg-white" />
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <h3 className="font-alt mb-2 text-xl">What's NOT included</h3>
+          <ul className="space-y-2">
+            {excluded.map((item, idx) => (
+              <li key={idx} className="flex items-center gap-3 text-lg">
+                <span>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99971 0.199829C4.58732 0.199829 0.199707 4.58744 0.199707 9.99983C0.199707 15.4122 4.58732 19.7998 9.99971 19.7998C15.4121 19.7998 19.7997 15.4122 19.7997 9.99983C19.7997 4.58744 15.4121 0.199829 9.99971 0.199829Z"
+                      fill="red"
+                    />
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M13.5649 6.4339C13.8773 6.74632 13.8773 7.25285 13.5649 7.56527L11.1306 9.99958L13.5649 12.4339C13.8773 12.7463 13.8773 13.2529 13.5649 13.5653C13.2525 13.8777 12.746 13.8777 12.4335 13.5653L9.99922 11.131L7.5649 13.5653C7.25249 13.8777 6.74595 13.8777 6.43353 13.5653C6.12111 13.2529 6.12111 12.7463 6.43353 12.4339L8.86785 9.99959L6.43353 7.56527C6.12111 7.25285 6.12111 6.74632 6.43353 6.4339C6.74595 6.12148 7.25248 6.12148 7.5649 6.4339L9.99922 8.86821L12.4335 6.4339C12.746 6.12148 13.2525 6.12148 13.5649 6.4339Z"
+                      fill="white"
+                    />
+                  </svg>
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div className="mt-4 flex w-full items-center justify-between text-[18px] underline hover:cursor-pointer">
+        <span className={expanded ? "opacity-0" : ""}>See details</span>
+        <span
+          className={twMerge(
+            "group-hover:bg-primary flex h-[40px] w-[40px] items-center justify-center rounded-full bg-gray-100 transition-colors duration-300",
+            expanded && "text-black group-hover:bg-white",
+          )}
+        >
+          <Icon icon={expanded ? "ri:subtract-fill" : "ri:add-fill"} />
+        </span>
+      </div>
+    </button>
+  );
+}
+
+function PricingCards() {
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+
+  const cards = [
+    {
+      title: "MVP in a Box",
+      subtitle: "Fixed price",
+      price: "$10k",
+      oldPrice: "$15k",
+      delivery: "4-week delivery",
+      included: mvpItems,
+      excluded: mvpExcludes,
+    },
+    {
+      title: "Web3 MVP in a Box",
+      subtitle: "Fixed price",
+      price: "$15k",
+      oldPrice: "$20k",
+      delivery: "6-week delivery",
+      included: web3Items,
+      excluded: web3Excludes,
+    },
+  ];
 
   return (
-    <div className="flex max-w-[1080px] flex-col items-center">
-      <Tabs
-        active={activeTab}
-        setActive={setActiveTab}
-        tabs={["MVP in a Box", "Web3 MVP in a Box"]}
-      />
-
-      <div className="mt-11 flex flex-wrap items-start gap-4 lg:flex-nowrap lg:gap-[60px]">
-        {activeTab === 0 && (
-          <>
-            <PricingCard
-              title="4-week delivery"
-              subtitle="Fixed price"
-              oldPrice="$15k"
-              price="$10k"
-              variant="primary"
-              items={mvpItems}
-              ariaLabel="MVP-in-a-Box Pricing"
-              mode="include"
-            />
-            <PricingCard
-              title="MVP-in-a-Box"
-              subtitle="4-week delivery"
-              oldPrice="$15k"
-              price="$10k"
-              variant="default"
-              items={mvpExcludes}
-              ariaLabel="MVP-in-a-Box Excludes"
-              mode="exclude"
-            />
-          </>
-        )}
-        {activeTab === 1 && (
-          <>
-            <PricingCard
-              title="6-week delivery"
-              subtitle="Fixed price"
-              oldPrice="$20k"
-              price="$15k"
-              variant="primary"
-              items={web3Items}
-              ariaLabel="Web3-MVP-in-a-Box Pricing"
-              mode="include"
-            />
-
-            <PricingCard
-              title="6-week delivery"
-              subtitle="Fixed price"
-              oldPrice="$20k"
-              price="$15k"
-              variant="default"
-              items={web3Excludes}
-              ariaLabel="Web3-MVP-in-a-Box Excludes"
-              mode="exclude"
-            />
-          </>
-        )}
+    <div className="flex w-full max-w-[1080px] flex-col items-center">
+      <div className="mt-11 grid w-full items-start gap-8 md:grid-cols-2 lg:gap-[60px]">
+        {cards.map((card, idx) => (
+          <ExpandablePricingCard
+            key={card.title}
+            {...card}
+            expanded={expandedIdx === idx}
+            onExpand={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+          />
+        ))}
       </div>
     </div>
   );
@@ -231,7 +314,7 @@ function PricingTabs() {
 export function Pricing() {
   return (
     <div className="mb-[68px] flex w-full flex-col items-center">
-      <PricingTabs />
+      <PricingCards />
     </div>
   );
 }
