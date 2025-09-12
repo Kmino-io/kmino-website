@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
 import { Tabs } from "~/components/Tabs";
 
@@ -16,7 +17,7 @@ type PricingCardProps = {
 
 const pricingCardStyles = tv({
   slots: {
-    base: "mx-auto border border-black p-8",
+    base: "mx-auto border border-black p-4 md:p-8",
   },
   variants: {
     color: {
@@ -44,7 +45,12 @@ function PricingCard({
 
   return (
     <article className={base()} aria-label={ariaLabel}>
-      <header className="mb-6 flex items-stretch justify-between">
+      <header
+        className={twMerge(
+          "mb-6 flex items-stretch justify-between",
+          mode === "exclude" && "opacity-0",
+        )}
+      >
         <div>
           <h2 className="font-alt text-3xl">{title}</h2>
           <p className="text-lg">{subtitle}</p>
@@ -57,8 +63,15 @@ function PricingCard({
           <span className="rounded py-1 text-3xl">{price}</span>
         </div>
       </header>
-      <hr className="my-6 border-white/10" />
-      <h3 className="font-alt mb-4 text-2xl">What's Included</h3>
+      <hr
+        className={twMerge(
+          "my-6 border-white/10",
+          mode === "exclude" && "border-black/10",
+        )}
+      />
+      <h3 className="font-alt mb-4 text-2xl">
+        {mode === "include" ? "What's included" : "What's NOT included"}
+      </h3>
       <ul className="space-y-4">
         {items.map((item, idx) => (
           <li key={idx} className="flex items-center gap-3 text-lg">
@@ -113,43 +126,59 @@ function PricingCard({
   );
 }
 
-export function Pricing() {
+// ...PricingCard definition remains unchanged...
+
+// --- Data ---
+const mvpItems = [
+  "Requirements workshop (up to 2 hours)",
+  "UI prototype in Figma (clickable, ready for user testing)",
+  "Core backend + frontend MVP with pre-defined tech stack (React + Node.js)",
+  "Deployment on the client's desired infrastructure",
+  "Basic documentation & code handoff",
+  "One feedback iteration (within scope)",
+];
+
+const mvpExcludes = [
+  "Ongoing feature development after delivery",
+  "Marketing website or branding design",
+  "Complex integrations outside MVP scope (e.g., AI, blockchain, custom APIs)",
+  "Ongoing support & hosting",
+  "Native mobile app development for App Store / Play Store",
+];
+
+const web3Items = [
+  "Requirements workshop (2 hours)",
+  "UI prototype in Figma (clickable, ready for user testing)",
+  "Smart contract + frontend integration with pre-defined stack",
+  "Deployment on client's desired chain",
+  "Basic documentation & code handoff",
+  "One feedback iteration (within scope)",
+];
+
+const web3Excludes = [
+  "Ongoing feature development after delivery",
+  "Complex multi-chain integrations beyond core MVP",
+  "Ongoing support & hosting",
+  "Native mobile app development for App Store / Play Store",
+];
+
+function PricingTabs() {
   const [activeTab, setActiveTab] = useState(0);
-
-  const mvpItems = [
-    "Requirements workshop (up to 2 hours)",
-    "UI prototype in Figma (clickable, ready for user testing)",
-    "Core backend + frontend MVP with pre-defined tech stack (React + Node.js)",
-    "Deployment on the client's desired infrastructure",
-    "Basic documentation & code handoff",
-    "One feedback iteration (within scope)",
-  ];
-
-  const web3Items = [
-    // Example items for Web3-MVP-in-a-Box, replace with real ones as needed
-    "Requirements workshop (up to 2 hours)",
-    "UI prototype in Figma (clickable, ready for user testing)",
-    "Core backend + frontend MVP with pre-defined tech stack (React + Node.js + Web3)",
-    "Smart contract development & deployment",
-    "Deployment on the client's desired infrastructure",
-    "Basic documentation & code handoff",
-    "One feedback iteration (within scope)",
-  ];
 
   return (
     <div className="flex max-w-[1080px] flex-col items-center">
       <Tabs
         active={activeTab}
         setActive={setActiveTab}
-        tabs={["MVP-in-a-Box", "Web3-MVP-in-a-Box"]}
+        tabs={["MVP in a Box", "Web3 MVP in a Box"]}
       />
 
-      <div className="mt-11 grid gap-[60px] md:grid-cols-2">
+      <div className="mt-11 flex flex-wrap items-start gap-4 lg:flex-nowrap lg:gap-[60px]">
         {activeTab === 0 && (
           <>
             <PricingCard
               title="4-week delivery"
-              subtitle="Fixed Price"
+              subtitle="Fixed price"
               oldPrice="$15k"
               price="$10k"
               variant="primary"
@@ -158,29 +187,51 @@ export function Pricing() {
               mode="include"
             />
             <PricingCard
-              title="4-week delivery"
-              subtitle="Fixed Price"
+              title="MVP-in-a-Box"
+              subtitle="4-week delivery"
               oldPrice="$15k"
               price="$10k"
               variant="default"
-              items={mvpItems}
-              ariaLabel="MVP-in-a-Box Pricing"
+              items={mvpExcludes}
+              ariaLabel="MVP-in-a-Box Excludes"
               mode="exclude"
             />
           </>
         )}
         {activeTab === 1 && (
-          <PricingCard
-            title="4-week delivery"
-            subtitle="Fixed Price"
-            oldPrice="$20k"
-            price="$15k"
-            variant="default"
-            items={web3Items}
-            ariaLabel="Web3-MVP-in-a-Box Pricing"
-          />
+          <>
+            <PricingCard
+              title="6-week delivery"
+              subtitle="Fixed price"
+              oldPrice="$20k"
+              price="$15k"
+              variant="primary"
+              items={web3Items}
+              ariaLabel="Web3-MVP-in-a-Box Pricing"
+              mode="include"
+            />
+
+            <PricingCard
+              title="6-week delivery"
+              subtitle="Fixed price"
+              oldPrice="$20k"
+              price="$15k"
+              variant="default"
+              items={web3Excludes}
+              ariaLabel="Web3-MVP-in-a-Box Excludes"
+              mode="exclude"
+            />
+          </>
         )}
       </div>
+    </div>
+  );
+}
+
+export function Pricing() {
+  return (
+    <div className="flex w-full flex-col items-center">
+      <PricingTabs />
     </div>
   );
 }

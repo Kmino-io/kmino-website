@@ -32,9 +32,18 @@ const {
       )
     }
 
-    <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5" color="inverted">
-      Book a discovery call
-    </CTA>
+    {
+      Astro.slots.has("cta") ? (
+        <slot name="cta" />
+      ) : (
+        <CTA
+          href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+          color="inverted"
+        >
+          Book a discovery call
+        </CTA>
+      )
+    }
   </div>
 
   <Pathways

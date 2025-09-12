@@ -39,11 +39,15 @@ import { Pricing } from "~/mvp/Pricing";
             </h1>
 
             <p class="max-w-xl text-xl text-white">
-              From idea to live MVP in 4 weeks — fixed price, zero <br
-              />surprises
+              From idea to live MVP in 4 weeks — fixed price, zero
+              <br />
+              surprises
             </p>
 
-            <nav aria-label="primary actions" class="flex gap-6">
+            <nav
+              aria-label="primary actions"
+              class="flex flex-wrap gap-4 md:gap-6"
+            >
               <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5">
                 Book your free call
               </CTA>
@@ -71,10 +75,10 @@ import { Pricing } from "~/mvp/Pricing";
     <BottomWaves class="-mt-1 h-auto lg:h-[172px]" aria-hidden="true" />
   </section>
 
-  <section id="offer" class="my-[100px] flex flex-col items-center">
+  <section id="offer" class="my-[100px] flex flex-col items-center px-4">
     <div class="relative z-10 mb-11 flex flex-col gap-6">
       <h2 class="heading">What we Offer</h2>
-      <p class="subheading text-primary mx-auto">
+      <p class="subheading mx-auto">
         We help product leaders and founders move faster with:
       </p>
     </div>
@@ -97,12 +101,22 @@ import { Pricing } from "~/mvp/Pricing";
     </CTA>
   </section>
 
-  <section class="bg-primary space-y-[68px] py-[180px] text-white">
-    <h2 class="heading">Join Companies building faster with Kmino</h2>
+  <section
+    class="bg-primary space-y-[68px] py-[100px] text-white lg:py-[180px]"
+  >
+    <h2 class="heading px-4">Join Companies building faster with Kmino</h2>
     <ClientsSlider client:visible />
   </section>
 
   <MVPFAQ client:visible />
 
-  <Footer callout="Ready to launch faster?" description="" />
+  <Footer callout="Ready to launch faster?" description="">
+    <CTA
+      slot="cta"
+      href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+      color="inverted"
+    >
+      Book your free call
+    </CTA>
+  </Footer>
 </MainLayout>

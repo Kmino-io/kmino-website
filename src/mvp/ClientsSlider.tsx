@@ -5,16 +5,18 @@ import luxy from "~/assets/clients/luxy.webp";
 import lunos from "~/assets/clients/lunos.webp";
 import pali from "~/assets/clients/pali.webp";
 import syscoin from "~/assets/clients/syscoin.webp";
+import pegasys from "~/assets/clients/pegasys.webp";
 
 const clients = [
-  { src: superdapp.src, alt: "SuperDapp Logo" },
-  { src: pali.src, alt: "Pali Logo" },
-  { src: syscoin.src, alt: "Syscoin Logo" },
-  { src: lunos.src, alt: "Lunos Logo" },
-  { src: luxy.src, alt: "Luxy Logo" },
+  { src: superdapp.src, alt: "SuperDapp Logo", width: 127 },
+  { src: pali.src, alt: "Pali Logo", width: 172 },
+  { src: syscoin.src, alt: "Syscoin Logo", width: 225 },
+  { src: lunos.src, alt: "Lunos Logo", width: 237 },
+  { src: luxy.src, alt: "Luxy Logo", width: 156 },
+  { src: pegasys.src, alt: "Pegasys Logo", width: 190 },
 ];
 
-const animation = { duration: 10000, easing: (t: number) => t };
+const animation = { duration: 20000, easing: (t: number) => t };
 
 export function ClientsSlider() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -24,7 +26,6 @@ export function ClientsSlider() {
     slides: {
       perView: 5,
       spacing: 24,
-      number: 6,
     },
     created(s) {
       s.moveToIdx(5, true, animation);
@@ -48,8 +49,17 @@ export function ClientsSlider() {
   return (
     <div ref={sliderRef} className="keen-slider">
       {clients.map((client, idx) => (
-        <div className="keen-slider__slide flex items-center" key={idx}>
-          <img src={client.src} alt={client.alt} loading="lazy" />
+        <div
+          className="keen-slider__slide flex items-center justify-center"
+          key={idx}
+        >
+          <img
+            src={client.src}
+            alt={client.alt}
+            width={client.width}
+            loading="lazy"
+            className="max-h-[67px]"
+          />
         </div>
       ))}
     </div>
