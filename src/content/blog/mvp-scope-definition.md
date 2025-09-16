@@ -72,8 +72,10 @@ Use simple Given/When/Then for your chosen happy path and two edge cases. Keep e
 
 ## 10) Fit to a fixed package
 
-- Web MVP‑in‑a‑Box ($10k): 4 weeks, includes a 2‑hour requirements workshop, clickable Figma, core web app, deployment,documentation, and one in‑scope feedback iteration.
-- Web3 MVP‑in‑a‑Box ($15k): 6 weeks, adds a smart contract + dApp front‑end, wallet integration, deployment to your chosen EVM chain.
+- Web MVP‑in‑a‑Box($10k)*: 4 weeks, includes a 2‑hour requirements workshop, clickable Figma, core web app, deployment,documentation, and one in‑scope feedback iteration.
+- Web3 MVP‑in‑a‑Box($15k)*: 6 weeks, adds a smart contract + dApp front‑end, wallet integration, deployment to your chosen EVM chain.
+
+*Current prices as of September 2025. Prices may increase on Q4 2025. 
 
 Out of scope for v1: ongoing feature work, heavy branding/marketing sites, complex custom integrations, native mobile apps, multi‑chain beyond the core.
 
