@@ -13,6 +13,7 @@ import Footer from "../components/Footer.astro";
 import { MVPFAQ } from "~/mvp/MVPFAQ";
 import { Pricing } from "~/mvp/Pricing";
 import { Icon } from "astro-icon/components";
+import { ContactForm } from "~/mvp/ContactForm";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -146,47 +147,9 @@ import { Icon } from "astro-icon/components";
         Ready to launch <br class="hidden lg:block" /> faster?
       </h2>
 
-      <form class="w-full max-w-[530px] space-y-6">
-        <label class="flex flex-col items-start gap-2">
-          <span class="text-lg">Label</span>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            class="w-full rounded-lg border-[1px] border-white/30 p-3 shadow-sm outline-none md:p-4"
-            placeholder="Placeholder"
-          />
-        </label>
-
-        <label class="flex flex-col items-start gap-2">
-          <span class="text-lg">Label</span>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="w-full rounded-lg border-[1px] border-white/30 p-3 shadow-sm outline-none md:p-4"
-            placeholder="Placeholder"
-          />
-        </label>
-
-        <label class="flex flex-col items-start gap-2">
-          <span class="text-lg">Label</span>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            class="w-full rounded-lg border-[1px] border-white/30 p-3 shadow-sm outline-none md:p-4"
-            placeholder="Placeholder"
-          />
-        </label>
-
-        <CTA
-          href="https://calendar.app.google/bptKpG7DXXLZve3r5"
-          color="inverted"
-        >
-          Start my MVP
-        </CTA>
-      </form>
+      <div class="w-full max-w-[530px]">
+        <ContactForm mode="self" client:visible />
+      </div>
     </div>
   </Footer>
 </MainLayout>
