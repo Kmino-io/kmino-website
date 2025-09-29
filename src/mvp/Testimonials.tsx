@@ -1,6 +1,5 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { useEffect, useRef, useState } from "react";
 import adam from "~/assets/testimonials/adam.png";
 import mickey from "~/assets/testimonials/mickey.png";
 import michiel from "~/assets/testimonials/michiel.png";

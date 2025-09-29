@@ -8,13 +8,15 @@ import { HeroLineMobile } from "~/home/HeroLineMobile";
 import BottomWaves from "../assets/bottom-waves.svg";
 import KminoText from "../assets/kmino-text.svg";
 import { AnimatedDivider } from "~/components/AnimatedDivider";
-import { ClientsSlider } from "../mvp/ClientsSlider";
 import Footer from "../components/Footer.astro";
 import { MVPFAQ } from "~/mvp/MVPFAQ";
 import { Pricing } from "~/mvp/Pricing";
 import { Icon } from "astro-icon/components";
 import { Testimonials } from "~/mvp/Testimonials";
 import { KminoBenefits } from "~/mvp/KminoBenefits";
+import { ProjectsSliderMobile } from "~/home/ProjectsSliderMobile";
+import { ProjectsAccordion } from "~/home/ProjectsAccordion";
+import { FadeIn } from "~/components/FadeIn";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -138,14 +140,36 @@ import { KminoBenefits } from "~/mvp/KminoBenefits";
     </CTA>
   </section>
 
-  <AnimatedDivider client:media="(min-width: 768px)" />
-
   <section
-    class="bg-primary space-y-[68px] py-[100px] text-white lg:py-[180px]"
+    class="relative container my-[100px] mt-0 overflow-hidden lg:my-[200px]"
+    id="projects"
   >
-    <h2 class="heading px-4">Join Companies building faster with Kmino</h2>
-    <ClientsSlider client:visible />
+    <FadeIn
+      client:visible
+      delay={0.3}
+      className="flex w-full flex-col items-center lg:items-start"
+    >
+      <h1 class="heading mb-6 text-left">
+        Join Companies building faster with Kmino
+      </h1>
+
+      <p class="subheading text-primary mb-6 text-left lg:mb-14">
+        We’ve helped startups and protocols scale their products, faster
+      </p>
+
+      <ProjectsSliderMobile
+        client:media="(max-width: 1079px)"
+        client:visible={{ rootMargin: "800px" }}
+      />
+
+      <ProjectsAccordion
+        client:media="(min-width: 1080px)"
+        client:visible={{ rootMargin: "500px" }}
+      />
+    </FadeIn>
   </section>
+
+  <AnimatedDivider client:media="(min-width: 768px)" />
 
   <KminoBenefits client:visible={{ rootMargin: "800px" }} />
 

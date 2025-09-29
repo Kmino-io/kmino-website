@@ -2,13 +2,6 @@ import { FAQ, type FAQType } from "~/components/FAQ.tsx";
 import { useMemo, useState } from "react";
 import { Tabs } from "~/components/Tabs";
 
-type MVPTabProps = {
-  active: number;
-  setActive: (idx: number) => void;
-};
-
-const tabs = ["MVP", "Web3 MVP"];
-
 const mvpFaqs: FAQType[] = [
   {
     number: "01",

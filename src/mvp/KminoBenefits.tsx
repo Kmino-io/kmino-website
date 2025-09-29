@@ -1,6 +1,6 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { useEffect, useRef, useState, type PropsWithChildren } from "react";
+import { useState, type PropsWithChildren } from "react";
 import { ArrowLeft, ArrowRight } from "iconsax-reactjs";
 import { twMerge } from "tailwind-merge";
 import shape1 from "~/assets/mvp/shape-1.png";
