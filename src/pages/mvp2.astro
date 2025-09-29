@@ -14,6 +14,7 @@ import { MVPFAQ } from "~/mvp/MVPFAQ";
 import { Pricing } from "~/mvp/Pricing";
 import { Icon } from "astro-icon/components";
 import { ContactForm } from "~/mvp/ContactForm";
+import { Testimonials } from "~/mvp/Testimonials";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -108,7 +109,11 @@ import { ContactForm } from "~/mvp/ContactForm";
     <CTA href="#contact-form" color="inverted" self> Start my MVP </CTA>
   </section>
 
-  <AnimatedDivider client:media="(min-width: 768px)" />
+  <Testimonials client:visible={{ rootMargin: "500px" }} />
+
+  <CTA href="#contact-form" color="inverted" self className="mx-auto">
+    Start my MVP
+  </CTA>
 
   <section class="container my-[100px] flex max-w-[1080px] flex-col gap-8">
     <h2 class="heading text-left">
@@ -122,6 +127,8 @@ import { ContactForm } from "~/mvp/ContactForm";
       Schedule a custom call
     </CTA>
   </section>
+
+  <AnimatedDivider client:media="(min-width: 768px)" />
 
   <section
     class="bg-primary space-y-[68px] py-[100px] text-white lg:py-[180px]"

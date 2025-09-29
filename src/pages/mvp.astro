@@ -13,6 +13,7 @@ import Footer from "../components/Footer.astro";
 import { MVPFAQ } from "~/mvp/MVPFAQ";
 import { Pricing } from "~/mvp/Pricing";
 import { Icon } from "astro-icon/components";
+import { Testimonials } from "~/mvp/Testimonials";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -111,9 +112,19 @@ import { Icon } from "astro-icon/components";
     </CTA>
   </section>
 
-  <AnimatedDivider client:media="(min-width: 768px)" />
+  <Testimonials client:visible={{ rootMargin: "500px" }} />
 
-  <section class="container my-[100px] flex max-w-[1080px] flex-col gap-8">
+  <CTA
+    href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+    color="inverted"
+    className="mx-auto"
+  >
+    Start my MVP
+  </CTA>
+
+  <section
+    class="container my-[68px] flex max-w-[1080px] flex-col gap-8 lg:my-[100px]"
+  >
     <h2 class="heading text-left">
       Needing something bigger <br /> or more complex?
     </h2>
@@ -125,6 +136,8 @@ import { Icon } from "astro-icon/components";
       Schedule a custom call
     </CTA>
   </section>
+
+  <AnimatedDivider client:media="(min-width: 768px)" />
 
   <section
     class="bg-primary space-y-[68px] py-[100px] text-white lg:py-[180px]"

@@ -5,15 +5,21 @@ import { ContactForm } from "./ContactForm";
 export function ContactFormModal({
   children,
   color = "default",
+  isCentered = false,
 }: {
   children?: string;
   color?: "default" | "inverted" | "outline";
+  isCentered?: boolean;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <CtaButton onClick={onOpen} color={color}>
+      <CtaButton
+        onClick={onOpen}
+        color={color}
+        className={isCentered ? "mx-auto" : ""}
+      >
         {children}
       </CtaButton>
       <Modal
