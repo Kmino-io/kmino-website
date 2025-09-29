@@ -1,9 +1,7 @@
-import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
-import { Tabs } from "~/components/Tabs";
 
 type PricingCardProps = {
   title: string;

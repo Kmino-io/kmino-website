@@ -1,16 +1,4 @@
-import {
-  Button,
-  Input,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  Textarea,
-  RadioGroup,
-  Radio,
-  useDisclosure,
-} from "@heroui/react";
+import { Modal, ModalBody, ModalContent, useDisclosure } from "@heroui/react";
 import CtaButton from "./CtaButton";
 import { ContactForm } from "./ContactForm";
 
