@@ -15,6 +15,7 @@ import { Pricing } from "~/mvp/Pricing";
 import { Icon } from "astro-icon/components";
 import { ContactFormModal as ContactForm } from "~/mvp/ContactFormModal";
 import { Testimonials } from "~/mvp/Testimonials";
+import { KminoBenefits } from "~/mvp/KminoBenefits";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
@@ -137,6 +138,8 @@ import { Testimonials } from "~/mvp/Testimonials";
     <h2 class="heading px-4">Join Companies building faster with Kmino</h2>
     <ClientsSlider client:visible />
   </section>
+
+  <KminoBenefits client:visible={{ rootMargin: "800px" }} />
 
   <MVPFAQ client:visible />
 
