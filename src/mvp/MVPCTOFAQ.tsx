@@ -123,9 +123,9 @@ export function MVPCTOFAQ() {
   }, [activeTab]);
 
   return (
-    <section className="relative z-50 bg-white py-16 lg:py-[200px]">
+    <section id="faq" className="relative z-50 bg-white py-16 lg:py-[200px]">
       <div className="mx-auto flex max-w-[1080px] flex-col items-start gap-0 px-4 xl:px-0">
-        <div className="mb-10 flex w-full items-center justify-between">
+        <div className="mb-10 flex w-full flex-col items-center justify-between gap-10 md:flex-row">
           <h1 className="heading">FAQ</h1>
           <Tabs
             active={activeTab}

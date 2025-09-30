@@ -91,7 +91,10 @@ export function KminoBenefits() {
     slides: { perView: 3.2, spacing: 0 },
     breakpoints: {
       "(max-width: 1280px)": {
-        slides: { perView: 2.2, spacing: 0 },
+        slides: { perView: 2.5, spacing: 0 },
+      },
+      "(max-width: 1180px)": {
+        slides: { perView: 1.9, spacing: 0 },
       },
       "(max-width: 768px)": {
         slides: { perView: 1.1, spacing: 24 },

@@ -133,7 +133,11 @@ const projects = [
   },
 ];
 
-export function ProjectsSliderMobile() {
+export function ProjectsSliderMobile({
+  hideProjectButton = false,
+}: {
+  hideProjectButton?: boolean;
+}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: { spacing: 16 },
@@ -171,13 +175,15 @@ export function ProjectsSliderMobile() {
                 </div>
               ))}
             </div>
-            <CTA
-              href={project.cta.href}
-              color="inverted"
-              className="mx-auto my-4"
-            >
-              {project.cta.label}
-            </CTA>
+            {!hideProjectButton && (
+              <CTA
+                href={project.cta.href}
+                color="inverted"
+                className="mx-auto my-4"
+              >
+                {project.cta.label}
+              </CTA>
+            )}
 
             <img
               src={project.image}

@@ -134,7 +134,11 @@ const projects = [
   },
 ];
 
-export function ProjectsAccordion() {
+export function ProjectsAccordion({
+  hideProjectButton = false,
+}: {
+  hideProjectButton?: boolean;
+}) {
   const [projectImg, setProjectImg] = useState<GetImageResult>();
   const [openIdx, setOpenIdx] = useState(0);
 
@@ -214,7 +218,7 @@ export function ProjectsAccordion() {
                   className="overflow-hidden pe-2 xl:pe-0"
                   style={{ willChange: "height,opacity" }}
                 >
-                  <div className="flex flex-row gap-4">
+                  <div className="mb-8 flex flex-row gap-4">
                     {project.blocks.map((block, i) => (
                       <div
                         key={i}
@@ -230,14 +234,15 @@ export function ProjectsAccordion() {
                       </div>
                     ))}
                   </div>
-
-                  <CTA
-                    href={project.cta.href}
-                    color="inverted"
-                    className="mx-auto my-8"
-                  >
-                    {project.cta.label}
-                  </CTA>
+                  {!hideProjectButton && (
+                    <CTA
+                      href={project.cta.href}
+                      color="inverted"
+                      className="mx-auto mb-8"
+                    >
+                      {project.cta.label}
+                    </CTA>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
