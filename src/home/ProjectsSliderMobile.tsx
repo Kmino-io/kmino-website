@@ -182,7 +182,7 @@ export function ProjectsSliderMobile() {
             <img
               src={project.image}
               alt={project.title}
-              className="w-full rounded object-cover"
+              className="mx-auto w-full max-w-[342px] rounded object-cover"
             />
           </div>
         ))}

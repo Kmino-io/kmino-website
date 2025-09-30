@@ -11,7 +11,7 @@ interface Props extends PropsWithChildren {
 
 const cta = tv({
   slots: {
-    base: "group relative flex w-fit items-center gap-3 rounded-full p-1 pe-3 transition-colors duration-300",
+    base: "group relative flex w-fit items-center gap-3 rounded-full p-1 pe-6 transition-colors duration-300",
     bg: "rounded-full p-2 after:absolute after:top-1/2 after:left-2.5 after:z-10 after:h-[32px] after:w-0 after:-translate-y-1/2 after:rounded-full after:transition-all after:duration-300 after:content-[''] group-hover:after:w-[calc(100%-14px)]",
   },
   variants: {

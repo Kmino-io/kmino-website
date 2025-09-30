@@ -211,7 +211,7 @@ export function ProjectsAccordion() {
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="overflow-hidden"
+                  className="overflow-hidden pe-2 xl:pe-0"
                   style={{ willChange: "height,opacity" }}
                 >
                   <div className="flex flex-row gap-4">

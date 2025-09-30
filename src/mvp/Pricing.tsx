@@ -1,6 +1,8 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import CTA from "~/components/CTA";
+import { ContactFormModal } from "./ContactFormModal";
 
 // --- Data ---
 const mvpItems = [
@@ -47,6 +49,7 @@ type ExpandablePricingCardProps = {
   expanded: boolean;
   onExpand: () => void;
   description?: string;
+  orientation?: "vertical" | "horizontal";
 };
 
 function ExpandablePricingCard({
@@ -60,6 +63,7 @@ function ExpandablePricingCard({
   expanded,
   onExpand,
   description,
+  orientation = "vertical",
 }: ExpandablePricingCardProps) {
   return (
     <button
@@ -71,7 +75,12 @@ function ExpandablePricingCard({
         expanded && "border-primary bg-[#EDEEE8] text-black",
       )}
     >
-      <span className="flex justify-between">
+      <span
+        className={twMerge(
+          "flex justify-between",
+          orientation === "horizontal" && "flex-col gap-4",
+        )}
+      >
         <span>
           <h2 className="font-alt text-primary text-[28px] font-semibold">
             {title}
@@ -216,6 +225,134 @@ function PricingCards() {
   );
 }
 
+function MVPCTO({
+  redirectMode = "self",
+}: {
+  redirectMode?: "self" | "modal" | "meet";
+}) {
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+
+  return (
+    <div className="mx-auto mb-[68px] grid w-full max-w-[1080px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col items-center gap-6">
+        <ExpandablePricingCard
+          title="MVP in a Box"
+          subtitle="Fixed Price"
+          description="Backend + Frontend"
+          delivery="4-week delivery"
+          price="$10k"
+          oldPrice="$15k"
+          orientation="horizontal"
+          included={mvpItems}
+          excluded={mvpExcludes}
+          expanded={expandedIdx === 0}
+          onExpand={() => setExpandedIdx(expandedIdx === 0 ? null : 0)}
+        />
+
+        {redirectMode === "meet" && (
+          <CTA
+            href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+            color="inverted"
+          >
+            Start my MVP
+          </CTA>
+        )}
+
+        {redirectMode === "modal" && (
+          <ContactFormModal color="inverted">Start my MVP</ContactFormModal>
+        )}
+
+        {redirectMode === "self" && (
+          <CTA href="#contact-form" color="inverted" self>
+            Start my MVP
+          </CTA>
+        )}
+      </div>
+
+      <div className="flex flex-col items-center gap-6">
+        <ExpandablePricingCard
+          title="Web3 MVP in a Box"
+          subtitle="Fixed Price"
+          description="Smart contracts + dApp frontend"
+          delivery="6-week delivery"
+          price="$15k"
+          oldPrice="$20k"
+          orientation="horizontal"
+          included={web3Items}
+          excluded={web3Excludes}
+          expanded={expandedIdx === 1}
+          onExpand={() => setExpandedIdx(expandedIdx === 1 ? null : 1)}
+        />
+
+        {redirectMode === "meet" && (
+          <CTA
+            href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+            color="inverted"
+          >
+            Start my Web3 MVP
+          </CTA>
+        )}
+
+        {redirectMode === "modal" && (
+          <ContactFormModal color="inverted">
+            Start my Web3 MVP
+          </ContactFormModal>
+        )}
+
+        {redirectMode === "self" && (
+          <CTA href="#contact-form" color="inverted" self>
+            Start my Web3 MVP
+          </CTA>
+        )}
+      </div>
+
+      <div className="col-span-1 flex flex-col items-center gap-6 md:col-span-2 lg:col-span-1">
+        <ExpandablePricingCard
+          title="CTO as a Service"
+          subtitle="Monthly or project-based"
+          description="Strategy, tech guidance, team oversight"
+          delivery="Fractional CTO leadership"
+          price="from $5k"
+          orientation="horizontal"
+          included={[
+            "Weekly product strategy call (up to 1 hour)",
+            "Product roadmap & backlog grooming",
+            "Monthly product health & performance report",
+            "Tech stack recommendations & architecture/product design advice",
+          ]}
+          excluded={[
+            "24/7 support or incident management",
+            "Full-time development work (available as a separate service)",
+            "Marketing strategy or sales consulting",
+            "HR/recruitment of internal teams",
+          ]}
+          expanded={expandedIdx === 2}
+          onExpand={() => setExpandedIdx(expandedIdx === 2 ? null : 2)}
+        />
+
+        {redirectMode === "meet" && (
+          <CTA
+            href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+            color="inverted"
+          >
+            Book a CTO Call
+          </CTA>
+        )}
+
+        {redirectMode === "modal" && (
+          <ContactFormModal color="inverted">Book a CTO Call</ContactFormModal>
+        )}
+
+        {redirectMode === "self" && (
+          <CTA href="#contact-form" color="inverted" self>
+            Book a CTO Call
+          </CTA>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function CTOService() {
   const [expanded, setExpanded] = useState(false);
 
@@ -248,11 +385,16 @@ function CTOService() {
 
 type PricingProps = {
   mode?: "mvp" | "cto" | "both";
+  redirectMode?: "self" | "modal" | "meet";
 };
 
-export function Pricing({ mode = "mvp" }: PricingProps) {
+export function Pricing({ mode = "mvp", redirectMode }: PricingProps) {
   if (mode === "cto") {
     return <CTOService />;
+  }
+
+  if (mode === "both") {
+    return <MVPCTO redirectMode={redirectMode} />;
   }
 
   return (
