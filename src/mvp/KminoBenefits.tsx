@@ -88,19 +88,61 @@ export function KminoBenefits() {
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: false,
-    slides: { perView: 3.2, spacing: 0 },
+    slides: { perView: 1.1, spacing: 24 },
     breakpoints: {
-      "(max-width: 1280px)": {
-        slides: { perView: 2.5, spacing: 0 },
+      "(min-width: 600px)": {
+        slides: {
+          perView: 1.5,
+          spacing: 24,
+        },
       },
-      "(max-width: 1180px)": {
-        slides: { perView: 1.9, spacing: 0 },
+      "(min-width: 800px)": {
+        slides: {
+          perView: 1.9,
+          spacing: 24,
+        },
       },
-      "(max-width: 768px)": {
-        slides: { perView: 1.1, spacing: 24 },
+      "(min-width: 1000px)": {
+        slides: {
+          perView: 2.2,
+          spacing: 24,
+        },
       },
-      "(max-width: 480px)": {
-        slides: { perView: 1, spacing: 24 },
+      "(min-width: 1200px)": {
+        slides: {
+          perView: 2.5,
+          spacing: 24,
+        },
+      },
+      "(min-width: 1370px)": {
+        slides: {
+          perView: 3.2,
+          spacing: 24,
+        },
+      },
+      "(min-width: 1800px)": {
+        slides: {
+          perView: 3.9,
+          spacing: 24,
+        },
+      },
+      "(min-width: 2000px)": {
+        slides: {
+          perView: 4.2,
+          spacing: 24,
+        },
+      },
+      "(min-width: 2300px)": {
+        slides: {
+          perView: 5.2,
+          spacing: 24,
+        },
+      },
+      "(min-width: 2700px)": {
+        slides: {
+          perView: 6,
+          spacing: 24,
+        },
       },
     },
     slideChanged(slider) {
@@ -123,8 +165,11 @@ export function KminoBenefits() {
         <br /> and true partnership with Kmino
       </h1>
 
-      <div className="mx-auto max-w-[1374px] gap-8 rounded-[30px] md:bg-[#EDEEE8]/50 md:py-10">
-        <div ref={sliderRef} className="keen-slider mx-auto max-w-[1374px]">
+      <div className="max-w-[1440px]:max-w-[1374px] mx-auto max-w-[2768px] gap-8 rounded-[30px] md:bg-[#EDEEE8]/50 md:py-10">
+        <div
+          ref={sliderRef}
+          className="keen-slider max-w-[1440px]:max-w-[1374px] mx-auto"
+        >
           {benefits.map((b, idx) => (
             <div className="keen-slider__slide" key={idx}>
               <div
@@ -141,7 +186,7 @@ export function KminoBenefits() {
           ))}
         </div>
 
-        <div className="mt-9 flex justify-center gap-10">
+        <div className="mt-9 flex justify-center gap-10 min-[2700px]:hidden">
           <button
             aria-label="Previous benefit"
             onClick={prev}
