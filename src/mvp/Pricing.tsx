@@ -81,7 +81,7 @@ function ExpandablePricingCard({
         </span>
 
         <span>
-          <div className="bg-primary font-alt mb-2 flex items-center gap-2 rounded-lg p-4 text-white">
+          <div className="bg-primary font-alt mb-2 flex items-center justify-center gap-2 rounded-lg p-4 text-white">
             {oldPrice && (
               <span className="text-2xl text-[#F4F1D2] line-through">
                 {oldPrice}
@@ -216,7 +216,45 @@ function PricingCards() {
   );
 }
 
-export function Pricing() {
+function CTOService() {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className="mb-[68px] w-full max-w-[640px]">
+      <ExpandablePricingCard
+        title="CTO as a Service"
+        subtitle="Monthly or project-based"
+        description="Strategy, tech guidance, team oversight"
+        price="from $5k"
+        delivery="Fractional CTO leadership"
+        included={[
+          "Weekly product strategy call (up to 1 hour)",
+          "Product roadmap & backlog grooming",
+          "Monthly product health & performance report",
+          "Tech stack recommendations & architecture/product design advice",
+        ]}
+        excluded={[
+          "24/7 support or incident management",
+          "Full-time development work (available as a separate service)",
+          "Marketing strategy or sales consulting",
+          "HR/recruitment of internal teams",
+        ]}
+        expanded={expanded}
+        onExpand={() => setExpanded(!expanded)}
+      />
+    </div>
+  );
+}
+
+type PricingProps = {
+  mode?: "mvp" | "cto" | "both";
+};
+
+export function Pricing({ mode = "mvp" }: PricingProps) {
+  if (mode === "cto") {
+    return <CTOService />;
+  }
+
   return (
     <div className="mb-[68px] flex w-full flex-col items-center">
       <PricingCards />

@@ -117,7 +117,10 @@ export function ContactForm({ onClose, mode = "modal" }: ContactFormProps) {
           </Button>
         )}
 
-        <CtaButton color="inverted" className="w-full">
+        <CtaButton
+          color="inverted"
+          className={mode === "modal" ? "w-full" : ""}
+        >
           Book my free call
         </CtaButton>
       </div>
