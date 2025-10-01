@@ -20,7 +20,7 @@ const testimonials = [
   {
     name: "Michiel Näring",
     title: "COO at Syscoin",
-    testimonial: `Kmino has been awesome to work with! Their development and project management make a huge difference for SuperDapp.`,
+    testimonial: `Kmino gives us the focus and dedication of an in-house team with the flexibility of a dev shop—without the HR baggage.`,
     image: michiel,
   },
 ];
