@@ -39,11 +39,11 @@ const projects = [
       },
       {
         type: "stat",
-        content: "21M USD covered",
+        content: "$21M covered",
       },
       {
         type: "detail",
-        content: "700k USD paid in claims",
+        content: "$700k paid in claims",
       },
     ],
     cta: { href: "https://lunos.xyz", label: "Access the project" },
@@ -102,11 +102,11 @@ const projects = [
       },
       {
         type: "stat",
-        content: "Over 1.5M USD traded within a week on ATH",
+        content: "Over $1.5M traded within a week on ATH",
       },
       {
         type: "detail",
-        content: "1.6M ATH TVL",
+        content: "$1.6M ATH TVL",
       },
     ],
     cta: { href: "https://pegasys.finance", label: "Access the project" },
@@ -123,7 +123,7 @@ const projects = [
       },
       {
         type: "stat",
-        content: "750M+ USD TVL on ATH",
+        content: "$750M+ TVL on ATH",
       },
       {
         type: "detail",
