@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 import icon from "astro-icon";
 import partytown from "@astrojs/partytown";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,4 +19,5 @@ export default defineConfig({
     // @ts-ignore
     plugins: [tailwindcss()],
   },
+  adapter: vercel(),
 });
