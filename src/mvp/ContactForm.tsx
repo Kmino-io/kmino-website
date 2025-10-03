@@ -34,10 +34,19 @@ export function ContactForm({ onClose, mode = "modal" }: ContactFormProps) {
           description: "Your message has been sent successfully.",
           color: "success",
           shouldShowTimeoutProgress: true,
+          hideCloseButton: true,
+          timeout: 3000,
           classNames: {
             title: "text-left",
           },
         });
+
+        setTimeout(() => {
+          window.open(
+            "https://calendar.app.google/bptKpG7DXXLZve3r5",
+            "_blank",
+          );
+        }, 3000);
 
         formApi.reset();
       } catch (e) {
