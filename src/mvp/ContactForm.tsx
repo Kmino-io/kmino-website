@@ -29,6 +29,8 @@ export function ContactForm({ onClose, mode = "modal" }: ContactFormProps) {
           projectType: value.product as ContactRequest["projectType"],
         });
 
+        window.open("https://calendar.app.google/bptKpG7DXXLZve3r5", "_blank");
+
         addToast({
           title: "Success",
           description: "Your message has been sent successfully.",
@@ -40,13 +42,6 @@ export function ContactForm({ onClose, mode = "modal" }: ContactFormProps) {
             title: "text-left",
           },
         });
-
-        setTimeout(() => {
-          window.open(
-            "https://calendar.app.google/bptKpG7DXXLZve3r5",
-            "_blank",
-          );
-        }, 3000);
 
         formApi.reset();
       } catch (e) {
