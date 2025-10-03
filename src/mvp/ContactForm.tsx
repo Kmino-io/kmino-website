@@ -89,6 +89,7 @@ export function ContactForm({ onClose, mode = "modal" }: ContactFormProps) {
               mode={mode}
               label="Email"
               name="email"
+              type="email"
               isInvalid={!!field.state.meta.errors?.length}
               errorMessage={field.state.meta.errors?.[0]?.message}
             />
