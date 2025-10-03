@@ -1,4 +1,10 @@
-import { Modal, ModalBody, ModalContent, useDisclosure } from "@heroui/react";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ToastProvider,
+  useDisclosure,
+} from "@heroui/react";
 import CtaButton from "./CtaButton";
 import { ContactForm } from "./ContactForm";
 
@@ -22,6 +28,7 @@ export function ContactFormModal({
       >
         {children}
       </CtaButton>
+      <ToastProvider />
       <Modal
         isOpen={isOpen}
         radius="none"

@@ -54,7 +54,7 @@ import { ContactFormModal } from "~/mvp/ContactFormModal";
               aria-label="primary actions"
               class="flex flex-wrap gap-4 md:gap-6"
             >
-              <ContactFormModal slot="cta" client:load>
+              <ContactFormModal slot="cta" client:visible>
                 Book your free call
               </ContactFormModal>
 
@@ -114,7 +114,7 @@ import { ContactFormModal } from "~/mvp/ContactFormModal";
 
   <Testimonials client:visible={{ rootMargin: "500px" }} />
 
-  <ContactFormModal color="inverted" isCentered client:load>
+  <ContactFormModal color="inverted" isCentered client:visible>
     Start my MVP
   </ContactFormModal>
 
@@ -129,7 +129,7 @@ import { ContactFormModal } from "~/mvp/ContactFormModal";
       Book a call to understand our customized solutions for your business.
     </p>
 
-    <ContactFormModal slot="cta" color="inverted" isCentered client:load>
+    <ContactFormModal slot="cta" color="inverted" isCentered client:visible>
       Schedule a custom call
     </ContactFormModal>
   </section>
@@ -172,7 +172,7 @@ import { ContactFormModal } from "~/mvp/ContactFormModal";
   <MVPCTOFAQ client:visible={{ rootMargin: "800px" }} />
 
   <Footer callout="Ready to launch faster?" description="">
-    <ContactFormModal slot="cta" color="inverted" isCentered client:load>
+    <ContactFormModal slot="cta" color="inverted" isCentered client:visible>
       Book your free call
     </ContactFormModal>
   </Footer>

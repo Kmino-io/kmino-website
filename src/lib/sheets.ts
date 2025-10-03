@@ -7,15 +7,15 @@ const scopes = [
   "https://www.googleapis.com/auth/drive.file",
 ];
 
-const jwt = new JWT({
-  key: import.meta.env.GOOGLE_API_PRIVATE_KEY.replace(/\\n/g, "\n"),
-  email: import.meta.env.GOOGLE_API_CLIENT_EMAIL,
-  scopes,
-});
-
-const doc = new GoogleSpreadsheet(import.meta.env.GOOGLE_SHEETS_DOC_ID, jwt);
-
 async function contactsSheet() {
+  const jwt = new JWT({
+    key: import.meta.env.GOOGLE_API_PRIVATE_KEY.replace(/\\n/g, "\n"),
+    email: import.meta.env.GOOGLE_API_CLIENT_EMAIL,
+    scopes,
+  });
+
+  const doc = new GoogleSpreadsheet(import.meta.env.GOOGLE_SHEETS_DOC_ID, jwt);
+
   await doc.loadInfo();
 
   let sheet = doc.sheetsByTitle?.["Contact Requests"];

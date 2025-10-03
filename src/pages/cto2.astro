@@ -9,7 +9,6 @@ import BottomWaves from "../assets/bottom-waves.svg";
 import KminoText from "../assets/kmino-text.svg";
 import { AnimatedDivider } from "~/components/AnimatedDivider";
 import Footer from "../components/Footer.astro";
-import { MVPFAQ } from "~/mvp/MVPFAQ";
 import { Pricing } from "~/mvp/Pricing";
 import { Icon } from "astro-icon/components";
 import { Testimonials } from "~/mvp/Testimonials";
@@ -184,7 +183,7 @@ import { ContactForm } from "~/mvp/ContactForm";
       </h2>
 
       <div class="w-full max-w-[530px]">
-        <ContactForm mode="self" client:visible />
+        <ContactForm mode="self" client:only />
       </div>
     </div>
   </Footer>

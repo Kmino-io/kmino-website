@@ -54,7 +54,7 @@ import { ProjectsAccordion } from "~/home/ProjectsAccordion";
               aria-label="primary actions"
               class="flex flex-wrap gap-4 md:gap-6"
             >
-              <ContactForm client:load> Book your free call </ContactForm>
+              <ContactForm client:visible> Book your free call </ContactForm>
 
               <CTA href="#offer" self color="outline">
                 See what's included
@@ -109,7 +109,7 @@ import { ProjectsAccordion } from "~/home/ProjectsAccordion";
 
     <Pricing client:load />
 
-    <ContactForm client:load color="inverted"> Start my MVP </ContactForm>
+    <ContactForm client:visible color="inverted"> Start my MVP </ContactForm>
   </section>
 
   <Testimonials client:visible={{ rootMargin: "500px" }} />
@@ -127,7 +127,7 @@ import { ProjectsAccordion } from "~/home/ProjectsAccordion";
       understand our customized solutions for your business.
     </p>
 
-    <ContactForm client:load color="inverted">
+    <ContactForm client:visible color="inverted">
       Schedule a custom call
     </ContactForm>
   </section>
@@ -170,7 +170,7 @@ import { ProjectsAccordion } from "~/home/ProjectsAccordion";
   <MVPFAQ client:visible />
 
   <Footer callout="Ready to launch faster?" description="">
-    <ContactForm client:load color="inverted" slot="cta">
+    <ContactForm client:visible color="inverted" slot="cta">
       Book your free call
     </ContactForm>
   </Footer>

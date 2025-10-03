@@ -8,7 +8,10 @@ export const contactRequestSchema = z.object({
   projectDescription: z.string({
     message: "Project description is required",
   }),
-  projectType: z.enum(["idont-know", "mvp-in-a-box", "web3-mvp-in-a-box"], {
-    message: "Project type is required",
-  }),
+  projectType: z.enum(
+    ["idont-know", "mvp-in-a-box", "web3-mvp-in-a-box", "cto-as-a-service"],
+    {
+      message: "Project type is required",
+    },
+  ),
 });

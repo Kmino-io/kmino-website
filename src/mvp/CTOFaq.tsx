@@ -1,6 +1,4 @@
-import { useMemo, useState } from "react";
 import { FAQ, type FAQType } from "~/components/FAQ";
-import { Tabs } from "~/components/Tabs";
 
 const ctoFaqs: FAQType[] = [
   {

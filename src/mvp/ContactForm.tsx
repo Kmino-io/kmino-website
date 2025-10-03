@@ -1,6 +1,9 @@
-import { Button, Input, Radio, RadioGroup } from "@heroui/react";
-import CtaButton from "./CtaButton";
-import { twMerge } from "tailwind-merge";
+import { addToast, Button, ToastProvider } from "@heroui/react";
+import { useAppForm } from "~/lib/form.ts";
+import { z } from "astro:schema";
+import { actions } from "astro:actions";
+import type { ContactRequest } from "~/actions";
+import { useMemo } from "react";
 
 type ContactFormProps = {
   onClose?: () => void;
@@ -8,122 +11,158 @@ type ContactFormProps = {
 };
 
 export function ContactForm({ onClose, mode = "modal" }: ContactFormProps) {
+  const pathname = useMemo(() => window.location.pathname, []);
+
+  const form = useAppForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      description: "",
+      product: pathname.startsWith("/cto") ? "cto-as-a-service" : "",
+    },
+    async onSubmit({ value, formApi }) {
+      try {
+        await actions.newContactRequest({
+          name: value.name,
+          email: value.email,
+          projectDescription: value.description,
+          projectType: value.product as ContactRequest["projectType"],
+        });
+
+        addToast({
+          title: "Success",
+          description: "Your message has been sent successfully.",
+          color: "success",
+          shouldShowTimeoutProgress: true,
+          classNames: {
+            title: "text-left",
+          },
+        });
+
+        formApi.reset();
+      } catch (e) {
+        addToast({
+          title: "Error",
+          description: "An error occurred while sending your message.",
+          color: "danger",
+        });
+      }
+    },
+  });
+
   return (
-    <form className="flex w-full flex-1 flex-col gap-8">
-      <Input
-        label="Name"
-        labelPlacement="outside-top"
-        size="lg"
-        variant="faded"
-        radius="sm"
-        classNames={{
-          inputWrapper: twMerge(
-            "border-1",
-            mode === "self" && "bg-black border-white/30",
-          ),
-          label: twMerge(
-            "text-left font-semibold",
-            mode === "self" && "text-white",
-          ),
+    <form.AppForm>
+      {mode === "self" && <ToastProvider />}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          form.handleSubmit();
         }}
-      />
-
-      <Input
-        label="Email"
-        labelPlacement="outside-top"
-        size="lg"
-        variant="faded"
-        radius="sm"
-        classNames={{
-          inputWrapper: twMerge(
-            "border-1",
-            mode === "self" && "bg-black border-white/30",
-          ),
-          label: twMerge(
-            "text-left font-semibold",
-            mode === "self" && "text-white",
-          ),
-        }}
-      />
-
-      <Input
-        label="What's your project about?"
-        labelPlacement="outside-top"
-        size="lg"
-        variant="faded"
-        radius="sm"
-        classNames={{
-          inputWrapper: twMerge(
-            "border-1",
-            mode === "self" && "bg-black border-white/30",
-          ),
-          label: twMerge(
-            "text-left font-semibold",
-            mode === "self" && "text-white",
-          ),
-        }}
-      />
-
-      <RadioGroup
-        label="Select the product you're interested in:"
-        classNames={{
-          label: twMerge(
-            "text-black mb-2 text-left font-semibold",
-            mode === "self" && "text-white",
-          ),
-        }}
+        className="flex w-full flex-1 flex-col gap-8"
       >
-        <Radio
-          value="buenos-aires"
-          classNames={{
-            base: "gap-2",
-            label: mode === "self" ? "text-white" : "text-black",
+        <form.AppField
+          name="name"
+          validators={{
+            onChange: z.string().min(1, "Name is required"),
           }}
-        >
-          I don't know what I'm looking for yet
-        </Radio>
+          children={(field) => (
+            <field.TextField
+              mode={mode}
+              label="Name"
+              name="name"
+              isInvalid={!!field.state.meta.errors?.length}
+              errorMessage={field.state.meta.errors?.[0]?.message}
+            />
+          )}
+        />
 
-        <Radio
-          value="sydney"
-          classNames={{
-            base: "gap-2",
-            label: mode === "self" ? "text-white" : "text-black",
+        <form.AppField
+          name="email"
+          validators={{
+            onChange: z
+              .string()
+              .min(1, "Email is required")
+              .email("Invalid email"),
           }}
-        >
-          MVP in a Box
-        </Radio>
+          children={(field) => (
+            <field.TextField
+              mode={mode}
+              label="Email"
+              name="email"
+              isInvalid={!!field.state.meta.errors?.length}
+              errorMessage={field.state.meta.errors?.[0]?.message}
+            />
+          )}
+        />
 
-        <Radio
-          value="san-francisco"
-          classNames={{
-            base: "gap-2",
-            label: mode === "self" ? "text-white" : "text-black",
+        <form.AppField
+          name="description"
+          validators={{
+            onChange: z.string().min(1, "Project description is required"),
           }}
-        >
-          Web3 MVP in a Box
-        </Radio>
-      </RadioGroup>
+          children={(field) => (
+            <field.TextField
+              mode={mode}
+              label="What's your project about?"
+              name="description"
+              isInvalid={!!field.state.meta.errors?.length}
+              errorMessage={field.state.meta.errors?.[0]?.message}
+            />
+          )}
+        />
 
-      <div className="flex flex-wrap justify-between gap-4 lg:flex-nowrap lg:gap-6">
-        {onClose && (
-          <Button
-            color="default"
-            fullWidth
-            className="rounded-full border-1 text-lg"
-            variant="bordered"
-            onPress={onClose}
-          >
-            Close
-          </Button>
+        {!pathname.startsWith("/cto") && (
+          <form.AppField
+            name="product"
+            validators={{
+              onChange: z.enum(
+                [
+                  "idont-know",
+                  "mvp-in-a-box",
+                  "web3-mvp-in-a-box",
+                  "cto-as-a-service",
+                ],
+                {
+                  message: "Project type is required",
+                },
+              ),
+            }}
+            children={(field) => (
+              <field.RadioField
+                mode={mode}
+                name="product"
+                label="Select the product you're interested in:"
+                options={[
+                  { label: "I don't know yet", value: "idont-know" },
+                  { label: "MVP in a Box", value: "mvp-in-a-box" },
+                  { label: "Web3 MVP in a Box", value: "web3-mvp-in-a-box" },
+                  ...(pathname.startsWith("/mvpcto")
+                    ? [{ label: "CTO as a Service", value: "cto-as-a-service" }]
+                    : []),
+                ]}
+                isInvalid={!!field.state.meta.errors?.length}
+                errorMessage={field.state.meta.errors?.[0]?.message}
+              />
+            )}
+          />
         )}
 
-        <CtaButton
-          color="inverted"
-          className={mode === "modal" ? "w-full" : ""}
-        >
-          Book my free call
-        </CtaButton>
-      </div>
-    </form>
+        <div className="flex flex-wrap justify-between gap-4 lg:flex-nowrap lg:gap-6">
+          {onClose && (
+            <Button
+              color="default"
+              fullWidth
+              className="rounded-full border-1 text-lg"
+              variant="bordered"
+              onPress={onClose}
+            >
+              Close
+            </Button>
+          )}
+
+          <form.SubmitButton label="Book my free call" mode={mode} />
+        </div>
+      </form>
+    </form.AppForm>
   );
 }
