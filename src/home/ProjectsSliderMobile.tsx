@@ -1,76 +1,147 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
+import CTA from "~/components/CTA";
 
 const projects = [
   {
-    title: "SuperDapp",
-    subtitle: "Communication platform meets Web3 in a super app.",
-    description: "Communication platform meets Web3 in a super app.",
-    image: "/images/superdapp-preview.png", // Replace with your image path
     number: "01",
-  },
-  {
-    title: "Pali Wallet & Pali Mobile",
-    subtitle: "Non‑custodial cryptocurrency wallet.",
-    description: "Non‑custodial cryptocurrency wallet.",
-    image: "/images/pali-preview.png", // Replace with your image path
-    number: "02",
-  },
-  {
-    title: "Syscoin Ecosystem",
-    subtitle: "Full‑stack blockchain contributions with staff augmentation.",
-    description: "Full‑stack blockchain contributions with staff augmentation.",
-    image: "/images/syscoin.png", // Replace with your image path
-    number: "03",
-  },
-  {
-    title: "Lunos",
-    subtitle:
-      "Web3 app that allows users to buy insurance using cryptocurrency. Fintech meets design-driven development",
-    description:
-      "Web3 app that allows users to buy insurance using cryptocurrency. Fintech meets design-driven development",
-    image: "/images/lunos-preview.png", // Replace with your image path
-    number: "04",
-  },
-  {
     title: "Luxy",
-    subtitle:
-      "Multi-chain NFT marketplace, giving creators and users the right tools",
-    description:
-      "Multi-chain NFT marketplace, giving creators and users the right tools",
-    image: "/images/luxy-preview.png", // Replace with your image path
+    image: "/images/luxy-preview.png",
+    blocks: [
+      {
+        type: "description",
+        content:
+          "Luxy is an NFT Marketplace born to give creators no-code tools to launch collections.",
+      },
+      {
+        type: "stat",
+        content: "$60k+ trading volume",
+      },
+      {
+        type: "detail",
+        content: "More than 5k users and 700+ NFT collections launched",
+      },
+    ],
+    cta: { href: "https://luxy.io", label: "Access the project" },
+  },
+  {
+    number: "02",
+    title: "Lunos",
+    image: "/images/lunos-preview.png",
+    blocks: [
+      {
+        type: "description",
+        content:
+          "Lunos provides an AI-powered, on-chain insurance platform for DeFi and real-world risks.",
+      },
+      {
+        type: "stat",
+        content: "$21M covered",
+      },
+      {
+        type: "detail",
+        content: "$700k paid in claims",
+      },
+    ],
+    cta: { href: "https://lunos.xyz", label: "Access the project" },
+  },
+  {
+    number: "03",
+    title: "SuperDapp",
+    image: "/images/superdapp-preview.png",
+    blocks: [
+      {
+        type: "description",
+        content:
+          "An AI-powered super-app for secure communication, wallets, and vibrant communities.",
+      },
+      {
+        type: "stat",
+        content: "From 0 to 240k Sign Ups",
+      },
+      {
+        type: "detail",
+        content: "AI Agents in 700+ communities",
+      },
+    ],
+    cta: { href: "https://superdapp.ai", label: "Access the project" },
+  },
+  {
+    number: "04",
+    title: "Pali Wallet",
+    image: "/images/pali-preview.png",
+    blocks: [
+      {
+        type: "description",
+        content:
+          "Pali Wallet combines secure, multichain asset management and dApp browsing, first to support UTXO and EVM chains.",
+      },
+      {
+        type: "stat",
+        content: "22.2k downloads from Google’s App Store",
+      },
+      {
+        type: "detail",
+        content: "Average 11k+ weekly active users",
+      },
+    ],
+    cta: { href: "https://paliwallet.com", label: "Access the project" },
+  },
+  {
     number: "05",
+    title: "Pegasys",
+    image: "/images/pegasys.png",
+    blocks: [
+      {
+        type: "description",
+        content:
+          "Pegasys is a Uniswap-based DEX for Syscoin NEVM and Rollux, powering DeFi with full ecosystem support.",
+      },
+      {
+        type: "stat",
+        content: "Over $1.5M traded within a week on ATH",
+      },
+      {
+        type: "detail",
+        content: "$1.6M ATH TVL",
+      },
+    ],
+    cta: { href: "https://pegasys.finance", label: "Access the project" },
+  },
+  {
+    number: "06",
+    title: "Syscoin",
+    image: "/images/syscoin.png",
+    blocks: [
+      {
+        type: "description",
+        content:
+          "Syscoin merges Bitcoin-level security with scalable EVM smart contracts on a modular blockchain.",
+      },
+      {
+        type: "stat",
+        content: "$750M+ TVL on ATH",
+      },
+      {
+        type: "detail",
+        content: "Powered by Bitcoin merge-mine",
+      },
+    ],
+    cta: { href: "https://syscoin.org", label: "Access the project" },
   },
 ];
 
-export function ProjectsSliderMobile() {
+export function ProjectsSliderMobile({
+  hideProjectButton = false,
+}: {
+  hideProjectButton?: boolean;
+}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    slides: {
-      spacing: 16,
-    },
+    slides: { spacing: 16 },
     loop: true,
-    breakpoints: {
-      "(min-width: 640px)": {
-        slides: {
-          perView: 2,
-          spacing: 24,
-        },
-      },
-      "(min-width: 1024px)": {
-        slides: {
-          perView: 3,
-          spacing: 32,
-        },
-      },
-      "(min-width: 1280px)": {
-        slides: {
-          perView: 3.7,
-          spacing: 40,
-        },
-      },
-    },
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },
@@ -81,20 +152,43 @@ export function ProjectsSliderMobile() {
       <div ref={sliderRef} className="keen-slider h-fit w-full">
         {projects.map((project, idx) => (
           <div
-            className="keen-slider__slide flex h-fit flex-col gap-6"
+            className="keen-slider__slide flex h-fit flex-col gap-4"
             key={idx}
           >
             <div className="font-alt flex items-baseline gap-3 text-[30px] text-black">
               <span className="text-primary text-[26px]">{project.number}</span>
               {project.title}
             </div>
-
-            <div className="text-xl">{project.subtitle}</div>
+            <div className="mt-2 flex flex-col gap-3">
+              {project.blocks.map((block, i) => (
+                <div
+                  key={i}
+                  className={twMerge(
+                    "flex flex-1 items-center justify-center rounded px-4 py-8 text-center",
+                    block.type === "stat" &&
+                      "font-alt bg-[#E75B32] text-[24px]",
+                    block.type !== "stat" &&
+                      "bg-[#F8F7E3] text-[20px] leading-[28.6px] text-black",
+                  )}
+                >
+                  {block.content}
+                </div>
+              ))}
+            </div>
+            {!hideProjectButton && (
+              <CTA
+                href={project.cta.href}
+                color="inverted"
+                className="mx-auto my-4"
+              >
+                {project.cta.label}
+              </CTA>
+            )}
 
             <img
               src={project.image}
               alt={project.title}
-              className="h-[539px]"
+              className="mx-auto w-full max-w-[342px] rounded object-cover"
             />
           </div>
         ))}

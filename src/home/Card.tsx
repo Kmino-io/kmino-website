@@ -32,7 +32,7 @@ export function Card({
     >
       <h2 className="mb-6 text-[22px] font-semibold">{title}</h2>
 
-      <p className="text-secondary text-[22px]">{description}</p>
+      <p className="text-[22px]">{description}</p>
 
       <motion.div
         style={{ overflow: "hidden" }}
@@ -49,7 +49,7 @@ export function Card({
         layout
       >
         <div
-          className="text-secondary text-[22px]"
+          className="text-[22px]"
           style={{
             paddingTop: isExpanded ? 0 : 0,
             paddingBottom: isExpanded ? 0 : 0,

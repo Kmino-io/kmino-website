@@ -1,0 +1,179 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import CTA from "../components/CTA";
+import Stamp from "../assets/stamp.svg";
+import { HeroLine } from "~/home/HeroLine";
+import { HeroLineMobile } from "~/home/HeroLineMobile";
+import BottomWaves from "../assets/bottom-waves.svg";
+import KminoText from "../assets/kmino-text.svg";
+import { AnimatedDivider } from "~/components/AnimatedDivider";
+import Footer from "../components/Footer.astro";
+import { MVPCTOFAQ } from "~/mvp/MVPCTOFAQ";
+import { Pricing } from "~/mvp/Pricing";
+import { Icon } from "astro-icon/components";
+import { Testimonials } from "~/mvp/Testimonials";
+import { KminoBenefits } from "~/mvp/KminoBenefits";
+import { ProjectsSliderMobile } from "~/home/ProjectsSliderMobile";
+import { ProjectsAccordion } from "~/home/ProjectsAccordion";
+import { FadeIn } from "~/components/FadeIn";
+import { ContactFormModal } from "~/mvp/ContactFormModal";
+---
+
+<MainLayout head={{ title: "Kmino" }}>
+  <section class="relative overflow-hidden xl:min-h-[747px]">
+    <div class="bg-primary relative">
+      <div class="relative z-10 container">
+        <div
+          class="mx-auto flex max-w-[1080px] flex-col gap-[120px] md:gap-[130px]"
+        >
+          <div class="-mx-4 md:mx-0">
+            <Navbar showNav={false} />
+          </div>
+
+          <div class="relative space-y-11 pb-4 md:space-y-6">
+            <Stamp
+              class="rotating absolute right-0 h-[89px] w-[89px] text-white"
+              aria-hidden="true"
+            />
+
+            <h1
+              class="font-alt text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
+            >
+              Get Your MVP or CTO <br />
+              Expertise – <br />
+              Fast, Clear, Fixed Price
+            </h1>
+
+            <p class="max-w-xl text-xl text-white">
+              From MVP launches to fractional CTO leadership, we deliver <br />
+              clarity, speed, and results.
+            </p>
+
+            <nav
+              aria-label="primary actions"
+              class="flex flex-wrap gap-4 md:gap-6"
+            >
+              <ContactFormModal slot="cta" client:visible>
+                Book your free call
+              </ContactFormModal>
+
+              <CTA href="#offer" self color="outline">
+                See what's included
+              </CTA>
+            </nav>
+
+            <div class="mb-6 flex gap-4">
+              <a
+                href="https://github.com/Kmino-io"
+                aria-label="GitHub"
+                class="bg-primary/20 flex items-center rounded-full border p-2 text-white transition hover:opacity-80"
+                target="_blank"
+              >
+                <Icon name="ri:github-fill" size={19} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/kminotech/"
+                aria-label="LinkedIn"
+                target="_blank"
+                class="bg-primary/20 flex items-center rounded-full border p-2 text-white transition hover:opacity-80"
+              >
+                <Icon name="ri:linkedin-fill" size={19} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute right-9 -bottom-[120px] z-10 hidden md:block"
+          aria-hidden="true"
+        >
+          <KminoText />
+          <KminoText />
+        </div>
+      </div>
+
+      <HeroLine client:media="(min-width: 768px)" className="bottom-[250px]" />
+      <HeroLineMobile client:media="(max-width: 768px)" />
+    </div>
+
+    <BottomWaves class="-mt-1 h-auto lg:h-[172px]" aria-hidden="true" />
+  </section>
+
+  <section id="offer" class="my-[100px] flex flex-col items-center px-4">
+    <div class="relative z-10 mb-11 flex flex-col gap-6">
+      <h2 class="heading">Your Startup Launchpad</h2>
+      <p class="subheading mx-auto">
+        Choose the package that gets your idea to market in weeks—not months.
+      </p>
+    </div>
+
+    <Pricing client:load mode="both" redirectMode="modal" />
+  </section>
+
+  <Testimonials client:visible={{ rootMargin: "500px" }} />
+
+  <ContactFormModal color="inverted" isCentered client:visible>
+    Start my MVP
+  </ContactFormModal>
+
+  <section
+    class="container my-[68px] flex max-w-[1080px] flex-col gap-8 lg:my-[100px]"
+  >
+    <h2 class="heading text-left">
+      Kmino can help you scale from <br />
+      the MVP to a live product.
+    </h2>
+    <p class="max-w-[452px]">
+      Book a call to understand our customized solutions for your business.
+    </p>
+
+    <ContactFormModal slot="cta" color="inverted" isCentered client:visible>
+      Schedule a custom call
+    </ContactFormModal>
+  </section>
+
+  <section
+    class="relative container my-[100px] mt-0 overflow-hidden lg:my-[200px]"
+    id="projects"
+  >
+    <FadeIn
+      client:visible
+      delay={0.3}
+      className="flex w-full flex-col items-center lg:items-start"
+    >
+      <h1 class="heading mb-6 text-left">
+        Join Companies building faster with Kmino
+      </h1>
+
+      <p class="subheading text-primary mb-6 text-left lg:mb-14">
+        We’ve helped startups and protocols scale their products, faster
+      </p>
+
+      <ProjectsSliderMobile
+        client:media="(max-width: 1079px)"
+        client:visible={{ rootMargin: "800px" }}
+        hideProjectButton
+      />
+
+      <ProjectsAccordion
+        client:media="(min-width: 1080px)"
+        client:visible={{ rootMargin: "500px" }}
+        hideProjectButton
+      />
+    </FadeIn>
+  </section>
+
+  <AnimatedDivider client:media="(min-width: 768px)" />
+
+  <KminoBenefits client:visible={{ rootMargin: "800px" }} />
+
+  <MVPCTOFAQ client:visible={{ rootMargin: "800px" }} />
+
+  <Footer callout="Ready to launch faster?" description="">
+    <ContactFormModal slot="cta" color="inverted" isCentered client:visible>
+      Book your free call
+    </ContactFormModal>
+  </Footer>
+</MainLayout>

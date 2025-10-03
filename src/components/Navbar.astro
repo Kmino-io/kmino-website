@@ -3,7 +3,12 @@ import Logo from "~/assets/logo.svg";
 import CTA from "./CTA";
 import { Icon } from "astro-icon/components";
 
+interface Props {
+  showNav?: boolean;
+}
+
 const currentURL = Astro.url;
+const { showNav = true } = Astro.props;
 ---
 
 <script is:inline>
@@ -14,14 +19,38 @@ const currentURL = Astro.url;
       document.body.appendChild(menuOverlay);
     }
 
-    document.querySelectorAll('a[href^="/#"]').forEach((link) => {
+    // Helper: get hash from href (supports /, /#faq, /somepage/#faq)
+    function getHashFromHref(href) {
+      const hashIndex = href.indexOf("#");
+      if (hashIndex === -1) return null;
+      return href.slice(hashIndex + 1);
+    }
+
+    // Smooth scroll for all anchor links with hashes
+    document.querySelectorAll('a[href*="#"]').forEach((link) => {
       link.addEventListener("click", function (e) {
-        const hash = this.getAttribute("href").replace("/#", "");
+        const href = this.getAttribute("href");
+        const hash = getHashFromHref(href);
+        if (!hash) return;
+
+        // Only smooth scroll if the hash target is on the current page
+        // (i.e. href starts with "/" or current pathname)
+        const isSamePage =
+          href.startsWith("/") ||
+          href.startsWith(window.location.pathname) ||
+          href.startsWith(
+            `${window.location.origin}${window.location.pathname}`,
+          );
+
         const target = document.getElementById(hash);
-        if (target) {
+        if (target && isSamePage) {
           e.preventDefault();
           target.scrollIntoView({ behavior: "smooth" });
-          history.replaceState(null, null, `/#${hash}`);
+          history.replaceState(
+            null,
+            null,
+            `${window.location.pathname}#${hash}`,
+          );
         }
 
         if (menuOverlay && menuOverlay.classList.contains("open")) {
@@ -112,18 +141,32 @@ const currentURL = Astro.url;
     </div>
 
     <div class="hidden gap-[42px] lg:flex">
-      <a href="/#what-we-do">What We Do</a>
-      <a href="/#how-we-work">How We Work</a>
-      <a href="/#projects">Projects</a>
-      <a href="/#about-us">About Us</a>
-      <a
-        href="/blog"
-        class={currentURL.pathname.includes("/blog")
-          ? "underline font-semibold"
-          : ""}
-      >
-        Blog
-      </a>
+      {
+        !showNav ? (
+          <>
+            <a href={`${currentURL.pathname}/#offer`}>Services</a>
+            <a href={`${currentURL.pathname}/#projects`}>Clients</a>
+            <a href={`${currentURL.pathname}/#faq`}>FAQ</a>
+          </>
+        ) : (
+          <>
+            <a href="/#what-we-do">What We Do</a>
+            <a href="/#how-we-work">How We Work</a>
+            <a href="/#projects">Projects</a>
+            <a href="/#about-us">About Us</a>
+            <a
+              href="/blog"
+              class={
+                currentURL.pathname.includes("/blog")
+                  ? "font-semibold underline"
+                  : ""
+              }
+            >
+              Blog
+            </a>
+          </>
+        )
+      }
     </div>
 
     <div class="hidden lg:flex">

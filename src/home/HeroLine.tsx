@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
-export function HeroLine() {
+export function HeroLine(props: { className?: string }) {
   return (
     <motion.svg
       width="100%"
@@ -9,7 +10,10 @@ export function HeroLine() {
       viewBox="0 0 1440 517"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-[245px] hidden md:block"
+      className={twMerge(
+        "absolute bottom-[245px] hidden md:block",
+        props.className,
+      )}
     >
       <motion.path
         d="M-46.5 339L49.5 350.5L111.5 472H1009L1490.5 33"

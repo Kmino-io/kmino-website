@@ -2,24 +2,52 @@
 import CTA from "./CTA";
 import { Icon } from "astro-icon/components";
 import Pathways from "../assets/pathways.svg";
+
+interface Props {
+  callout?: string;
+  description?: string;
+}
+
+const {
+  callout = "Ready to build something exceptional?",
+  description = "Book a 30‑min fit call. We’ll review goals, identify risks, and return a scoped plan in 48 hours",
+} = Astro.props;
 ---
 
 <footer class="relative z-50 overflow-hidden bg-white">
   <div
     class="relative z-10 mt-[66px] mb-[66px] flex flex-col items-center bg-black py-12 text-center text-white"
   >
-    <h2
-      class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[65px] xl:text-[81px]"
-    >
-      Ready to build something exceptional?
-    </h2>
-    <p class="mx-auto mb-6 max-w-[600px] px-4 text-white lg:text-lg">
-      Book a 30‑min fit call. We’ll review goals, identify risks, and return a
-      scoped plan in 48 hours
-    </p>
-    <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5" color="inverted">
-      Book a discovery call
-    </CTA>
+    {
+      Astro.slots.has("children") ? (
+        <slot name="children" />
+      ) : (
+        <h2 class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[65px] xl:text-[81px]">
+          {callout}
+        </h2>
+      )
+    }
+
+    {
+      description && (
+        <p class="mx-auto mb-6 max-w-[600px] px-4 text-white lg:text-lg">
+          {description}
+        </p>
+      )
+    }
+
+    {
+      Astro.slots.has("cta") ? (
+        <slot name="cta" />
+      ) : Astro.slots.has("children") ? null : (
+        <CTA
+          href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+          color="inverted"
+        >
+          Book a discovery call
+        </CTA>
+      )
+    }
   </div>
 
   <Pathways

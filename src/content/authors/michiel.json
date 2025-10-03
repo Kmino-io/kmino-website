@@ -1,11 +1,9 @@
 {
-    "name": "Michiel Näring",
-    "image": {
-      "url": "/blog/michiel-pfp.jpg",
-      "alt": "Michiel Profile Picture"
-    },
-    "jobDescription": "Advisor",
-    "socials": [
-      
-    ]
-  }
+  "name": "Michiel Näring",
+  "image": {
+    "url": "/blog/michiel-pfp.jpg",
+    "alt": "Michiel Profile Picture"
+  },
+  "jobDescription": "Advisor",
+  "socials": []
+}

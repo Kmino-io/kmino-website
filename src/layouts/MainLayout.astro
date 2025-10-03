@@ -72,48 +72,80 @@ const currentURL = Astro.url;
           </CTA>
         </div>
 
-        <div class="flex w-full flex-col items-center gap-4">
-          <a
-            href="/"
-            class={twMerge(
-              "w-full rounded-full py-2 text-center text-white",
-              currentURL.pathname === "/" && "bg-white text-black",
-            )}
-          >
-            Home
-          </a>
+        {
+          currentURL.pathname === "/" ||
+          currentURL.pathname.startsWith("/blog") ? (
+            <div class="flex w-full flex-col items-center gap-4">
+              <a
+                href="/"
+                class={twMerge(
+                  "w-full rounded-full py-2 text-center text-white",
+                  currentURL.pathname === "/" && "bg-white text-black",
+                )}
+              >
+                Home
+              </a>
 
-          <a
-            href="/#about-us"
-            class="w-full rounded-full py-2 text-center text-white"
-          >
-            About Us
-          </a>
+              <a
+                href="/#about-us"
+                class="w-full rounded-full py-2 text-center text-white"
+              >
+                About Us
+              </a>
 
-          <a
-            href="/#how-we-work"
-            class="w-full rounded-full py-2 text-center text-white"
-          >
-            How We Work
-          </a>
+              <a
+                href="/#how-we-work"
+                class="w-full rounded-full py-2 text-center text-white"
+              >
+                How We Work
+              </a>
 
-          <a
-            href="/#projects"
-            class="w-full rounded-full py-2 text-center text-white"
-          >
-            Projects
-          </a>
+              <a
+                href="/#projects"
+                class="w-full rounded-full py-2 text-center text-white"
+              >
+                Projects
+              </a>
 
-          <a
-            href="/blog"
-            class={twMerge(
-              "text-white w-full py-2 rounded-full text-center",
-              currentURL.pathname.includes("/blog") && "bg-white text-black",
-            )}
-          >
-            Blog
-          </a>
-        </div>
+              <a
+                href="/blog"
+                class={twMerge(
+                  "w-full rounded-full py-2 text-center text-white",
+                  currentURL.pathname.includes("/blog") &&
+                    "bg-white text-black",
+                )}
+              >
+                Blog
+              </a>
+            </div>
+          ) : (
+            <div class="flex w-full flex-col items-center gap-4">
+              <a
+                href={`${currentURL.pathname}/#offer`}
+                class={twMerge(
+                  "w-full rounded-full py-2 text-center text-white",
+                  currentURL.pathname === "/" && "bg-white text-black",
+                )}
+              >
+                Services
+              </a>
+
+              <a
+                href={`${currentURL.pathname}/#projects`}
+                class="w-full rounded-full py-2 text-center text-white"
+              >
+                Clients
+              </a>
+
+              <a
+                href={`${currentURL.pathname}/#faq`}
+                class="w-full rounded-full py-2 text-center text-white"
+              >
+                FAQ
+              </a>
+            </div>
+          )
+        }
 
         <div class="mb-6 flex gap-6">
           <a
