@@ -55,7 +55,7 @@ Bringing in a specialized partner for these short-term initiatives helps you mov
 
 For big teams, outsourcing in this way **protects your core developers** from context-switching and keeps them focused on the roadmap that matters most.
 
-![Outsource Dev](https://images.unsplash.com/photo-1619013334655-b4fc9b903bbe?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "Big Companies Outsource")
+![Outsource Dev](https://images.unsplash.com/photo-1582810822512-cd067820a128?q=80&w=1907&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "Big Companies Outsource")
 
 ## #3 Established Teams: Solving Deep Tech Gaps
 
@@ -69,7 +69,7 @@ I once worked as a PM on an outsourced development team for a company valued in 
 
 They had an internal network team that knew *everything* there was to know about network: components, routers, protocols, security, you name it. However, on this network team, they lacked DevOps and automation expertise. They absolutely had this knowledge elsewhere in the company. But with every team stretched thin, other priorities, and so on, they decided to outsource.
 
-We helped them build tools to automate network management across different buildings all across the globe. Once that was done, we parted ways; they kept the tools and documentation, and we moved on. And I learned a lot about computer networks in the process, so that was a plus 🙃.
+We helped them build tools to automate network management across different buildings all across the globe. Once that was done, we parted ways; they kept the tools and documentation, and we moved on. And I learned a lot about computer networks in the process, so that was a plus!
 
 # A Word of Caution: You Get What You Pay For
 
