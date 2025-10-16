@@ -17,7 +17,7 @@ Today I'll talk about a pragmatic structure from our MVP scoping method and addi
 
 ## Definitions (so we fix the right thing)
 
-- **Design Debt**: Gaps in UX, IA, content, and visual consistency that increase user effort and support load. **Symptoms**: unclear affordances, divergent component styles, redundant flows, naming chaos, inaccessible patterns.
+- **Design Debt**: Gaps in UX, content, and visual consistency that increase user effort and support load. **Symptoms**: unclear affordances, divergent component styles, redundant flows, naming chaos, inaccessible patterns.
 - **Technical Debt**: Code, architecture, and infra shortcuts that raise change risk and slow delivery. **Symptoms**: missing tests, tangled dependencies, no seams for change, copy pasted logic, noisy logs, flaky pipelines.
 
 Both accrue “interest.” Design debt increases drop‑offs and support time. Tech debt increases cycle time and defect rates. The trick is to treat them as one portfolio with different payoff vectors.
@@ -36,6 +36,13 @@ Run this with a PM, a designer, and an engineer. Cap findings to one line each.
    - **AI Impact Potential**: high/medium/low (how much AI can accelerate this paydown)
 
 That’s your first debt inventory.
+
+### Example (pulling it together)
+
+- From sign up to browsing items, the user goes through 7 steps. This is confusing and likely reduces conversion.  
+- User Pain: Medium  
+- Change Risk: High  
+- AI Impact Potential: Low
 
 ## Quantify the cost (use "AI‑aware" estimation)
 
@@ -64,6 +71,13 @@ Tackle in this order:
 2) High Pain, High Risk → split with seams, flags, and tests; schedule a focused sprint  
 3) Low Pain, Low Risk → opportunistic tidy‑ups when adjacent work happens  
 4) Low Pain, High Risk → defer or redesign upstream to avoid touching
+
+### Example (applying the 2×2)
+
+|               | Change Risk: Low | Change Risk: High |
+|---------------|------------------|-------------------|
+| User Pain: High | Mobile “reorder” missing — add visible home button; ship this sprint. | Checkout discounts hardcoded — centralize in pricing service behind a flag; schedule a focused sprint. |
+| User Pain: Low  | Profile spacing off — fix in next UI pass. | Analytics DB migration — defer; use exports until it fits roadmap. |
 
 ![Building Smarter](https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470)
 
@@ -107,8 +121,9 @@ Budget, accessibility level, performance budgets, security basics, observability
 
 ## Playbooks: what to fix first
 
-Design debt: make screens consistent, fix labels and navigation, improve readability and keyboard access, and tighten copy.  
-Tech debt: separate parts so changes are safer, add tests on key flows, add logs and a simple health dashboard, and ship database changes in small steps.
+**Design debt:** make screens consistent, fix labels and navigation, improve readability and keyboard access, and tighten copy.  
+
+**Tech debt:** separate parts so changes are safer, add tests on key flows, add logs and a simple health dashboard, and ship database changes in small steps.
 
 ## Using AI (safely)
 
@@ -116,9 +131,18 @@ Use AI to draft the list of issues, rough estimates, and release notes. Keep peo
 
 ## Examples (small set, big impact)
 
-- Confusing pricing toggle: fix copy and defaults to lift plan selection.  
-- Flaky webhook retries: stabilize retries and alerts to cut incidents.  
-- Inconsistent empty states: align messages to reduce support pings.  
+- Confusing pricing toggle  
+  - One‑line objective: Increase plan selection on pricing page.  
+  - Acceptance criteria: Given a visitor on pricing, when they toggle monthly/annual, then the selected plan remains clear and copy shows savings; plan selection rate improves by ≥5% in two weeks.  
+  
+- Flaky webhook retries  
+  - One‑line objective: Cut incidents from failed webhooks.  
+  - Acceptance criteria: Given a temporary provider error, when a webhook fails, then it auto‑retries with backoff and alerts the team; incident pages drop by ≥50% month‑over‑month.  
+
+- Inconsistent empty states  
+  - One‑line objective: Reduce support pings from confusing empty screens.  
+  - Acceptance criteria: Given a first‑time user with no data, when they open the dashboard, then they see a clear next step (CTA) and help link; “can’t find data” tickets drop by ≥20% in the first week.  
+
 Pick the top three, spend 2–3 weeks, and report results.
 
 ## Keep it small, always
@@ -140,4 +164,4 @@ Design debt hurts users. Tech debt slows delivery. Track both in one list, fix t
 - Fix high‑pain, low‑risk items first.  
 - Lock in wins with tests and monitoring.
 
-For more structured frameworks, see our guides on MVP scoping and AI‑aware estimation, and follow us on [LinkedIn](https://www.linkedin.com/company/kminotech/).
+For more structured frameworks, see our guides on [MVP scoping](https://www.kmino.io/blog/mvp-scope-definition) and [AI‑aware estimation](https://www.kmino.io/blog/software-estimation-with-ai), and follow us on [LinkedIn](https://www.linkedin.com/company/kminotech/).
