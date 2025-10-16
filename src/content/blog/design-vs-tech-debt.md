@@ -11,7 +11,9 @@ author: "david"
 
 # Design Debt vs Tech Debt: How to Diagnose, Prioritize, and Pay Down Both
 
-Most teams talk about “tech debt,” but just as often it’s design debt that blocks adoption and slows delivery. One hurts your users (confusing flows, inconsistent UI); the other hurts your developers (fragile code, risky changes). In reality, they compound each other. This post offers a pragmatic structure from our MVP scoping method and adding "AI‑aware" estimation to make visible progress in weeks, not quarters.
+Most teams talk about “tech debt,” but just as often it’s design debt that blocks adoption and slows delivery. One hurts your users (confusing flows, inconsistent UI); the other hurts your developers (fragile code, risky changes). In reality, they compound each other. 
+
+Today I'll talk about a pragmatic structure from our MVP scoping method and adding "AI‑aware" estimation to make visible progress in weeks, not quarters.
 
 ## Definitions (so we fix the right thing)
 
