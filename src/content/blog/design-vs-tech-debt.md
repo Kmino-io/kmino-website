@@ -76,8 +76,8 @@ Tackle in this order:
 
 |               | Change Risk: Low | Change Risk: High |
 |---------------|------------------|-------------------|
-| User Pain: High | Mobile “reorder” missing — add visible home button; ship this sprint. | Checkout discounts hardcoded — centralize in pricing service behind a flag; schedule a focused sprint. |
-| User Pain: Low  | Profile spacing off — fix in next UI pass. | Analytics DB migration — defer; use exports until it fits roadmap. |
+| User Pain: Low  | **Profile spacing off** — fix in next UI pass. | **Analytics DB migration** — defer; use exports until it fits roadmap. |
+| User Pain: High | **Mobile “reorder” missing** — add visible home button; ship this sprint. | **Checkout discounts hardcoded** — centralize in pricing service behind a flag; schedule a focused sprint. |
 
 ![Building Smarter](https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470)
 
