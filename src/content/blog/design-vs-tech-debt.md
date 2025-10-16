@@ -3,7 +3,7 @@ title: "Design Debt vs Tech Debt: How to Diagnose, Prioritize, and Pay Down Both
 description: "A practical, AI‑aware playbook to inventory design and technical debt, quantify impact, and ship a focused paydown plan without stalling product velocity."
 pubDate: 2025-10-20
 image:
-  url: https://images.unsplash.com/photo-1565691410967-4e1c68077b5d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=736
+  url: https://images.unsplash.com/photo-1517816428104-797678c7cf0c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470
   alt: Design vs Tech Debt Cover
 tags: [Design, Technical Debt, Product Management, Software Engineering, Prioritization]
 author: "david"
@@ -37,7 +37,7 @@ That’s your first debt inventory.
 
 ## Quantify the cost (use "AI‑aware" estimation)
 
-From our [AI‑era estimation approach](https://www.kmino.io/blog/software-estimation-with-ai)], estimate each item three ways:
+From our [AI‑era estimation approach](https://www.kmino.io/blog/software-estimation-with-ai), estimate each item three ways:
 
 - **AO (AI‑Optimistic)**: best case with strong AI help
 - **AR (AI‑Realistic)**: typical cycle with prompt refinement + review
@@ -63,13 +63,15 @@ Tackle in this order:
 3) Low Pain, Low Risk → opportunistic tidy‑ups when adjacent work happens  
 4) Low Pain, High Risk → defer or redesign upstream to avoid touching
 
+![Building Smarter](https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470)
+
 ## A 2–3 week debt paydown sprint (time‑boxed)
 
 Borrowing the structure from our MVP worksheet, here’s a template:
 
 ### 1) One‑line objective
 
-For [target users/devs], reduce [**friction/risk**] in [**journey/module**] so that [**measurable outcome**].
+For **target users/devs**, reduce **friction/risk** in **journey/module** so that **measurable outcome**.
 
 ### 2) Scope the happy path (≤7 steps)
 
