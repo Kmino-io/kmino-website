@@ -56,7 +56,10 @@ async function verifyContract(contract) {
 }
 ```
 
-In both cases, the functions appear harmless or legitimate at first glance, but they're actually designed to exfiltrate private keys or drain funds.
+In both cases, the functions appear harmless or legitimate at first glance, but they're actually designed to exfiltrate sensitive data or drain funds:
+
+- On the first example, the code requests the connected wallet address and reads its balance. The second half of the code send all funds from the selected wallet to a hardcode wallet address.
+- On the second example, there is nothing being *verified*. Instead, the function extracts the address and ABI from a contract, encodes the data, creates a payload and sends to a hardcoded URL. 
 
 This topic alone deserves its own article, so we'll get into more details on this later down the line.
 
@@ -113,9 +116,9 @@ Nothing to do with a Healthcare app, which suggests the code was **copied from o
 
 However, what launched the red flags waving in my head and encouraged a deeper investigation in the first place was simply how the repository was set up. Too many similarities with the scams I've seen before:
 
-- **Single commit** 
+- **Single Contributor** 
 - **Weird GitHub username**
-- **Single Contributor**
+- **Single Commit**
 - **Professional-looking facade** - designed to bypass security scrutiny
 - **Comprehensive documentation** - makes it appear legitimate and confuses LLMs that see in these patterns professional intentions.
 
