@@ -2,6 +2,7 @@
 import Logo from "~/assets/logo.svg";
 import CTA from "./CTA";
 import { Icon } from "astro-icon/components";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   showNav?: boolean;
@@ -180,3 +181,5 @@ const { showNav = true } = Astro.props;
     </div>
   </div>
 </nav>
+
+<ClientRouter />
