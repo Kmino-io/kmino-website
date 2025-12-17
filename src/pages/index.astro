@@ -6,6 +6,7 @@ import KminoText from "../assets/kmino-text.svg";
 import ProjectsBg from "../assets/project-bg.svg";
 import Stamp from "../assets/stamp.svg";
 import Navbar from "../components/Navbar.astro";
+import { Slide } from "../components/animation/Slide.tsx";
 import { HeroLine } from "~/home/HeroLine";
 import { HeroLineMobile } from "~/home/HeroLineMobile";
 import CTA from "../components/CTA";
@@ -26,7 +27,7 @@ import { AnimatedDivider } from "~/components/AnimatedDivider";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
-  <section class="relative overflow-hidden xl:min-h-[747px]">
+  <section class="relative overflow-hidden xl:min-h-[747px]" id="hero-section">
     <div class="bg-primary relative">
       <div class="relative z-10 container">
         <div
@@ -37,30 +38,38 @@ import { AnimatedDivider } from "~/components/AnimatedDivider";
           </div>
 
           <div class="relative space-y-11 pb-4 md:space-y-6">
-            <Stamp
-              class="rotating absolute -top-9 -left-6 h-16 w-16 text-white md:-top-[60px] md:-left-9 md:h-[89px] md:w-[89px]"
-            />
+            <div
+              id="magnetic-stamp"
+              class="animate-stamp absolute -top-9 -left-6 h-16 w-16 md:-top-[60px] md:-left-9 md:h-[89px] md:w-[89px]"
+            >
+              <Stamp class="rotating h-full w-full text-white" />
+            </div>
 
             <h1
-              class="font-alt text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
+              class="font-alt animate-hero-heading text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
             >
               Velocity <br /> without <br /> compromise.
             </h1>
 
-            <p class="max-w-xl text-xl text-white">
+            <p class="animate-hero-text max-w-xl text-xl text-white">
               High-performance, distributed squads with AI-accelerated delivery
               and product advisory. Scoped plan in 48 hours. <br /><br />You own
               the IP, repos, and infra. Every merge passes human review, tests,
               and security checks.
             </p>
 
-            <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5">
-              Book a discovery call
-            </CTA>
+            <div class="animate-hero-cta">
+              <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5">
+                Book a discovery call
+              </CTA>
+            </div>
           </div>
         </div>
 
-        <div class="absolute right-9 -bottom-[60px] z-10 hidden md:block">
+        <div
+          id="magnetic-kmino-text"
+          class="animate-kmino-text absolute right-9 -bottom-[60px] z-10 hidden md:block"
+        >
           <KminoText />
           <KminoText />
         </div>
@@ -79,12 +88,14 @@ import { AnimatedDivider } from "~/components/AnimatedDivider";
   >
     <WhatWeDoLinesMobile client:media="(max-width: 768px)" />
 
-    <div class="relative z-10 mb-11 flex flex-col gap-6">
-      <h1 class="heading">What we Do</h1>
-      <p class="subheading text-primary mx-auto max-w-[341px]">
-        We help product leaders and founders move faster with:
-      </p>
-    </div>
+    <Slide from="top" client:visible>
+      <div class="relative z-10 mb-11 flex flex-col gap-6">
+        <h1 class="heading">What we Do</h1>
+        <p class="subheading text-primary mx-auto max-w-[341px]">
+          We help product leaders and founders move faster with:
+        </p>
+      </div>
+    </Slide>
 
     <WhatWeDoLines client:media="(min-width: 1414px)" />
 
@@ -94,62 +105,73 @@ import { AnimatedDivider } from "~/components/AnimatedDivider";
       class="relative mx-auto mt-[79px] flex min-h-[856px] max-w-[1080px] justify-between text-[22px] tracking-tight max-[1414px]:hidden"
     >
       <Stamp class="text-primary rotating absolute -top-12 -right-10 z-10" />
-      <div class="flex flex-col justify-between">
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
-        >
-          <p class="font-semibold">Fullstack Web & Mobile Development</p>
-          <p>
-            TypeScript/Node, React/React Native, modern APIs. Predictable
-            delivery, clean architecture, clear docs.
-          </p>
-        </div>
 
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
-        >
-          <p class="font-semibold">Staff Augmentation</p>
-          <p>
-            Embedded engineers who ship from week one. Immediate velocity
-            without microman micromanImmediate velocity withoutagement.
-          </p>
-        </div>
+      <div class="flex flex-col justify-between">
+        <Slide from="left" client:visible>
+          <div
+            class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+          >
+            <p class="font-semibold">Fullstack Web & Mobile Development</p>
+            <p>
+              TypeScript/Node, React/React Native, modern APIs. Predictable
+              delivery, clean architecture, clear docs.
+            </p>
+          </div>
+        </Slide>
+
+        <Slide from="left" client:visible>
+          <div
+            class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+          >
+            <p class="font-semibold">Staff Augmentation</p>
+            <p>
+              Embedded engineers who ship from week one. Immediate velocity
+              without microman micromanImmediate velocity withoutagement.
+            </p>
+          </div>
+        </Slide>
       </div>
 
       <div class="flex items-center">
-        <div
-          class="bg-primary flex min-h-[347px] max-w-[382px] flex-col justify-center gap-4 border border-black px-[26px] text-white"
-        >
-          <p class="font-semibold">Web3 & Smart Contract Development</p>
-          <p>
-            Auditable contracts, gas‑aware design, test‑first workflows.
-            Security and upgrade paths you can trust.
-          </p>
-        </div>
+        <Slide from="bottom" client:visible>
+          <div
+            class="bg-primary flex min-h-[347px] max-w-[382px] flex-col justify-center gap-4 border border-black px-[26px] text-white"
+          >
+            <p class="font-semibold">Web3 & Smart Contract Development</p>
+            <p>
+              Auditable contracts, gas‑aware design, test‑first workflows.
+              Security and upgrade paths you can trust.
+            </p>
+          </div>
+        </Slide>
       </div>
 
       <div class="flex flex-col justify-between">
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
-        >
-          <p class="font-semibold">Product & Delivery Advisory</p>
-          <p>
-            Beyond tech. We help you refine your product vision, sharpen your
-            positioning, craft a compelling brand, and even connect with
-            investors: everything you need to build with purpose and raise with
-            confidence.
-          </p>
-        </div>
+        <Slide from="right" client:visible>
+          <div
+            class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+          >
+            <p class="font-semibold">Product & Delivery Advisory</p>
+            <p>
+              Beyond tech. We help you refine your product vision, sharpen your
+              positioning, craft a compelling brand, and even connect with
+              investors: everything you need to build with purpose and raise
+              with confidence.
+            </p>
+          </div>
+        </Slide>
 
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
-        >
-          <p class="font-semibold">AI development</p>
-          <p>
-            Custom LLMs, RAG systems, intelligent automation. AI that actually
-            works in production, not just demos.
-          </p>
-        </div>
+        <Slide from="right" client:visible>
+          <div
+            class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+          >
+            <p class="font-semibold">AI development</p>
+            <p>
+              Custom LLMs, RAG systems, intelligent automation. AI that actually
+              works in production, not just demos.
+            </p>
+          </div>
+        </Slide>
       </div>
     </div>
   </section>
@@ -397,3 +419,162 @@ import { AnimatedDivider } from "~/components/AnimatedDivider";
 
   <Footer />
 </MainLayout>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes stampEntrance {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-hero-heading {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  .animate-hero-text {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
+
+  .animate-hero-cta {
+    animation: fadeInScale 0.6s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+  }
+
+  .animate-stamp {
+    animation: stampEntrance 0.8s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-kmino-text {
+    animation: slideInRight 1s ease-out forwards;
+    animation-delay: 0.7s;
+    opacity: 0;
+  }
+
+  #magnetic-stamp {
+    will-change: transform;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const heroSection = document.getElementById("hero-section");
+    const stamp = document.getElementById("magnetic-stamp");
+    const kminoText = document.getElementById("magnetic-kmino-text");
+
+    if (!heroSection) return;
+
+    // Entrance animations with GSAP
+    if (stamp) {
+      gsap.from(stamp, {
+        scale: 0.5,
+        duration: 0.8,
+        delay: 0.1,
+        ease: "power2.out",
+      });
+    }
+
+    if (kminoText) {
+      gsap.from(kminoText, {
+        x: 50,
+        duration: 1,
+        delay: 0.7,
+        ease: "power2.out",
+      });
+    }
+
+    const strength = 30; // Maximum pixels the elements can move
+
+    heroSection.addEventListener("mousemove", (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const sectionCenterX = rect.left + rect.width / 2;
+      const sectionCenterY = rect.top + rect.height / 2;
+
+      // Calculate mouse position relative to section center (-1 to 1)
+      const percentX = (e.clientX - sectionCenterX) / (rect.width / 2);
+      const percentY = (e.clientY - sectionCenterY) / (rect.height / 2);
+
+      // Move stamp based on mouse position
+      if (stamp) {
+        gsap.to(stamp, {
+          x: percentX * strength,
+          y: percentY * strength,
+          duration: 0.6,
+          ease: "power2.out",
+        });
+      }
+
+      // Move KminoText with magnetic effect
+      if (kminoText) {
+        gsap.to(kminoText, {
+          x: percentX * strength,
+          y: percentY * strength,
+          duration: 0.6,
+          ease: "power2.out",
+        });
+      }
+    });
+
+    // Reset when mouse leaves the section
+    heroSection.addEventListener("mouseleave", () => {
+      if (stamp) {
+        gsap.to(stamp, {
+          x: 0,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+      }
+
+      if (kminoText) {
+        gsap.to(kminoText, {
+          x: 0,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+      }
+    });
+  });
+</script>
