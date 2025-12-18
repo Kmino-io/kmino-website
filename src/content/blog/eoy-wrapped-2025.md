@@ -23,7 +23,7 @@ We were able to keep pushing towards our goal, for both existing clients as well
 
 ## Current Partnerships
 
-On your day-to-day execution, it's hard to lose perspective on how much you are actually delivering. As an old mentor said to me once, sometimes we need to 'turn the telescope around', and for this piece, I did just that. I went back to our development boards and looked at how much our teams delivered for some of our current tech partners.
+On your day-to-day execution, it's easy to lose perspective on how much you are actually delivering. As an old mentor said to me once, sometimes we need to 'turn the telescope around', and for this piece, I did just that. I went back to our development boards and looked at how much our teams delivered for some of our current tech partners.
 
 SuperDapp is a great example. A Web3 native superapp, SuperDapp is a complex and layered application, born out of a legacy app we have a small squad allocated to. In 2025, we delivered great features, yes: 
 
