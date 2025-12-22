@@ -102,4 +102,4 @@ I'm glad I sat down to write this piece. It's easy to lose perspective on how mu
 
 Now it's time to rest, recollect, and prepare for 2026. A new blank sheet, ready to be filled with plans, execution, and new accomplishments. 
 
-As usual, don't forget to follow us on LinkedIn, and happy holidays!
+As usual, don't forget to follow us on [LinkedIn](https://www.linkedin.com/company/kminotech/), and happy holidays!
