@@ -1,15 +1,15 @@
 ---
-title: "FIXME title"
-description: "FIXME description"
-pubDate: 2025-12-19
+title: "Looking Back at Our 2025"
+description: "A Brief reflection on 2025 at Kmino: milestones met, seeds planted, and what excites us about 2026"
+pubDate: 2025-12-29
 image:
-  url: FIXME banner image
-  alt: FIXME image alt
-tags: [FIXME tags]
+  url: https://images.unsplash.com/photo-1610778547423-7546613c40a3?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  alt: EOY 2025 Wrapper Cover Image
+tags: [Product Management, Retrospective, Reflection]
 author: "bruno"
 ---
 
-# FIXME title
+# Looking Back at Our 2025
 
 Kmino was born in 2025. My other founders and I come from a tech background, and have worked on both other software agencies as well as big corporate, and we've seen the good and bad from both worlds. 
 
@@ -32,17 +32,17 @@ SuperDapp is a great example. A Web3 native superapp, SuperDapp is a complex and
 
 But maintaining an application of this size, you also need to plan accordingly for bug fixing and overall improvements on performance, security, usability, and maintanibility. And this took quite the time out of our team. Hundreds and hundreds of bug fixes were delivered, putting the app in a better place for all its users.
 
-<placeholder for image for sueperdapp>
+![Superdapp dark mode](../blog-assets/eoy-2025/superdapp-gif.gif)
 
-Another great example is Lunos. A Web3 insurance protocol, the project had its technological challenges, yes. But Kmino also supported them on product advisory, raises, and business guidance. 
+Another great example is Lunos. A Web3 insurance protocol, the project had its technological challenges, but Kmino also supported them on product advisory, raises, and business guidance. 
 
 In 2025, the former UNO Re app went through a complete rebranding and repositioning. Fast iterations, finding product-market fit, and discussing with potential investors: Kmino helped them through it all.
 
 And, as we can't escape our roots, we also explored different new technology frameworks to achieve the new product vision, such as Eigen Cloud's solutions for verifiable computation, and how it could be applied for traditional insurance. 
 
-<placeholder for image for lunos>
+![Lunos Rebranding](../blog-assets/eoy-2025/superdapp-gif.gif)
 
-Some features and deliverables are planned for weeks, months, or quarters. Some others are sometimes year-long planning and execution. For Syscoin, our team's main work will be launched only in 2026, but they earned a special mention in this post.
+Some features and deliverables are planned for weeks, months, or quarters. Others are sometimes year-long planning and execution. For Syscoin, our team's main work will be launched only in 2026, but they earned a special mention in this post.
 
 We worked together with the Syscoin Foundation to deliver their upcoming Layer-2 solution, zkSys, based on zero-knowledge proofs, and inheriting the Bitcoin-security from their L1.
 
@@ -50,7 +50,7 @@ We also supported a complete refactor of Pali Wallet, the main extension wallet 
 
 Finally, to solve an old business problem, we took the challenge of developing a new bridge from scratch, based on Hyperlane's architecture, enabling users to join and leave the upcoming zkSys ecosystem with ease, while we also returned the control of this vital piece of infrastructure to our partner, rather than leaving this at 3rd-party hands.
 
-<placeholder for image for Syscoin>
+![Syscoin Infrastructure](../blog-assets/eoy-2025/superdapp-gif.gif)
 
 ## Looking Inwards
 
@@ -68,9 +68,9 @@ With a pool of talented people in-house, powerful dev tools, and extensive know-
 
 And the first almost finalized product is FlowBar, announced last week on our LinkedIn page, which is a simple, yet beautiful, minimalist, and useful task tracker for macOS. Integrating with macOS shortcuts, apart from tracking tasks with labeling and whatnot, it also sets Do-Not-Disturb focus when a custom-set Pomodoro timer is activated.
 
-Personally, the most exciting part was to see the entire team engaging in its development on their free time, testing the app, giving feedback, and collaborating on features. It just solidifies the culture that we want to create of curiosity, ownership, and knowledge-sharing. I'm eager to see what this talent team comes up with next!
+Personally, the most exciting part was to see the entire team engaging in its development on their free time, testing the app, giving feedback, and collaborating on features. It just solidifies the culture that we want to create of curiosity, ownership, and knowledge-sharing. I'm eager to see what this talented team comes up with next!
 
-<placeholder for FlowBar image>
+![FlowBar Sneek Peak](../blog-assets/eoy-2025/superdapp-gif.gif)
 
 ## Conferences, Meetups, and Events
 
@@ -92,7 +92,7 @@ Part of what Kmino was created to do is to help bring new ideas to life, and the
 
 From our business perspective, some of them already bear some fruit. We're working on projects on Syscoin, SUI, and Ethereum, and even new MVPs on markets not in our sight before, such as Prediction Markets, and other goodies we hope to share more in the coming months!
 
-<placeholder for images from events>
+![Events and Connections](../blog-assets/eoy-2025/superdapp-gif.gif)
 
 ## Looking Ahead, 2026
 
