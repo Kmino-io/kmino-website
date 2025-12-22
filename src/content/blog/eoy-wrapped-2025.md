@@ -3,7 +3,7 @@ title: "Looking Back at Our 2025"
 description: "A Brief reflection on 2025 at Kmino: milestones met, seeds planted, and what excites us about 2026"
 pubDate: 2025-12-29
 image:
-  url: https://images.unsplash.com/photo-1610778547423-7546613c40a3?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  url: https://images.unsplash.com/photo-1731647239140-ec6bd9095ff1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   alt: EOY 2025 Wrapper Cover Image
 tags: [Product Management, Retrospective, Reflection]
 author: "bruno"
