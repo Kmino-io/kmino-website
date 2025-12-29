@@ -42,7 +42,7 @@ And, as we can't escape our roots, we also explored different new technology fra
 
 ![Lunos Rebranding](../blog-assets/eoy-2025/lunos.png)
 
-Some features and deliverables are planned for weeks, months, or quarters. Others are sometimes year-long planning and execution. For Syscoin, our team's main work will be launched only in 2026, but they earned a special mention in this post.
+Some features and deliverables are planned for weeks, months, or quarters. Others are sometimes year-long planning and execution. For Syscoin, our team's main work will launch only in 2026, but they earned a special mention in this post.
 
 We worked together with the Syscoin Foundation to deliver their upcoming Layer-2 solution, zkSys, based on zero-knowledge proofs, and inheriting the Bitcoin-security from their L1.
 
@@ -84,7 +84,7 @@ Somehow, their team was able to elevate the first experience, and the vibes in B
 
 And, of course, apart from the main conferences and events, there were a lot of side events our team attended, bringing more perspective, new connections, and new business opportunities.
 
-## New Parterships and Connections
+## New Partnerships and Connections
 
 In all these events, IRL and virtual, we made a lot of connections. From the US to Europe to LATAM to Asia to Australia, we talked with people everywhere. Heard their stories, shared our own, strengthened existing bonds, and created new ones.
 
