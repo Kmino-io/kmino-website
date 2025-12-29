@@ -1,6 +1,6 @@
 ---
 title: "Looking Back at Our 2025"
-description: "A Brief reflection on 2025 at Kmino: milestones met, seeds planted, and what excites us about 2026"
+description: "A brief reflection on 2025 at Kmino: milestones met, seeds planted, and what excites us about 2026"
 pubDate: 2025-12-29
 image:
   url: https://images.unsplash.com/photo-1731647239140-ec6bd9095ff1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
@@ -13,7 +13,7 @@ author: "bruno"
 
 Kmino was born in 2025. My other founders and I come from a tech background, and have worked on both other software agencies as well as big corporate, and we've seen the good and bad from both worlds. 
 
-When we first embarked on this journey of starting our own company, the vision was that we could deliver a better experience for everyone involved: developers could have quality work-life-balance with structured proceses in place, targeted use of the best tooling available, and projects that excites them to come to work; and our clients could have peace of mind that they had capable engineers taking care of the tech part while they could focus on other aspects of the business where their expertise lies, without the HR hassle or paying exorbitant prices for outsourcing.
+When we first embarked on this journey of starting our own company, the vision was that we could deliver a better experience for everyone involved: developers could have quality work-life-balance with structured processes in place, targeted use of the best tooling available, and projects that excites them to come to work; and our clients could have peace of mind that they had capable engineers taking care of the tech part while they could focus on other aspects of the business where their expertise lies, without the HR hassle or paying exorbitant prices for outsourcing.
 
 Our goal was to do things differently. To "build better paths", as our slogan says.
 
@@ -40,7 +40,7 @@ In 2025, the former UNO Re app went through a complete rebranding and reposition
 
 And, as we can't escape our roots, we also explored different new technology frameworks to achieve the new product vision, such as Eigen Cloud's solutions for verifiable computation, and how it could be applied for traditional insurance. 
 
-![Lunos Rebranding](../blog-assets/eoy-2025/superdapp-gif.gif)
+![Lunos Rebranding](../blog-assets/eoy-2025/lunos.png)
 
 Some features and deliverables are planned for weeks, months, or quarters. Others are sometimes year-long planning and execution. For Syscoin, our team's main work will be launched only in 2026, but they earned a special mention in this post.
 
@@ -50,7 +50,7 @@ We also supported a complete refactor of Pali Wallet, the main extension wallet 
 
 Finally, to solve an old business problem, we took the challenge of developing a new bridge from scratch, based on Hyperlane's architecture, enabling users to join and leave the upcoming zkSys ecosystem with ease, while we also returned the control of this vital piece of infrastructure to our partner, rather than leaving this at 3rd-party hands.
 
-![Syscoin Infrastructure](../blog-assets/eoy-2025/superdapp-gif.gif)
+![Syscoin Infrastructure](../blog-assets/eoy-2025/zksys.png)
 
 ## Looking Inwards
 
@@ -66,11 +66,11 @@ Something new that we wanted to explore with Kmino was to bring new ideas to lif
 
 With a pool of talented people in-house, powerful dev tools, and extensive know-how, it's a no-brainer to solve simple problems with the help of tech.
 
-And the first almost finalized product is FlowBar, announced last week on our LinkedIn page, which is a simple, yet beautiful, minimalist, and useful task tracker for macOS. Integrating with macOS shortcuts, apart from tracking tasks with labeling and whatnot, it also sets Do-Not-Disturb focus when a custom-set Pomodoro timer is activated.
+And the first (almost finalized) product is FlowBar, which is a simple, yet beautiful, minimalist, and useful task tracker for macOS. Integrating with macOS shortcuts, apart from tracking tasks with labeling and whatnot, it also sets Do-Not-Disturb focus when a custom-set Pomodoro timer is activated. We expect to open beta access early in 2026, so stay tuned for that!
 
 Personally, the most exciting part was to see the entire team engaging in its development on their free time, testing the app, giving feedback, and collaborating on features. It just solidifies the culture that we want to create of curiosity, ownership, and knowledge-sharing. I'm eager to see what this talented team comes up with next!
 
-![FlowBar Sneek Peak](../blog-assets/eoy-2025/superdapp-gif.gif)
+![FlowBar Sneek Peak](../blog-assets/eoy-2025/flowbar.png)
 
 ## Conferences, Meetups, and Events
 
@@ -92,7 +92,7 @@ Part of what Kmino was created to do is to help bring new ideas to life, and the
 
 From our business perspective, some of them already bear some fruit. We're working on projects on Syscoin, SUI, and Ethereum, and even new MVPs on markets not in our sight before, such as Prediction Markets, and other goodies we hope to share more in the coming months!
 
-![Events and Connections](../blog-assets/eoy-2025/superdapp-gif.gif)
+![Events and Connections](../blog-assets/eoy-2025/2025-recap.png)
 
 ## Looking Ahead, 2026
 
