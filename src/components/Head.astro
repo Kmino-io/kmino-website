@@ -10,16 +10,18 @@ interface Props {
   author?: string;
   pubDate?: Date | string;
   isBlogPost?: boolean;
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
 export type HeadProps = Props;
 
 const defaults = {
   title: "Kmino",
-  description: "Build with confidence. Scale with strategy.",
+  description:
+    "Velocity without compromise. High-performance, distributed squads with AI-accelerated delivery and product advisory. Scoped plan in 48 hours.",
   image: {
     url: `${Astro.site}og-image.png`,
-    alt: "Kmino",
+    alt: "Kmino - Build with confidence. Scale with strategy.",
   },
 };
 
@@ -31,6 +33,7 @@ const {
   author,
   pubDate,
   isBlogPost,
+  breadcrumbs,
 } = Astro.props;
 
 const canonicalUrl = `${Astro.site}${Astro.url.pathname.replace("/", "")}`;
@@ -40,18 +43,43 @@ const publishedDateISO = pubDate
     : pubDate.toISOString()
   : undefined;
 
+const isHomePage = Astro.url.pathname === "/" || Astro.url.pathname === "";
+
 const orgJson = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Kmino",
   url: Astro.site,
-  logo: `${Astro.site}favicon.svg`,
+  logo: `${Astro.site}favicon-192.png`,
   sameAs: [
     "https://www.linkedin.com/company/kminotech",
     "https://github.com/Kmino-io",
   ],
   description: defaults.description,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Sales",
+    url: "https://calendar.app.google/bptKpG7DXXLZve3r5",
+  },
 });
+
+const websiteJson = isHomePage
+  ? JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Kmino",
+      url: Astro.site,
+      description: defaults.description,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${Astro.site}blog?search={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
+    })
+  : null;
 
 const blogPostJson =
   isBlogPost && title && description && author && publishedDateISO
@@ -69,7 +97,7 @@ const blogPostJson =
           name: "Kmino",
           logo: {
             "@type": "ImageObject",
-            url: `${Astro.site}favicon.svg`,
+            url: `${Astro.site}favicon-192.png`,
           },
         },
         datePublished: publishedDateISO,
@@ -87,6 +115,19 @@ const blogPostJson =
         },
       })
     : null;
+
+const breadcrumbJson = breadcrumbs
+  ? JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbs.map((crumb, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: crumb.name,
+        item: crumb.url,
+      })),
+    })
+  : null;
 ---
 
 <title>{title.includes("Kmino") ? title : `${title} | Kmino`}</title>
@@ -100,8 +141,17 @@ const blogPostJson =
 {publishedDateISO && <meta name="date" content={publishedDateISO} />}
 
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="canonical" href={canonicalUrl} />
+
+<!-- Favicons - Multiple formats for maximum compatibility -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 
 <!-- Open Graph tags -->
 <meta property="og:title" content={title} />
@@ -136,7 +186,19 @@ const blogPostJson =
 <script type="application/ld+json" is:inline set:html={orgJson} />
 
 {
+  websiteJson && (
+    <script type="application/ld+json" is:inline set:html={websiteJson} />
+  )
+}
+
+{
   blogPostJson && (
     <script type="application/ld+json" is:inline set:html={blogPostJson} />
+  )
+}
+
+{
+  breadcrumbJson && (
+    <script type="application/ld+json" is:inline set:html={breadcrumbJson} />
   )
 }

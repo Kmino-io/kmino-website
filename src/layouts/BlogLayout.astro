@@ -22,6 +22,16 @@ const { frontmatter } = Astro.props;
     author: frontmatter?.author || "Kmino",
     pubDate: frontmatter?.pubDate,
     tags: frontmatter?.tags,
+    breadcrumbs: frontmatter?.title
+      ? [
+          { name: "Home", url: `${Astro.site}` },
+          { name: "Blog", url: `${Astro.site}blog` },
+          {
+            name: frontmatter.title,
+            url: `${Astro.site}${Astro.url.pathname.replace("/", "")}`,
+          },
+        ]
+      : undefined,
   }}
 >
   <Navbar />
