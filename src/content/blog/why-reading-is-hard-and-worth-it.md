@@ -1,7 +1,7 @@
 ---
 title: "Why reading is hard and worth it"
 description: "How building a reading habit helps reclaim focus and sustained attention in an age of constant distraction."
-pubDate: 2026-01-230
+pubDate: 2026-01-28
 image:
   url: https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   alt: Why reading is hard and worth it
