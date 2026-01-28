@@ -1,0 +1,20 @@
+{
+  "name": "Guilherme Fleury Franco",
+  "image": {
+    "url": "/blog/guilherme-pfp.png",
+    "alt": "Guilherme Fleury Franco Profile Picture"
+  },
+  "jobDescription": "Software Engineer",
+  "socials": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/guilhermefleury",
+      "icon": "ri:github-fill"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/guilhermefleuryfranco/",
+      "icon": "ri:linkedin-box-fill"
+    }
+  ]
+}
