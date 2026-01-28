@@ -9,7 +9,7 @@ tags: [Reading, Productivity, Personal Development, Focus, Learning]
 author: "guilherme"
 ---
 
-# Why reading is hard and worth it
+# Why Reading is Hard and Worth It
 
 As someone who had access to digital entertainment at a very young age, I never had much interest in reading books. Apart from obligatory school readings, I could count the books I had read until last year on my fingers. It wasn't until I joined Kmino's "zero to hero" program that I really tried to develop the habit of reading. Within a four-month period I have already read three books and started reading the fourth. This article reflects on what I believe to be the benefits of developing a reading habit and my struggles while doing so.
 
