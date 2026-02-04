@@ -68,6 +68,25 @@
   animation: rotate 10s linear infinite;
 }
 
+/* Footer sun glow animation */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.sun-glow {
+  background: radial-gradient(circle, #e64a27);
+  filter: blur(20px);
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
 .scrollbar-none {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
