@@ -19,36 +19,62 @@ export function FooterScene() {
 
     if (!container || !sun || !mountain) return;
 
-    gsap.set(sun, { y: 150 });
-    gsap.set(mountain, { y: 250 });
+    const mm = gsap.matchMedia();
 
-    // Sun rises as footer enters viewport
-    const sunAnim = gsap.to(sun, {
-      y: -100,
-      scrollTrigger: {
-        trigger: container,
-        start: "top bottom",
-        end: "center center",
-        scrub: 1.5,
-      },
+    // Desktop (lg+)
+    mm.add("(min-width: 1024px)", () => {
+      gsap.set(sun, { y: 150 });
+      gsap.set(mountain, { y: 250 });
+
+      gsap.to(sun, {
+        y: -100,
+        scrollTrigger: {
+          trigger: container,
+          start: "top bottom",
+          end: "center center",
+          scrub: 1.5,
+        },
+      });
+
+      gsap.to(mountain, {
+        y: 0,
+        scrollTrigger: {
+          trigger: container,
+          start: "top 80%",
+          end: "center center",
+          scrub: 1,
+        },
+      });
     });
 
-    // Mountain rises slightly after sun, lands at bottom
-    const mountainAnim = gsap.to(mountain, {
-      y: 0,
-      scrollTrigger: {
-        trigger: container,
-        start: "top 80%",
-        end: "center center",
-        scrub: 1,
-      },
+    // Mobile / tablet
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(sun, { y: 100 });
+      gsap.set(mountain, { y: 300 });
+
+      gsap.to(sun, {
+        y: -100,
+        scrollTrigger: {
+          trigger: container,
+          start: "top 30%",
+          end: "bottom bottom",
+          scrub: 1.5,
+        },
+      });
+
+      gsap.to(mountain, {
+        y: 0,
+        scrollTrigger: {
+          trigger: container,
+          start: "top 50%",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
     });
 
     return () => {
-      sunAnim.scrollTrigger?.kill();
-      sunAnim.kill();
-      mountainAnim.scrollTrigger?.kill();
-      mountainAnim.kill();
+      mm.revert();
     };
   }, []);
 
@@ -64,7 +90,7 @@ export function FooterScene() {
         loading="lazy"
         decoding="async"
         alt=""
-        className="absolute -bottom-52 left-1/2 w-[300px] -translate-x-1/2 lg:-bottom-32 lg:h-[750px] lg:w-[780px]"
+        className="absolute -bottom-32 left-1/2 w-[600px] -translate-x-1/2 lg:-bottom-32 lg:h-[750px] lg:w-[780px]"
       />
 
       {/* Mountain image */}
@@ -74,7 +100,7 @@ export function FooterScene() {
         alt=""
         loading="lazy"
         decoding="async"
-        className="absolute bottom-0 left-1/2 -translate-x-1/2"
+        className="absolute bottom-0 left-1/2 max-w-[850px] -translate-x-1/2 lg:max-w-[1920px]"
       />
     </div>
   );
