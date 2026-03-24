@@ -29,6 +29,7 @@ export function Slide({ from, children }: Props) {
     <motion.div
       ref={ref}
       style={{
+        position: "relative",
         opacity,
         x,
         y,
