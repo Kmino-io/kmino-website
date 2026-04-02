@@ -1,39 +1,27 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import type { PropsWithChildren } from "react";
-import { useRef } from "react";
 
 interface Props extends PropsWithChildren {
   from: "left" | "right" | "bottom" | "top";
 }
 
 const OFFSET_MAP = {
-  left: { x: [-200, 0], y: [0, 0] },
-  right: { x: [200, 0], y: [0, 0] },
-  top: { x: [0, 0], y: [-100, 0] },
-  bottom: { x: [0, 0], y: [100, 0] },
+  left: { x: -200, y: 0 },
+  right: { x: 200, y: 0 },
+  top: { x: 0, y: -100 },
+  bottom: { x: 0, y: 100 },
 };
 
 export function Slide({ from, children }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 90%", "start 60%"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const x = useTransform(scrollYProgress, [0, 1], OFFSET_MAP[from].x);
-  const y = useTransform(scrollYProgress, [0, 1], OFFSET_MAP[from].y);
+  const offset = OFFSET_MAP[from];
 
   return (
     <motion.div
-      ref={ref}
-      style={{
-        position: "relative",
-        opacity,
-        x,
-        y,
-      }}
+      initial={{ opacity: 0, x: offset.x, y: offset.y }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ position: "relative" }}
     >
       {children}
     </motion.div>

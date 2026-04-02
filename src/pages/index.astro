@@ -1,66 +1,79 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import TopWaves from "../assets/top-waves-mobile.svg";
-import ProjectsBg from "../assets/project-bg.svg";
 import Stamp from "../assets/stamp.svg";
+import ServicesSlider from "../assets/services-slider.webp";
 import Navbar from "../components/Navbar.astro";
 import { Slide } from "../components/animation/Slide.tsx";
 import CTA from "../components/CTA";
 import { WhatWeDoLinesMobile } from "~/home/WhatWeDoLinesMobile";
 import { WhatWeDoSlider } from "~/home/WhatWeDoSlider";
-import { HowWeWorkSlider } from "~/home/HowWeWorkSlider";
-// import { Testimonials } from "~/home/Testimonials";
-import { ProjectsSliderMobile } from "~/home/ProjectsSliderMobile";
 import { WhatWeDoLines } from "../home/WhatWeDoLines";
-import { WhyKminoLine } from "~/home/WhyKminoLine";
-import { ProjectsAccordion } from "../home/ProjectsAccordion";
-import { FadeIn } from "~/components/FadeIn";
 import Footer from "../components/Footer.astro";
-import { HowWeHelpCards } from "~/home/HowWeHelpCards";
-import { FAQ } from "~/components/FAQ";
-import { HowItWorksList } from "~/home/HowItWorksList";
-import { AnimatedDivider } from "~/components/AnimatedDivider";
 import { Image } from "astro:assets";
 
 import heroBg from "../assets/hero-bg.webp";
+import clients from "../assets/clients.webp";
 import heroBgMobile from "../assets/hero-mobile.webp";
+import { WhatWeSee } from "~/home/WhatWeSee";
+import { Testimonials } from "~/home/Testimonials";
+import { Stats } from "~/home/Stats";
+import { Stages } from "~/home/Stages";
+import { ReadyToBuild } from "~/home/ReadyToBuild";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
   <Navbar />
 
   <section
-    class="bg-primary relative h-dvh max-h-[556px] overflow-hidden lg:max-h-full"
+    class="bg-primary relative h-dvh overflow-hidden lg:max-h-full"
     id="hero-section"
   >
     <div
       class="absolute top-1/2 left-1/2 z-20 flex h-full max-h-[632px] w-full max-w-[1242px] -translate-x-1/2 -translate-y-[45%] items-center justify-center px-4"
     >
       <div
-        class="flex flex-1 flex-col justify-center gap-8 border-2 border-white px-4 py-10 lg:h-full lg:gap-9 lg:px-[76px]"
+        class="flex flex-1 flex-col items-center border-2 border-white px-4 py-10 lg:h-full lg:flex-row lg:gap-9 lg:ps-[76px] lg:pe-[36px]"
       >
-        <h1
-          class="font-alt animate-hero-heading text-[46px] leading-[130%] tracking-[-0.02em] text-white md:text-[68px]"
+        <div class="flex max-w-[594px] flex-col gap-6">
+          <span
+            class="text-primary hidden w-fit rounded-4xl bg-[#F4F1D2]/80 px-4 py-2 leading-[130%] lg:block"
+          >
+            For founders who build with AI and want it done right
+          </span>
+
+          <h1
+            class="font-alt animate-hero-heading text-[28px] leading-[130%] tracking-tight text-white md:text-[48px]"
+          >
+            Everyone's shipping with AI. Not everyone's shipping something worth
+            keeping.
+          </h1>
+
+          <p
+            class="animate-hero-text max-w-xl leading-[130%] tracking-tight text-white lg:text-xl"
+          >
+            We're the senior technical team that makes sure your AI-assisted
+            product doesn't become your biggest liability. Strategy,
+            engineering, and delivery, with humans who own the outcome.
+          </p>
+
+          <div class="animate-hero-cta">
+            <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5">
+              Book a discovery call
+            </CTA>
+          </div>
+        </div>
+
+        <div
+          class="mt-9 flex w-full flex-col gap-4 text-white lg:mt-20 lg:gap-10"
         >
-          Velocity <br class="block lg:hidden" />without <br /> compromise.
-        </h1>
-
-        <p class="animate-hero-text max-w-xl text-xl text-white">
-          High-performance, distributed squads with AI-accelerated delivery and
-          product advisory. Scoped plan in 48 hours.
-        </p>
-
-        <p
-          class="animate-hero-text hidden max-w-xl text-xl text-white lg:block"
-        >
-          You own the IP, repos, and infra. Every merge passes human review,
-          tests, and security checks.
-        </p>
-
-        <div class="animate-hero-cta">
-          <CTA href="https://calendar.app.google/bptKpG7DXXLZve3r5">
-            Book a discovery call
-          </CTA>
+          <div class="flex flex-col gap-2">
+            <span>Trusted by</span>
+            <Image src={clients} alt="Clients" />
+          </div>
+          <p>
+            $750M+ TVL shipped · 240k users · decade of production-grade
+            delivery
+          </p>
         </div>
       </div>
     </div>
@@ -76,7 +89,7 @@ import heroBgMobile from "../assets/hero-mobile.webp";
     />
 
     <div
-      class="bg-primary/50 absolute bottom-0 z-10 h-[50%] w-full backdrop-blur-lg"
+      class="bg-primary/50 absolute bottom-0 z-10 h-[58%] w-full backdrop-blur-lg lg:h-[42%]"
     >
     </div>
 
@@ -89,390 +102,295 @@ import heroBgMobile from "../assets/hero-mobile.webp";
       crossorigin="anonymous"
     />
   </section>
-</MainLayout>
 
-<script>
-  import { initGlass } from "~/utils/initGlass";
+  <script>
+    import { initGlass } from "~/utils/initGlass";
 
-  const image = document.getElementById("glass-image");
-  const glassContainer = document.getElementById("glass-container");
+    const image = document.getElementById("glass-image");
+    const glassContainer = document.getElementById("glass-container");
 
-  if (
-    image instanceof HTMLImageElement &&
-    glassContainer instanceof HTMLElement
-  ) {
-    const shouldUseGlass = !window.matchMedia(
-      "(max-width: 767px), (hover: none), (pointer: coarse)",
-    ).matches;
+    if (
+      image instanceof HTMLImageElement &&
+      glassContainer instanceof HTMLElement
+    ) {
+      const shouldUseGlass = !window.matchMedia(
+        "(max-width: 767px), (hover: none), (pointer: coarse)",
+      ).matches;
 
-    if (!shouldUseGlass) {
-      glassContainer.remove();
-    } else {
-      const glassOptions = {
-        distortion: 0.6,
-        size: 0.4,
-        speed: 0.02,
-      };
-
-      let glassInstance: ReturnType<typeof initGlass> | undefined;
-
-      const startGlass = () => {
-        if (glassInstance) return;
-        if (image.naturalWidth === 0 || image.naturalHeight === 0) return;
-        glassInstance = initGlass(glassContainer, { image, ...glassOptions });
-      };
-
-      if (image.complete) {
-        startGlass();
+      if (!shouldUseGlass) {
+        glassContainer.remove();
       } else {
-        image.addEventListener("load", startGlass, { once: true });
+        const glassOptions = {
+          distortion: 0.6,
+          size: 0.4,
+          speed: 0.02,
+        };
+
+        let glassInstance: ReturnType<typeof initGlass> | undefined;
+
+        const startGlass = () => {
+          if (glassInstance) return;
+          if (image.naturalWidth === 0 || image.naturalHeight === 0) return;
+          glassInstance = initGlass(glassContainer, { image, ...glassOptions });
+        };
+
+        if (image.complete) {
+          startGlass();
+        } else {
+          image.addEventListener("load", startGlass, { once: true });
+        }
+
+        window.addEventListener(
+          "pagehide",
+          () => {
+            glassInstance?.destroy();
+          },
+          { once: true },
+        );
       }
-
-      window.addEventListener(
-        "pagehide",
-        () => {
-          glassInstance?.destroy();
-        },
-        { once: true },
-      );
     }
-  }
-</script>
+  </script>
 
-<section
-  class="relative container overflow-hidden pt-[120px] pb-[100px] lg:mb-[200px]"
-  id="what-we-do"
->
-  <WhatWeDoLinesMobile client:media="(max-width: 768px)" />
+  <WhatWeSee client:visible />
 
-  <Slide from="top" client:visible>
-    <div class="relative z-10 mb-11 flex flex-col gap-6">
-      <h1 class="heading">What we Do</h1>
-      <p class="subheading text-primary mx-auto max-w-[341px]">
-        We help product leaders and founders move faster with:
-      </p>
-    </div>
-  </Slide>
-
-  <WhatWeDoLines client:media="(min-width: 1414px)" />
-
-  <WhatWeDoSlider client:media="(max-width: 1414px)" />
-
-  <div
-    class="relative mx-auto mt-[79px] flex min-h-[856px] max-w-[1080px] justify-between text-[22px] tracking-tight max-[1414px]:hidden"
+  <section
+    class="relative container overflow-hidden pt-[120px] pb-[80px]"
+    id="what-we-do"
   >
-    <Stamp class="text-primary rotating absolute -top-12 -right-10 z-10" />
+    <WhatWeDoLinesMobile client:media="(max-width: 768px)" />
 
-    <div class="flex flex-col justify-between">
-      <Slide from="left" client:visible>
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+    <Slide from="top" client:visible>
+      <div class="relative z-10 mb-11 flex flex-col gap-6 text-center">
+        <h1
+          class="font-alt mx-auto max-w-[780px] text-[43px] leading-[1.08] tracking-tight"
         >
-          <p class="font-semibold">Fullstack Web & Mobile Development</p>
-          <p>
-            TypeScript/Node, React/React Native, modern APIs. Predictable
-            delivery, clean architecture, clear docs.
-          </p>
-        </div>
-      </Slide>
-
-      <Slide from="left" client:visible>
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
+          Here's what you get when <br class="hidden lg:block" />
+          you build with Kmino
+        </h1>
+        <p
+          class="text-primary font-alt mx-auto max-w-[980px] text-[26px] leading-[1.25] tracking-tight"
         >
-          <p class="font-semibold">Staff Augmentation</p>
-          <p>
-            Embedded engineers who ship from week one. Immediate velocity
-            without microman micromanImmediate velocity withoutagement.
-          </p>
-        </div>
-      </Slide>
-    </div>
-
-    <div class="flex items-center">
-      <Slide from="bottom" client:visible>
-        <div
-          class="bg-primary flex min-h-[347px] max-w-[382px] flex-col justify-center gap-4 border border-black px-[26px] text-white"
-        >
-          <p class="font-semibold">Web3 & Smart Contract Development</p>
-          <p>
-            Auditable contracts, gas‑aware design, test‑first workflows.
-            Security and upgrade paths you can trust.
-          </p>
-        </div>
-      </Slide>
-    </div>
-
-    <div class="flex flex-col justify-between">
-      <Slide from="right" client:visible>
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
-        >
-          <p class="font-semibold">Product & Delivery Advisory</p>
-          <p>
-            Beyond tech. We help you refine your product vision, sharpen your
-            positioning, craft a compelling brand, and even connect with
-            investors: everything you need to build with purpose and raise with
-            confidence.
-          </p>
-        </div>
-      </Slide>
-
-      <Slide from="right" client:visible>
-        <div
-          class="flex min-h-[347px] max-w-[349px] flex-col justify-center gap-4 bg-black px-[26px] text-white"
-        >
-          <p class="font-semibold">AI development</p>
-          <p>
-            Custom LLMs, RAG systems, intelligent automation. AI that actually
-            works in production, not just demos.
-          </p>
-        </div>
-      </Slide>
-    </div>
-  </div>
-</section>
-
-<section class="relative flex flex-col items-end overflow-hidden py-24">
-  <WhyKminoLine client:media="(min-width: 1024px)" />
-
-  <div class="container flex max-w-[1000px] lg:justify-end">
-    <div class="w-fit space-y-11 lg:max-w-[381px]">
-      <h1 class="heading text-left">Why Kmino?</h1>
-
-      <div class="flex flex-col gap-4 text-xl tracking-tight lg:gap-8">
-        <p>
-          <strong>Elite Tech Teams, AI-Accelerated</strong><br />Small,
-          high-performance squads that integrate fast, ship reliably, and stay
-          aligned to your goals.
+          Most agencies give you speed or quality. We built Kmino to give you
+          both, because the real cost isn't the sprint, it's the rewrite.
         </p>
-        <p>
-          <strong>Built-In Excellence</strong><br />Playbooks, mentorship, and
-          weekly training are baked into every sprint.
-        </p>
-        <p>
-          <strong>Own Everything</strong><br />Your code, your infra—clean docs
-          and smooth handovers guaranteed.
-        </p>
-        <p>If you want dependable, maintainable velocity—we should talk.</p>
       </div>
-    </div>
-  </div>
+    </Slide>
 
-  <Stamp class="text-primary rotating ml-auto lg:hidden" />
-</section>
+    <WhatWeDoLines client:media="(min-width: 1414px)" />
 
-<section
-  class="container mt-[70px] mb-[120px] overflow-hidden lg:mt-[200px]"
-  id="how-we-work"
->
-  <div class="relative mb-11 md:mb-[100px]">
-    <h1 class="heading text-left">How we Work</h1>
-    <p class="subheading text-primary max-w-[341px] text-left">
-      Our Process. Your Advantage.
-    </p>
-
-    <Stamp
-      class="text-primary rotating absolute top-0 right-0 hidden lg:block"
-    />
-  </div>
-
-  <HowWeWorkSlider client:visible={{ rootMargin: "500px" }} />
-</section>
-
-<!-- <section
-    class="container my-[100px] flex flex-col items-center lg:my-[200px]"
-  >
-    <Testimonials client:visible={{ rootMargin: "200px" }} />
-  </section> -->
-
-<section
-  class="relative container my-[100px] mt-0 overflow-hidden lg:my-[200px]"
-  id="projects"
->
-  <FadeIn
-    client:visible
-    className="flex w-full flex-col items-center lg:items-start"
-  >
-    <h1 class="heading mb-6 text-left">Trusted by Innovators Worldwide</h1>
-
-    <p class="subheading text-primary mb-6 text-left lg:mb-14">
-      We’ve helped startups and protocols scale their products, faster
-    </p>
-
-    <ProjectsSliderMobile
-      client:media="(max-width: 1079px)"
-      client:visible={{ rootMargin: "800px" }}
-    />
-
-    <ProjectsAccordion
-      client:media="(min-width: 1080px)"
-      client:visible={{ rootMargin: "500px" }}
-    />
-
-    <ProjectsBg class="absolute -top-3 -z-10 lg:hidden" />
-  </FadeIn>
-</section>
-
-<AnimatedDivider client:media="(min-width: 768px)" />
-
-<section class="relative mt-[100px] mb-[100px] lg:mt-[200px] lg:mb-[200px]">
-  <div class="mx-auto max-w-[1080px] px-4 xl:px-0">
-    <div class="mb-[60px] space-y-6">
-      <h1 class="heading">How KMINO can help you</h1>
-      <p class="subheading text-primary mx-auto max-w-[771px] text-center">
-        We have 3 basic engagement models, and are always open to discuss what
-        works for your project - you choose the best path.
-      </p>
-    </div>
-
-    <HowWeHelpCards client:visible={{ rootMargin: "300px" }} />
+    <WhatWeDoSlider client:media="(max-width: 1414px)" />
 
     <div
-      class="my-[60px] flex w-full flex-col items-start justify-between gap-6 lg:flex-row lg:items-center"
+      class="relative mx-auto mt-[96px] grid max-w-[1080px] grid-cols-[349px_382px_349px] justify-center -space-y-[81px] text-[22px] tracking-tight max-[1414px]:hidden"
     >
-      <h1 class="heading lg:mb-32">How it Works:</h1>
-      <HowItWorksList client:visible={{ rootMargin: "600px" }} />
+      <Stamp class="text-primary rotating absolute -top-12 -right-10 z-10" />
+
+      <div class="col-start-1 row-start-1 self-end">
+        <Slide from="left" client:visible>
+          <div
+            class="flex max-h-[347px] w-[349px] flex-col gap-8 bg-black px-8 py-11 text-white"
+          >
+            <div class="flex flex-col gap-8">
+              <p
+                class="text-[22px] leading-[130%] font-semibold tracking-[-0.02em]"
+              >
+                Senior engineering, delivered
+              </p>
+              <p class="text-[18px] leading-[130%] tracking-[-0.02em]">
+                Fullstack, Web3, mobile, AI systems: production-grade code
+                written by engineers who've shipped at scale. Clean
+                architecture, real docs, you own everything.
+              </p>
+            </div>
+            <div
+              class="text-medium mt-auto flex max-w-[280px] items-center gap-3 leading-[130%] tracking-[-0.02em] text-[#F4F1D2]"
+            >
+              <span class="text-[24px] leading-none">✓</span>
+              <span>The product gets built correctly</span>
+            </div>
+          </div>
+        </Slide>
+      </div>
+
+      <div class="col-start-3 row-start-1 self-end">
+        <Slide from="right" client:visible>
+          <div
+            class="ml-auto flex max-h-[347px] w-[349px] flex-col gap-8 bg-black px-8 py-11 text-white"
+          >
+            <div class="flex flex-col gap-8">
+              <p
+                class="text-[22px] leading-[130%] font-semibold tracking-[-0.02em]"
+              >
+                AI that works in production
+              </p>
+              <p class="text-[18px] leading-[130%] tracking-[-0.02em]">
+                Not just demos. We integrate AI where it genuinely moves the
+                needle, with audit trails, zero sensitive data sent to public
+                models without approval, and human sign-off on every change.
+              </p>
+            </div>
+            <div
+              class="text-medium mt-auto flex max-w-[280px] items-center gap-3 leading-[130%] tracking-[-0.02em] text-[#F4F1D2]"
+            >
+              <span class="text-[24px] leading-none">✓</span>
+              <span>Speed without the exposure</span>
+            </div>
+          </div>
+        </Slide>
+      </div>
+
+      <div class="col-start-1 row-start-3 self-start">
+        <Slide from="left" client:visible>
+          <div
+            class="flex max-h-[347px] w-[349px] flex-col gap-8 bg-black px-8 py-10 text-white"
+          >
+            <div class="flex flex-col gap-8">
+              <p
+                class="text-[22px] leading-[130%] font-semibold tracking-[-0.02em]"
+              >
+                Strategy before the first line of code
+              </p>
+              <p class="text-[18px] leading-[130%] tracking-[-0.02em]">
+                We don't start building until we understand what you're building
+                toward. Product vision, technical strategy, positioning: we
+                pressure-test the plan so you're not paying to undo it later.
+              </p>
+            </div>
+            <div
+              class="text-medium flex max-w-[280px] items-center gap-3 leading-[130%] tracking-[-0.02em] text-[#F4F1D2]"
+            >
+              <span class="text-[24px] leading-none">✓</span>
+              <span>Avoids the mistake hiding in your roadmap</span>
+            </div>
+          </div>
+        </Slide>
+      </div>
+
+      <div class="col-start-2 row-start-2 flex items-start justify-center">
+        <Slide from="bottom" client:visible>
+          <div
+            class="bg-primary flex max-h-[347px] w-[382px] flex-col gap-8 border border-black px-8 py-11 text-white"
+          >
+            <p
+              class="text-[22px] leading-[130%] font-semibold tracking-[-0.02em]"
+            >
+              Yes, we use AI to write code. Here's the difference:
+            </p>
+            <p
+              class="max-w-[285px] text-[18px] leading-[130%] tracking-[-0.02em]"
+            >
+              Every AI-assisted change goes through human review, automated
+              tests, and architectural oversight. We use AI as a force
+              multiplier, not a replacement for engineering judgment. You get
+              the speed without the liability.
+            </p>
+          </div>
+        </Slide>
+      </div>
+
+      <div class="col-start-3 row-start-3 self-start">
+        <Slide from="right" client:visible>
+          <div
+            class="ml-auto flex max-h-[347px] w-[349px] flex-col gap-8 bg-black px-8 py-11 text-white"
+          >
+            <div class="flex flex-col gap-8">
+              <p
+                class="text-[22px] leading-[130%] font-semibold tracking-[-0.02em]"
+              >
+                A team aligned to outcomes, not tickets
+              </p>
+              <p class="text-[18px] leading-[130%] tracking-[-0.02em]">
+                Playbooks, mentorship, and a culture of ownership mean you're
+                not managing us, we're managing ourselves toward your goals. One
+                point of contact. Full transparency. No surprises.
+              </p>
+            </div>
+            <div
+              class="text-medium mt-auto flex max-w-[280px] items-center gap-3 leading-[130%] tracking-[-0.02em] text-[#F4F1D2]"
+            >
+              <span class="text-[24px] leading-none">✓</span>
+              <span>The rarest thing in outsourced dev</span>
+            </div>
+          </div>
+        </Slide>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div
+      class="mx-auto flex max-w-[1120px] flex-col justify-between gap-14 lg:flex-row lg:gap-20"
+    >
+      <div class="max-w-[520px]">
+        <h2 class="mb-6 text-[28px] leading-[1.2] tracking-tight">
+          A scoped plan in 48 hours.
+          <br />
+          No commitment required.
+        </h2>
+
+        <CTA
+          href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+          color="inverted"
+        >
+          Book your fit call
+        </CTA>
+      </div>
+
+      <div class="max-w-[411px]">
+        <p class="text-[22px] leading-[1.2] tracking-tight">
+          Book a 30-min fit call. <br /><br />
+          We review your goals, identify risks, and come back with a clear plan,
+          what it takes to build it right.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="my-[100px] overflow-hidden lg:my-[180px]"
+    aria-label="Services"
+  >
+    <div class="services-slider-track flex w-max items-center gap-[100px]">
+      <img
+        src={ServicesSlider.src}
+        alt="Services"
+        class="h-[101px] max-w-none shrink-0"
+      />
+      <img
+        src={ServicesSlider.src}
+        alt=""
+        aria-hidden="true"
+        class="h-[101px] max-w-none shrink-0"
+      />
+    </div>
+  </section>
+
+  <section class="flex flex-col items-center">
+    <div class="font-alt mb-14 text-center lg:mb-20">
+      <h2
+        class="mx-auto mb-4 max-w-[358px] text-[36px] leading-[130%] tracking-tight lg:max-w-full lg:text-[43px]"
+      >
+        Don't take our word for it
+      </h2>
+      <p
+        class="text-primary text-[20px] leading-[130%] tracking-tight lg:text-[26px]"
+      >
+        Here's what happens when AI-accelerated development is done <br />with
+        craft and intention
+      </p>
     </div>
 
-    <CTA
-      href="https://calendar.app.google/bptKpG7DXXLZve3r5"
-      color="inverted"
-      className="mx-auto"
-    >
-      Book a discovery call
-    </CTA>
-  </div>
-</section>
+    <Testimonials client:visible={{ rootMargin: "200px" }} />
+  </section>
 
-<TopWaves class="text-primary relative z-50" />
+  <Stats client:visible />
 
-<section
-  class="bg-primary sticky -top-[500px] z-50 -mt-1 min-h-dvh pb-32 text-2xl text-white md:-top-[100px] lg:top-0"
-  id="about-us"
->
-  <Stamp class="rotating absolute top-2 right-12 text-black" />
+  <Stages client:visible />
 
-  <div class="relative container max-w-[942px] pt-[100px]">
-    <h1 class="heading relative z-10 mb-[73px] text-left lg:mb-[68px]">
-      About Us
-    </h1>
+  <ReadyToBuild client:visible />
 
-    <FadeIn client:visible>
-      <div class="flex flex-col gap-8 tracking-tighter">
-        <p>
-          We’ve been building software for close to a decade now. Writing code,
-          yes, but also learning how teams succeed, and how they fail.
-        </p>
-
-        <p>
-          After years working in different dev houses and big corporate, we saw
-          the same patterns repeat: rushed delivery, poor communication, and
-          tech decisions disconnected from the real business goals.
-        </p>
-
-        <p>Eventually, we decided we could do better.</p>
-
-        <p>
-          Lately, we’ve seen AI get thrown into dev pipelines without a plan,
-          promising the world, and delivering technical debt instead.
-        </p>
-
-        <p>
-          But we’ve also seen how much better things go when there’s clear
-          thinking, real care, and actual ownership. If used right, AI can power
-          up all of this, instead of getting in the way.
-        </p>
-
-        <p>
-          That’s why we started Kmino. To build better paths, and help you do
-          the same.
-        </p>
-      </div>
-    </FadeIn>
-  </div>
-</section>
-
-<TopWaves class="relative z-50 text-black" />
-
-<section
-  class="relative z-50 -mt-1 bg-black pb-32 text-2xl text-white"
-  id="about-us"
->
-  <Stamp class="rotating text-primary absolute right-12" />
-
-  <div class="relative container max-w-[942px] pt-[100px]">
-    <h1 class="heading relative z-10 mb-[73px] text-left lg:mb-[68px]">
-      Ethical and Secure AI
-    </h1>
-
-    <FadeIn client:visible>
-      <div class="flex flex-col gap-8 tracking-tighter">
-        <p>
-          We use AI to accelerate delivery, not to replace engineering judgment.
-        </p>
-
-        <p>
-          No customer code or sensitive data is sent to public models without
-          written approval.
-        </p>
-
-        <p>We prefer self‑hosted or enterprise tools with audit logs.</p>
-
-        <p>
-          Every AI‑assisted change passes human review, automated tests, and
-          security checks.
-        </p>
-      </div>
-    </FadeIn>
-  </div>
-</section>
-
-<section class="relative z-50 bg-white py-16 lg:py-[200px]">
-  <div
-    class="mx-auto flex max-w-[1080px] flex-col items-start gap-0 px-4 md:gap-[68px] xl:px-0"
-  >
-    <h1 class="heading">FAQ</h1>
-
-    <FAQ
-      faqs={[
-        {
-          number: "01",
-          question: "Where are you based?",
-          answer:
-            "We’re distributed. You get dependable overlap with your core hours and a single point of contact.",
-        },
-        {
-          number: "02",
-          question: "How do you keep quality high if you move fast?",
-          answer:
-            "Gatekeeping via tests, static analysis, and reviews; strict Definition of Done; weekly retros and playbook updates.",
-        },
-        {
-          number: "03",
-          question: "Will we be locked in?",
-          answer:
-            "No. You own the repo, infra, CI, and docs. We train your team before exit if desired.",
-        },
-        {
-          number: "04",
-          question: "Do you work with regulated teams?",
-          answer:
-            "Yes. We align with SOC 2, GDPR, and security reviews. We avoid public model exposure without consent.",
-        },
-        {
-          number: "05",
-          question: "What’s the fastest way to start?",
-          answer:
-            "Share your roadmap. We’ll propose a pilot or 6‑week plan within 48 hours.",
-        },
-      ]}
-      client:visible
-    />
-  </div>
-</section>
-
-<Footer />
+  <Footer />
+</MainLayout>
 
 <style>
   @keyframes fadeInUp {
@@ -538,10 +456,24 @@ import heroBgMobile from "../assets/hero-mobile.webp";
     }
   }
 
+  @keyframes marqueeLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 50px));
+    }
+  }
+
   .animate-kmino-text {
     animation: slideInRight 1s ease-out forwards;
     animation-delay: 0.7s;
     opacity: 0;
+  }
+
+  .services-slider-track {
+    animation: marqueeLeft 30s linear infinite;
+    will-change: transform;
   }
 
   #magnetic-stamp {

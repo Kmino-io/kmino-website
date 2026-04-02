@@ -7,15 +7,17 @@ import { FadeIn } from "./FadeIn";
 interface Props {
   callout?: string;
   description?: string;
+  footerClass?: string;
 }
 
-const { callout = "Ready to build something exceptional?" } = Astro.props;
+const { callout = "Ready to build something exceptional?", footerClass } =
+  Astro.props;
 
 const navLinksLeft = [
   { label: "What We Do", href: "/#what-we-do" },
   { label: "How We Work", href: "/#how-we-work" },
   { label: "Projects", href: "/#projects" },
-  { label: "About Us", href: "/#about-us" },
+  { label: "About Us", href: "/about" },
 ];
 
 const navLinksRight = [
@@ -38,7 +40,10 @@ const socialLinks = [
 ];
 ---
 
-<footer class="relative z-50 overflow-hidden bg-white">
+<footer
+  class={"relative z-50 overflow-hidden" +
+    (footerClass ? ` ${footerClass}` : "")}
+>
   <!-- Curved top edge SVG -->
   <svg
     class="relative z-10 block w-full translate-y-1"

@@ -72,13 +72,13 @@ export function Testimonials() {
             key={name}
           >
             <blockquote className="relative mb-8 flex h-full max-w-[811px] flex-col items-center justify-center bg-[#EDEEE8] px-8 py-9 xl:min-w-[811px]">
-              <span className="absolute top-3 left-2 font-serif text-[48px] leading-none font-bold text-[#EA6A3E] select-none">
+              <span className="absolute top-3 left-2 font-serif text-[36px] leading-none font-bold text-[#EA6A3E] select-none md:text-[48px]">
                 &ldquo;
               </span>
-              <span className="absolute top-20 right-2 font-serif text-[48px] leading-none font-bold text-[#EA6A3E] select-none">
+              <span className="absolute right-2 bottom-6 font-serif text-[36px] leading-none font-bold text-[#EA6A3E] select-none md:top-20 md:right-2 md:bottom-auto md:text-[48px]">
                 &rdquo;
               </span>
-              <p className="mb-8 text-center text-xl leading-[33.6px] font-normal tracking-[-0.48px] md:text-2xl">
+              <p className="mb-8 pt-5 text-center text-xl leading-[33.6px] font-normal tracking-[-0.48px] md:pt-0 md:text-2xl">
                 {testimonial}
               </p>
               <div className="flex items-center">

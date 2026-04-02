@@ -71,7 +71,7 @@ export function initGlass(parent: HTMLElement, options: FlutedGlassOptions) {
     speed,
     0,
     2,
-    1920 * 1080 * 2 * 2,
+    1920 * 1080,
     ["u_image"],
   );
 
@@ -79,36 +79,59 @@ export function initGlass(parent: HTMLElement, options: FlutedGlassOptions) {
 
   let targetX = 0.5;
   let currentX = 0.5;
+  let rafId = 0;
+  let visible = true;
 
   function handleMouseMove(e: MouseEvent) {
     const rect = parent.getBoundingClientRect();
-    targetX = (e.clientX - rect.left) / rect.width; // 0 → 1
+    targetX = (e.clientX - rect.left) / rect.width;
+    // Kick the loop if it was idle
+    if (visible && !rafId) rafId = requestAnimationFrame(animate);
   }
 
   const mouseTarget = parent.parentElement ?? parent;
   mouseTarget.addEventListener("mousemove", handleMouseMove);
 
-  let rafId: number;
-
   function animate() {
-    currentX += (targetX - currentX) * 0.25;
+    rafId = 0;
+    if (!visible) return;
 
-    // shift expects small values, so center around 0
+    currentX += (targetX - currentX) * 0.25;
     const centered = (currentX - 0.5) * 2;
 
     shader.setUniforms({
-      u_shift: centered * 0.1, // control intensity here
+      u_shift: centered * 0.1,
     });
 
-    rafId = requestAnimationFrame(animate);
+    // Only keep looping while the value is still settling
+    if (Math.abs(targetX - currentX) > 0.001) {
+      rafId = requestAnimationFrame(animate);
+    }
   }
 
-  animate();
+  // Pause shader when hero is scrolled out of view
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !rafId) {
+        rafId = requestAnimationFrame(animate);
+      } else if (!visible && rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    },
+    { threshold: 0 },
+  );
+  observer.observe(parent);
+
+  // Initial kick
+  rafId = requestAnimationFrame(animate);
 
   return {
     shader,
     destroy: () => {
-      cancelAnimationFrame(rafId);
+      if (rafId) cancelAnimationFrame(rafId);
+      observer.disconnect();
       mouseTarget.removeEventListener("mousemove", handleMouseMove);
       shader.dispose();
     },
