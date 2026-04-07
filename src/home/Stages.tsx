@@ -67,10 +67,11 @@ export function Stages() {
 
       return ScrollTrigger.create({
         trigger: element,
-        start: isMobile ? "top bottom" : "top 90%",
-        end: isMobile ? "bottom bottom" : "bottom 90%",
+        start: "top 80%",
         onEnter: () => setActiveStage(index),
-        onEnterBack: () => setActiveStage(index),
+        onLeaveBack: () => {
+          if (index > 0) setActiveStage(index - 1);
+        },
       });
     });
 
@@ -105,7 +106,10 @@ export function Stages() {
   }, []);
 
   return (
-    <section className="mx-auto flex w-full max-w-[1240px] flex-col gap-16 px-6 py-[100px] lg:px-10 lg:py-[180px]">
+    <section
+      className="mx-auto flex w-full max-w-[1240px] flex-col gap-16 px-6 py-[100px] lg:px-10 lg:py-[180px]"
+      id="how-we-work"
+    >
       <div className="max-w-[980px]">
         <h2 className="font-alt mb-4 text-[36px] leading-[130%] tracking-tight lg:text-[43px]">
           What changes when you build with the right guide.
@@ -128,7 +132,7 @@ export function Stages() {
             <div className="mt-1 hidden lg:flex lg:flex-col lg:items-center">
               <span
                 className={twMerge(
-                  "min-h-6 w-6 rounded-full border-[5px] transition-colors duration-300",
+                  "min-h-6 w-6 rounded-full border-[5px]",
                   index <= activeStage ? "border-primary" : "border-[#E5E5E5]",
                 )}
               />
@@ -137,7 +141,7 @@ export function Stages() {
             {index < stages.length - 1 ? (
               <span
                 className={twMerge(
-                  "absolute top-11 left-[11px] w-0.5 transition-colors duration-300 lg:top-[44px] lg:left-[21px]",
+                  "absolute top-11 left-[11px] w-0.5 lg:top-[44px] lg:left-[21px]",
                   index < activeStage ? "bg-primary" : "bg-[#E5E5E5]",
                 )}
                 style={{
@@ -150,7 +154,7 @@ export function Stages() {
               <div className="mb-4 flex items-start gap-4 lg:hidden">
                 <span
                   className={twMerge(
-                    "h-6 min-w-6 rounded-full border-[5px] transition-colors duration-300",
+                    "h-6 min-w-6 rounded-full border-[5px]",
                     index <= activeStage
                       ? "border-primary"
                       : "border-[#E5E5E5]",
@@ -162,7 +166,7 @@ export function Stages() {
                   </h3>
                   <span
                     className={twMerge(
-                      "text-[26px] leading-[1.15] tracking-tight transition-colors duration-300",
+                      "text-[26px] leading-[1.15] tracking-tight",
                       index <= activeStage ? "text-primary" : "text-[#D9D9D9]",
                     )}
                   >
@@ -235,7 +239,7 @@ export function Stages() {
             <div className="hidden items-start justify-end lg:flex">
               <span
                 className={twMerge(
-                  "font-alt text-[32px] leading-[1.1] tracking-tight transition-colors duration-300",
+                  "font-alt text-[32px] leading-[1.1] tracking-tight",
                   index <= activeStage ? "text-primary" : "text-[#E1E1E1]",
                 )}
               >

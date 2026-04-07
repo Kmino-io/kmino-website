@@ -86,7 +86,7 @@ export function MVPFAQ() {
   }, [activeTab]);
 
   return (
-    <section className="relative z-50 bg-white py-16 lg:py-[200px]">
+    <section className="relative z-50 bg-white py-16 lg:py-[200px]" id="faq">
       <div className="mx-auto flex max-w-[1080px] flex-col items-start gap-0 px-4 xl:px-0">
         <div className="mb-10 flex w-full items-center justify-between">
           <h1 className="heading">FAQ</h1>
