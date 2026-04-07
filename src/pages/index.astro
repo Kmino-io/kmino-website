@@ -36,7 +36,7 @@ import { ReadyToBuild } from "~/home/ReadyToBuild";
       >
         <div class="flex max-w-[594px] flex-col gap-6">
           <span
-            class="text-primary hidden w-fit rounded-4xl bg-[#F4F1D2]/80 px-4 py-2 leading-[130%] lg:block"
+            class="text-primary animate-hero-badge hidden w-fit rounded-4xl bg-[#F4F1D2]/80 px-4 py-2 leading-[130%] lg:block"
           >
             For founders who build with AI and want it done right
           </span>
@@ -64,7 +64,7 @@ import { ReadyToBuild } from "~/home/ReadyToBuild";
         </div>
 
         <div
-          class="mt-9 flex w-full flex-col gap-4 text-white lg:mt-20 lg:gap-10"
+          class="animate-hero-trusted mt-9 flex w-full flex-col gap-4 text-white lg:mt-20 lg:gap-10"
         >
           <div class="flex flex-col gap-2">
             <span>Trusted by</span>
@@ -93,7 +93,11 @@ import { ReadyToBuild } from "~/home/ReadyToBuild";
     >
     </div>
 
-    <div id="glass-container" class="absolute inset-0"></div>
+    <div
+      id="glass-container"
+      class="absolute inset-0 opacity-0 transition-opacity duration-700"
+    >
+    </div>
     <Image
       alt="Hero Image"
       id="glass-image"
@@ -106,49 +110,57 @@ import { ReadyToBuild } from "~/home/ReadyToBuild";
   <script>
     import { initGlass } from "~/utils/initGlass";
 
-    const image = document.getElementById("glass-image");
-    const glassContainer = document.getElementById("glass-container");
+    let glassInstance: ReturnType<typeof initGlass> | undefined;
 
-    if (
-      image instanceof HTMLImageElement &&
-      glassContainer instanceof HTMLElement
-    ) {
+    function setupGlass() {
+      glassInstance?.destroy();
+      glassInstance = undefined;
+
+      const image = document.getElementById("glass-image");
+      const glassContainer = document.getElementById("glass-container");
+
+      if (
+        !(image instanceof HTMLImageElement) ||
+        !(glassContainer instanceof HTMLElement)
+      )
+        return;
+
       const shouldUseGlass = !window.matchMedia(
         "(max-width: 767px), (hover: none), (pointer: coarse)",
       ).matches;
 
       if (!shouldUseGlass) {
         glassContainer.remove();
+        return;
+      }
+
+      const glassOptions = {
+        distortion: 0.6,
+        size: 0.4,
+        speed: 0.02,
+      };
+
+      const startGlass = () => {
+        if (glassInstance) return;
+        if (image.naturalWidth === 0 || image.naturalHeight === 0) return;
+        glassInstance = initGlass(glassContainer, { image, ...glassOptions });
+        requestAnimationFrame(() => {
+          glassContainer.classList.remove("opacity-0");
+        });
+      };
+
+      if (image.complete) {
+        startGlass();
       } else {
-        const glassOptions = {
-          distortion: 0.6,
-          size: 0.4,
-          speed: 0.02,
-        };
-
-        let glassInstance: ReturnType<typeof initGlass> | undefined;
-
-        const startGlass = () => {
-          if (glassInstance) return;
-          if (image.naturalWidth === 0 || image.naturalHeight === 0) return;
-          glassInstance = initGlass(glassContainer, { image, ...glassOptions });
-        };
-
-        if (image.complete) {
-          startGlass();
-        } else {
-          image.addEventListener("load", startGlass, { once: true });
-        }
-
-        window.addEventListener(
-          "pagehide",
-          () => {
-            glassInstance?.destroy();
-          },
-          { once: true },
-        );
+        image.addEventListener("load", startGlass, { once: true });
       }
     }
+
+    document.addEventListener("astro:page-load", setupGlass);
+    document.addEventListener("astro:before-preparation", () => {
+      glassInstance?.destroy();
+      glassInstance = undefined;
+    });
   </script>
 
   <WhatWeSee client:visible />
@@ -424,6 +436,11 @@ import { ReadyToBuild } from "~/home/ReadyToBuild";
     }
   }
 
+  .animate-hero-badge {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
   .animate-hero-heading {
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.2s;
@@ -433,6 +450,12 @@ import { ReadyToBuild } from "~/home/ReadyToBuild";
   .animate-hero-text {
     animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: 0.4s;
+    opacity: 0;
+  }
+
+  .animate-hero-trusted {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.6s;
     opacity: 0;
   }
 

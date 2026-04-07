@@ -55,7 +55,7 @@ export function ReadyToBuild() {
             </CTA>
 
             <a
-              href="mailto:hello@kmino.io"
+              href="mailto:contact@kmino.io"
               className="rounded-full border border-white px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
             >
               Or email us directly

@@ -80,7 +80,8 @@ const currentURL = Astro.url;
 
         {
           currentURL.pathname === "/" ||
-          currentURL.pathname.startsWith("/blog") ? (
+          currentURL.pathname.startsWith("/blog") ||
+          currentURL.pathname.startsWith("/about") ? (
             <div class="flex w-full flex-col items-center gap-4">
               <a
                 href="/"

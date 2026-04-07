@@ -65,9 +65,9 @@ export function Testimonials() {
       origin: "center",
     },
     breakpoints: {
-      "(min-width: 1024px)": {
+      "(min-width: 1240px)": {
         slides: {
-          perView: 2,
+          perView: "auto",
           spacing: 88,
           origin: "center",
         },
@@ -84,12 +84,12 @@ export function Testimonials() {
           return (
             <article
               key={`${testimonial.name}-${testimonial.company}`}
-              className={`keen-slider__slide flex min-h-[520px] max-w-[811px] flex-col justify-between gap-8 p-6 lg:h-[249px] lg:min-h-0 lg:gap-0 lg:px-8 lg:py-9 ${
+              className={`keen-slider__slide flex min-h-[520px] max-w-[811px] flex-col justify-between gap-8 p-6 lg:h-[249px] lg:min-h-0 lg:min-w-[811px] lg:gap-0 lg:px-8 lg:py-9 ${
                 isPrimary ? "bg-primary text-white" : "bg-[#EDEEE8] text-black"
               }`}
             >
               <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
-                <div className="order-2 mx-auto flex items-center gap-4 text-left lg:order-1 lg:min-w-[230px] lg:flex-row lg:items-center">
+                <div className="order-2 mx-auto flex items-center gap-4 text-left lg:order-1 lg:mx-0 lg:min-w-[230px] lg:flex-row lg:items-center">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}

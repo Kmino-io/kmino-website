@@ -23,54 +23,64 @@ export function FooterScene() {
 
     // Desktop (lg+)
     mm.add("(min-width: 1024px)", () => {
-      gsap.set(sun, { y: 150 });
-      gsap.set(mountain, { y: 250 });
-
-      gsap.to(sun, {
-        y: -100,
-        scrollTrigger: {
-          trigger: container,
-          start: "top bottom",
-          end: "center center",
-          scrub: 1.5,
+      gsap.fromTo(
+        sun,
+        { y: 150 },
+        {
+          y: -100,
+          scrollTrigger: {
+            trigger: container,
+            start: "top bottom",
+            end: "center center",
+            scrub: 1.5,
+          },
         },
-      });
+      );
 
-      gsap.to(mountain, {
-        y: 0,
-        scrollTrigger: {
-          trigger: container,
-          start: "top 80%",
-          end: "center center",
-          scrub: 1,
+      gsap.fromTo(
+        mountain,
+        { y: 250 },
+        {
+          y: 0,
+          scrollTrigger: {
+            trigger: container,
+            start: "top 80%",
+            end: "center center",
+            scrub: 1,
+          },
         },
-      });
+      );
     });
 
     // Mobile / tablet
     mm.add("(max-width: 1023px)", () => {
-      gsap.set(sun, { y: 100 });
-      gsap.set(mountain, { y: 300 });
-
-      gsap.to(sun, {
-        y: -100,
-        scrollTrigger: {
-          trigger: container,
-          start: "top 30%",
-          end: "bottom bottom",
-          scrub: 1.5,
+      gsap.fromTo(
+        sun,
+        { y: 60 },
+        {
+          y: -60,
+          scrollTrigger: {
+            trigger: container,
+            start: "top bottom",
+            end: "bottom bottom",
+            scrub: 1.5,
+          },
         },
-      });
+      );
 
-      gsap.to(mountain, {
-        y: 0,
-        scrollTrigger: {
-          trigger: container,
-          start: "top 50%",
-          end: "bottom bottom",
-          scrub: 1,
+      gsap.fromTo(
+        mountain,
+        { y: 100 },
+        {
+          y: 0,
+          scrollTrigger: {
+            trigger: container,
+            start: "top bottom",
+            end: "center bottom",
+            scrub: 1,
+          },
         },
-      });
+      );
     });
 
     return () => {
@@ -87,7 +97,6 @@ export function FooterScene() {
       <img
         ref={sunRef}
         src={sunImage.src}
-        loading="lazy"
         decoding="async"
         alt=""
         className="absolute -bottom-32 left-1/2 w-[600px] -translate-x-1/2 lg:-bottom-32 lg:h-[750px] lg:w-[780px]"
@@ -98,7 +107,6 @@ export function FooterScene() {
         ref={mountainRef}
         src={mountainImage.src}
         alt=""
-        loading="lazy"
         decoding="async"
         className="absolute bottom-0 left-1/2 max-w-[850px] -translate-x-1/2 lg:max-w-[1920px]"
       />
