@@ -7,8 +7,6 @@ import icon from "astro-icon";
 import partytown from "@astrojs/partytown";
 import vercel from "@astrojs/vercel";
 
-import node from "@astrojs/node";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://kmino.io",

@@ -21,10 +21,11 @@ const currentURL = Astro.url;
 
 <script
   type="text/partytown"
+  is:inline
   async
   src="https://www.googletagmanager.com/gtag/js?id=G-LR0FTNP6RF"></script>
 
-<script type="text/partytown">
+<script type="text/partytown" is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);

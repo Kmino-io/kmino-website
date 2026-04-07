@@ -61,7 +61,6 @@ export function Stages() {
   const [activeStage, setActiveStage] = useState(0);
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
     const triggers = stageRefs.current.map((element, index) => {
       if (!element) return null;
 

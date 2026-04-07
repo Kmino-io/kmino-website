@@ -26,8 +26,6 @@ export function initGlass(parent: HTMLElement, options: FlutedGlassOptions) {
     size = 0.5,
     shape = "lines",
     distortionShape = "prism",
-    mouseStrength = 1,
-    smoothing = 0.08,
   } = options;
 
   const baseUniforms = {
