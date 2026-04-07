@@ -33,7 +33,7 @@
     "framer-motion": "^12.23.11",
     "google-auth-library": "^10.4.0",
     "google-spreadsheet": "^5.0.2",
-    "gsap": "^3.13.0",
+    "gsap": "^3.14.2",
     "iconsax-reactjs": "^0.0.8",
     "keen-slider": "^6.8.6",
     "react": "^19.1.1",
