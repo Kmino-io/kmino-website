@@ -9,7 +9,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kmino.io",
+  site: "https://www.kmino.io",
   integrations: [sitemap(), react(), icon(), partytown()],
   prefetch: {
     prefetchAll: true,

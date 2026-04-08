@@ -28,7 +28,10 @@ export const server = {
         subject: `Flowbar support request from ${name}`,
         html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, "<br>")}</p>`,
       });
-      if (error) throw new Error(error.message);
+      if (error) {
+        console.error(error);
+        throw new Error(error.message);
+      }
       return { success: true };
     },
   }),
