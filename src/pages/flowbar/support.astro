@@ -1,0 +1,228 @@
+---
+export const prerender = false;
+
+import FlowbarLayout from "../../layouts/FlowbarLayout.astro";
+import { actions } from "astro:actions";
+
+const result = Astro.getActionResult(actions.flowbarSupport);
+
+if (result && !result.error) {
+  return Astro.redirect("/flowbar/support?sent=1");
+}
+
+const success = Astro.url.searchParams.get("sent") === "1";
+const formError = result?.error?.message;
+---
+
+<FlowbarLayout
+  title="Support — Flowbar"
+  description="Having any doubts or problems? Write us and we will help you as soon as possible."
+>
+  <div class="support-area">
+    <div class="support-card">
+      <h2 class="support-title">support</h2>
+
+      {
+        success ? (
+          <div class="success-message">
+            <p>Message sent! We'll get back to you as soon as possible.</p>
+          </div>
+        ) : (
+          <form
+            class="support-form"
+            id="support-form"
+            method="POST"
+            action={actions.flowbarSupport}
+          >
+            {formError && <p class="form-error">{formError}</p>}
+
+            <div class="field">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="field">
+              <label for="message">Your message *</label>
+              <textarea id="message" name="message" required rows="5" />
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="fb-btn clear-btn" id="clear-btn">
+                Clear
+              </button>
+              <button type="submit" class="fb-btn send-btn">
+                Send message
+              </button>
+            </div>
+          </form>
+        )
+      }
+    </div>
+
+    <p class="support-tagline">
+      having any doubts or<br />
+      problem? write us and<br />
+      we will help you as soon<br />
+      as possible
+    </p>
+  </div>
+</FlowbarLayout>
+
+<style>
+  .support-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    width: 100%;
+    max-width: 394px;
+    pointer-events: none;
+  }
+
+  .support-card {
+    background: rgba(245, 245, 245, 0.77);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: clamp(24px, 3vw, 24px);
+    width: stretch;
+    box-shadow:
+      0px 17px 45px 0px rgba(0, 0, 0, 0.5),
+      0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+  }
+
+  .support-title {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.31em;
+    line-height: 1.1;
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+  }
+
+  .support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field label {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: #3a3a3a;
+  }
+
+  .field input,
+  .field textarea {
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 6px 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #1a1a1a;
+    outline: none;
+    resize: none;
+    width: 100%;
+  }
+
+  .field input::placeholder {
+    color: transparent;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .form-actions button {
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .clear-btn {
+    flex: 1;
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 0 #ccbb65;
+    padding: 8px 16px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  .send-btn {
+    flex: 1;
+    background: #ccbb65;
+    border: 1px solid #3b3b34;
+    border-radius: 10px;
+    color: #ffffff;
+    box-shadow: 2px 2px 0 0 #ccbb65;
+    padding: 8px 16px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  .success-message {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: #3a3a3a;
+    text-align: center;
+    padding: 24px 0;
+    line-height: 1.6;
+  }
+
+  .form-error {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: #c0392b;
+    margin-bottom: 4px;
+  }
+
+  .support-tagline {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: clamp(11px, 1vw, 15px);
+    letter-spacing: 0.31em;
+    line-height: 1.6;
+    text-align: right;
+    color: #f5f0e8;
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .support-tagline {
+      display: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.getElementById("clear-btn").addEventListener("click", function () {
+    document.getElementById("support-form").reset();
+  });
+</script>
