@@ -1,0 +1,335 @@
+---
+import FlowbarLayout from "../../layouts/FlowbarLayout.astro";
+---
+
+<FlowbarLayout
+  title="Privacy Policy — Flowbar"
+  description="FlowBar stores all your data locally on your device. We do not collect, transmit, or have access to any of your personal information."
+>
+  <div class="policy-area">
+    <div class="policy-card">
+      <div class="policy-content">
+        <h1>Privacy Policy for FlowBar</h1>
+        <p class="updated">Last updated: April 8, 2026</p>
+
+        <h2>Overview</h2>
+        <p>
+          FlowBar ("the app", "we", "our") is a macOS menu bar productivity app.
+          This policy explains what data the app collects, how it is stored, and
+          how it is used.
+        </p>
+        <p class="highlight">
+          Short version: FlowBar stores all your data locally on your device. We
+          do not collect, transmit, or have access to any of your personal
+          information.
+        </p>
+
+        <hr />
+
+        <h2>Data We Collect</h2>
+        <p>
+          FlowBar does not collect any personal data. The app operates entirely
+          on your device.
+        </p>
+        <p>
+          The following information is stored <strong
+            >locally on your Mac only</strong
+          >:
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Where stored</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Task titles and notes</td>
+              <td>Application Support (JSON files)</td>
+              <td>Core app functionality</td>
+            </tr>
+            <tr>
+              <td>Task completion history</td>
+              <td>Application Support (JSON files)</td>
+              <td>History and Focus Stats</td>
+            </tr>
+            <tr>
+              <td>Pomodoro session count</td>
+              <td>UserDefaults</td>
+              <td>Daily progress tracking</td>
+            </tr>
+            <tr>
+              <td>App preferences (theme, timer duration, etc.)</td>
+              <td>UserDefaults</td>
+              <td>Personalization</td>
+            </tr>
+            <tr>
+              <td>Pro purchase status</td>
+              <td>StoreKit / UserDefaults</td>
+              <td>Unlocking Pro features</td>
+            </tr>
+            <tr>
+              <td>Panel window position</td>
+              <td>UserDefaults</td>
+              <td>Remembering your layout</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>None of this data ever leaves your device.</p>
+
+        <hr />
+
+        <h2>In-App Purchases</h2>
+        <p>
+          FlowBar offers a one-time <strong>FlowBar Pro</strong> purchase processed
+          entirely through <strong>Apple's App Store / StoreKit</strong>. We do
+          not see, store, or process any payment information. Apple handles all
+          billing. Please refer to <a
+            href="https://www.apple.com/legal/privacy/"
+            target="_blank">Apple's Privacy Policy</a
+          > for how Apple processes purchase data.
+        </p>
+
+        <hr />
+
+        <h2>Notifications</h2>
+        <p>
+          FlowBar may send <strong>local notifications</strong> (e.g., Pomodoro timer
+          complete). These are generated on your device and are never transmitted
+          to any server. You can disable notifications at any time in <strong
+            >System Settings → Notifications → FlowBar</strong
+          >.
+        </p>
+
+        <hr />
+
+        <h2>macOS Shortcuts Integration</h2>
+        <p>
+          FlowBar optionally integrates with the macOS Shortcuts app to enable
+          Focus Mode (Do Not Disturb) toggling. This uses a local URL scheme (<code
+            >shortcuts://</code
+          >) and runs entirely on your device. No data is sent to external
+          servers.
+        </p>
+
+        <hr />
+
+        <h2>No Third-Party Analytics or Tracking</h2>
+        <p>
+          FlowBar does not use any third-party analytics, advertising SDKs,
+          crash-reporting services, or tracking frameworks. We have no
+          visibility into how you use the app.
+        </p>
+
+        <hr />
+
+        <h2>No Account Required</h2>
+        <p>
+          FlowBar does not require you to create an account. No email address,
+          name, or any other identifying information is ever requested or
+          collected.
+        </p>
+
+        <hr />
+
+        <h2>Data Sharing</h2>
+        <p>
+          We do not share, sell, rent, or trade any data — because we do not
+          collect any.
+        </p>
+
+        <hr />
+
+        <h2>Data Retention and Deletion</h2>
+        <p>
+          All app data is stored in your Mac's Application Support folder and
+          UserDefaults. To delete all data:
+        </p>
+        <ol>
+          <li>Quit FlowBar.</li>
+          <li>Delete the app from your Applications folder.</li>
+          <li>
+            Remove the app data folder: <code
+              >~/Library/Application Support/FlowBar/</code
+            >
+          </li>
+          <li>
+            Remove preferences: open Terminal and run <code
+              >defaults delete com.kmino.FlowBar</code
+            >
+          </li>
+        </ol>
+
+        <hr />
+
+        <h2>Children's Privacy</h2>
+        <p>
+          FlowBar does not knowingly collect data from anyone, including
+          children under the age of 13.
+        </p>
+
+        <hr />
+
+        <h2>Changes to This Policy</h2>
+        <p>
+          If we ever change this policy in a material way (e.g., if a future
+          version adds network features), we will update the "Last updated" date
+          above and note the changes in the App Store release notes.
+        </p>
+
+        <hr />
+
+        <h2>Contact</h2>
+        <p>
+          If you have questions about this privacy policy, please contact us at:
+        </p>
+        <p><a href="mailto:contact@kmino.io">contact@kmino.io</a></p>
+
+        <hr />
+
+        <p class="footer-note">FlowBar is developed by Kmino.</p>
+      </div>
+    </div>
+  </div>
+</FlowbarLayout>
+
+<style>
+  .policy-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 560px;
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .policy-area {
+      width: 100%;
+      max-width: 560px;
+    }
+  }
+
+  .policy-card {
+    background: rgba(245, 245, 245, 0.9);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 20px;
+    box-shadow:
+      0px 17px 45px 0px rgba(0, 0, 0, 0.5),
+      0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    pointer-events: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+
+  .policy-content {
+    padding: clamp(24px, 3vw, 40px);
+  }
+
+  .policy-content h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.31em;
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  .updated {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 24px;
+  }
+
+  .policy-content h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
+    margin: 20px 0 8px;
+    text-transform: uppercase;
+  }
+
+  .policy-content p,
+  .policy-content li {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+  }
+
+  .policy-content ol {
+    padding-left: 20px;
+  }
+
+  .policy-content a {
+    color: #a89a3a;
+    text-decoration: underline;
+  }
+
+  .policy-content code {
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 12px;
+    font-family: monospace;
+  }
+
+  .policy-content hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin: 20px 0;
+  }
+
+  .highlight {
+    background: rgba(204, 187, 101, 0.15);
+    border-left: 3px solid #ccbb65;
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  th {
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+    letter-spacing: 0.03em;
+  }
+
+  td {
+    padding: 6px 8px;
+    color: #3a3a3a;
+    font-weight: 300;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    vertical-align: top;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    font-style: italic;
+  }
+</style>
