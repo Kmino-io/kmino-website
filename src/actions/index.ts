@@ -1,7 +1,7 @@
 import { defineAction } from "astro:actions";
 import { contactRequestSchema } from "~/utils/contactRequestSchema";
 import { addContactRequest } from "~/lib/sheets";
-import type { z } from "astro/zod";
+import { z } from "astro/zod";
 import { Resend } from "resend";
 
 const projectTypeStrings: { [key in ContactRequest["projectType"]]: string } = {
