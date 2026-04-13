@@ -1,0 +1,226 @@
+---
+import { Image } from "astro:assets";
+
+import heroBg from "../assets/hero-bg.webp";
+import Stamp from "../assets/stamp.svg";
+import { AnimatedDivider } from "~/components/AnimatedDivider";
+import CTA from "~/components/CTA";
+import Footer from "~/components/Footer.astro";
+import { FAQ } from "~/components/FAQ";
+import { FadeIn } from "~/components/FadeIn";
+import Navbar from "~/components/Navbar.astro";
+import MainLayout from "~/layouts/MainLayout.astro";
+
+const faqs = [
+  {
+    number: "01",
+    question: "Where are you based?",
+    answer:
+      "We’re distributed. You get dependable overlap with your core hours and a single point of contact.",
+  },
+  {
+    number: "02",
+    question: "How do you keep quality high if you move fast?",
+    answer:
+      "Gatekeeping via tests, static analysis, and reviews; strict Definition of Done; weekly retros and playbook updates.",
+  },
+  {
+    number: "03",
+    question: "Will we be locked in?",
+    answer:
+      "No. You own the repo, infra, CI, and docs. We train your team before exit if desired.",
+  },
+  {
+    number: "04",
+    question: "Do you work with regulated teams?",
+    answer:
+      "Yes. We align with SOC 2, GDPR, and security reviews. We avoid public model exposure without consent.",
+  },
+  {
+    number: "05",
+    question: "What’s the fastest way to start?",
+    answer:
+      "Share your roadmap. We’ll propose a pilot or 6-week plan within 48 hours.",
+  },
+];
+---
+
+<MainLayout head={{ title: "About Us | Kmino" }}>
+  <Navbar />
+
+  <section class="bg-primary relative isolate overflow-hidden pt-[72px]">
+    <div class="absolute inset-0">
+      <Image
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        class="h-full w-full object-cover opacity-95"
+      />
+      <div class="absolute inset-0 bg-[#d35630]/35 mix-blend-multiply"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#b94122]/60"
+      >
+      </div>
+    </div>
+
+    <div
+      class="relative mx-auto flex min-h-[300px] w-full max-w-[1980px] items-end px-8 pb-14 md:min-h-[420px] md:px-16 md:pb-20 lg:min-h-[520px] lg:px-[100px]"
+    >
+      <h1
+        class="font-alt animate-about-title text-[48px] leading-[1.05] tracking-tight text-white md:text-[74px] lg:text-[60px]"
+      >
+        About Us
+      </h1>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 md:py-24 lg:py-28">
+    <FadeIn client:visible>
+      <div
+        class="mx-auto flex w-full flex-col gap-8 px-6 text-[20px] leading-[1.22] tracking-tight text-[#2A2A2A] md:px-10 md:text-[34px] lg:px-[100px] lg:text-[28px]"
+      >
+        <p class="max-w-[1080px]">
+          We’ve been building software for close to a decade now. Writing code,
+          yes, but also learning how teams succeed, and how they fail.
+        </p>
+
+        <p class="max-w-[1120px]">
+          After years working in different dev houses and big corporate, we saw
+          the same patterns repeat: rushed delivery, poor communication, and
+          tech decisions disconnected from the real business goals.
+        </p>
+
+        <p class="max-w-[1120px]">
+          <mark class="bg-[#F4F1D2] px-1 text-inherit">
+            Eventually, we decided we could do better.
+          </mark>
+        </p>
+
+        <p class="max-w-[1120px]">
+          Lately, we’ve seen AI get thrown into dev pipelines without a plan,
+          promising the world, and delivering technical debt instead.
+        </p>
+
+        <p class="max-w-[1120px]">
+          But we’ve also seen how much better things go when there’s clear
+          thinking, real care, and actual ownership. If used right, AI can power
+          up all of this, instead of getting in the way.
+        </p>
+
+        <p class="max-w-[1120px]">
+          That’s why we started Kmino.
+          <mark class="bg-[#F4F1D2] px-1 text-inherit">
+            To build better paths, and help you do the same.
+          </mark>
+        </p>
+      </div>
+    </FadeIn>
+  </section>
+
+  <section class="sticky top-0 overflow-hidden text-white">
+    <svg
+      class="relative z-10 block w-full translate-y-1"
+      viewBox="0 0 1980 200"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      style="height: clamp(80px, 10vw, 200px);"
+    >
+      <path
+        d="M0 200V171.573C0 164.924 0 161.6 0.975 158.449C1.84 155.655 3.27 152.969 5.21 150.479C7.4 147.673 10.48 145.217 16.62 140.306L136.26 44.668C143.24 39.089 146.73 36.299 150.9 34.299C154.6 32.525 158.68 31.213 162.97 30.417C167.81 29.518 172.99 29.518 183.36 29.518H374.72C378.92 29.518 381.03 29.518 383.1 29.677C384.95 29.818 386.78 30.053 388.58 30.38C390.6 30.749 392.58 31.272 396.53 32.32L594.53 84.849C602.49 86.961 606.47 88.017 610.56 88.444C614.2 88.823 617.89 88.834 621.52 88.478C625.62 88.075 629.62 87.042 637.62 84.976L832.24 34.696C839.67 32.774 843.39 31.814 847.21 31.4C850.6 31.034 854.04 30.986 857.44 31.26C861.28 31.569 865.04 32.427 872.57 34.143L1036.31 71.47C1042.96 72.986 1046.29 73.743 1049.68 74.07C1052.69 74.361 1055.74 74.401 1058.77 74.187C1062.17 73.946 1065.53 73.273 1072.24 71.929L1422.93 1.662C1426.03 1.04 1427.59 0.729 1429.16 0.511C1430.56 0.317 1431.98 0.177 1433.4 0.094C1435 0 1436.6 0 1439.81 0H1796.52C1799.89 0 1801.57 0 1803.24 0.103C1804.72 0.194 1806.2 0.345 1807.66 0.557C1809.31 0.795 1810.92 1.134 1814.16 1.813L1934.87 27.14C1950.04 30.323 1957.63 31.914 1963.58 35.221C1968.71 38.074 1973.07 42.07 1975.72 46.357C1978.8 51.326 1979.2 56.887 1980 68.007V200H0Z"
+        fill="#1D1D1B"></path>
+    </svg>
+
+    <div class="relative w-full bg-[#1D1D1B]">
+      <div
+        class="relative mx-auto w-full max-w-[1240px] px-6 pt-10 pb-24 md:px-10 lg:px-16 lg:pt-14 lg:pb-32"
+      >
+        <Stamp
+          class="text-primary rotating absolute top-12 right-10 hidden lg:block"
+        />
+
+        <FadeIn client:visible>
+          <div class="max-w-[930px]">
+            <h2
+              class="font-alt mb-8 text-[36px] leading-[1.08] tracking-tight md:text-[56px] lg:mb-10 lg:text-[42px] lg:text-[64px]"
+            >
+              Ethical and Secure AI
+            </h2>
+
+            <div
+              class="flex flex-col gap-8 text-[20px] leading-[1.22] tracking-tight text-white md:text-[32px] lg:text-[26px] lg:text-[28px]"
+            >
+              <p>
+                We use AI to accelerate delivery, not to replace engineering
+                judgment.
+              </p>
+
+              <p>
+                No customer code or sensitive data is sent to public models
+                without written approval.
+              </p>
+
+              <p>We prefer self-hosted or enterprise tools with audit logs.</p>
+
+              <p>
+                Every AI-assisted change passes human review, automated tests,
+                and security checks.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="relative bg-white">
+    <AnimatedDivider client:media="(min-width: 768px)" />
+
+    <div
+      class="mx-auto flex max-w-[1240px] flex-col gap-6 px-6 py-16 md:px-10 lg:gap-10 lg:px-16 lg:py-[180px]"
+    >
+      <h1 class="heading text-left">FAQ</h1>
+      <FAQ faqs={faqs} client:visible />
+    </div>
+  </section>
+
+  <Footer description="" footerClass="bg-white">
+    <div
+      slot="children"
+      class="flex w-full flex-col items-center justify-center gap-8 px-4 text-center lg:items-start lg:gap-10 lg:px-0 lg:text-left"
+    >
+      <h2
+        class="font-alt max-w-[520px] text-[40px] leading-[1.04] tracking-tight text-[#F4F1D2] md:text-[54px] lg:text-[65px] xl:text-[72px]"
+      >
+        Senior technical teams for founders who build with AI and want it done
+        right
+      </h2>
+
+      <CTA
+        href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+        color="inverted"
+        className="mx-auto lg:mx-0"
+      >
+        Book a discovery call
+      </CTA>
+    </div>
+  </Footer>
+</MainLayout>
+
+<style>
+  @keyframes aboutTitleIn {
+    from {
+      opacity: 0;
+      transform: translateX(-48px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-about-title {
+    animation: aboutTitleIn 0.7s ease-out both;
+  }
+</style>

@@ -5,6 +5,7 @@ type FadeInProps = {
   duration?: number;
   delay?: number;
   className?: string;
+  once?: boolean;
 };
 
 export const FadeIn: React.FC<FadeInProps> = ({
@@ -12,12 +13,13 @@ export const FadeIn: React.FC<FadeInProps> = ({
   duration = 0.8,
   delay = 0,
   className = "",
+  once = true,
 }) => (
   <motion.div
     className={className}
     initial={{ opacity: 0, y: -30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.3 }}
+    viewport={{ once, amount: 0.3 }}
     transition={{ duration, delay }}
   >
     {children}

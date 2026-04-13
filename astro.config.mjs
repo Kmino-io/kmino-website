@@ -9,10 +9,8 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.kmino.io",
-  security: {
-    checkOrigin: false,
-  },
+  site: "https://kmino.io",
+  output: "server",
   integrations: [sitemap(), react(), icon(), partytown()],
   prefetch: {
     prefetchAll: true,
@@ -21,6 +19,9 @@ export default defineConfig({
   vite: {
     // @ts-ignore
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ["gsap"],
+    },
   },
   adapter: vercel(),
 });

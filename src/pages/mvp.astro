@@ -20,15 +20,14 @@ import { FadeIn } from "~/components/FadeIn";
 ---
 
 <MainLayout head={{ title: "Kmino" }}>
+  <Navbar showNav={false} />
   <section class="relative overflow-hidden xl:min-h-[747px]">
     <div class="bg-primary relative">
       <div class="relative z-10 container">
         <div
           class="mx-auto flex max-w-[1080px] flex-col gap-[120px] md:gap-[130px]"
         >
-          <div class="-mx-4 md:mx-0">
-            <Navbar showNav={false} />
-          </div>
+          <div class="-mx-4 md:mx-0"></div>
 
           <div class="relative space-y-11 pb-4 md:space-y-6">
             <Stamp
@@ -177,7 +176,7 @@ import { FadeIn } from "~/components/FadeIn";
 
   <MVPFAQ client:visible />
 
-  <Footer callout="Ready to launch faster?" description="">
+  <Footer description="">
     <CTA
       slot="cta"
       href="https://calendar.app.google/bptKpG7DXXLZve3r5"

@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
 
 const lines = [
-  "M-37 34H1406L684.5 462M684.5 462L-37 890H1406L684.5 462Z",
-  "M146 36V919.5",
-  "M877.5 34L877 919.5",
-  "M495.5 890V0.5",
-  "M1226.5 890V0.5",
-  "M145.5 38.5L-43 153.5",
-  "M570.5 316L495.5 193",
-  "M-35 378H1316",
-  "M53.5 543H1404.5",
+  "M6.2605 33.5H1449.26L727.76 461.5M727.76 461.5L6.2605 889.5H1449.26L727.76 461.5Z",
+  "M221.26 35.5V919",
+  "M953.76 33.5L953.26 919",
+  "M570.76 889.5V0",
+  "M1301.76 889.5V0",
+  "M188.76 38L0.260498 153",
+  "M613.76 315.5L538.761 192.5",
+  "M8.2605 377.5H1359.26",
+  "M96.7605 542.5H1447.76",
 ];
 
 export function WhatWeDoLines() {
   return (
     <svg
-      width="1440"
-      height="920"
-      className="absolute -bottom-[29px] left-[19px] max-[1414px]:hidden"
-      viewBox="0 0 1440 920"
+      width="1485"
+      height="919"
+      className="absolute bottom-[70px] left-[19px] max-[1414px]:hidden"
+      viewBox="0 0 1485 919"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -40,8 +40,8 @@ export function WhatWeDoLines() {
         />
       ))}
 
-      <path d="M144.5 889V783L-33.5 889H144.5Z" fill="#EDEEE8" />
-      <rect x="1227.5" y="379" width="213" height="163" fill="#EDEEE8" />
+      <path d="M221.76 888.5V762.5L9.2605 888.5H221.76Z" fill="#EDEEE8" />
+      <rect x="1303.26" y="378.5" width="181" height="163" fill="#EDEEE8" />
     </svg>
   );
 }

@@ -21,10 +21,11 @@ const currentURL = Astro.url;
 
 <script
   type="text/partytown"
+  is:inline
   async
   src="https://www.googletagmanager.com/gtag/js?id=G-LR0FTNP6RF"></script>
 
-<script type="text/partytown">
+<script type="text/partytown" is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
@@ -65,7 +66,9 @@ const currentURL = Astro.url;
     </main>
 
     <div id="mobile-menu-overlay">
-      <div class="mobile-menu-panel bg-primary rounded-s-lg px-6 py-10">
+      <div
+        class="mobile-menu-panel bg-primary/80 rounded-s-lg px-6 pt-20 pb-10 backdrop-blur-[100px]"
+      >
         <div>
           <CTA
             href="https://calendar.app.google/bptKpG7DXXLZve3r5"
@@ -77,7 +80,8 @@ const currentURL = Astro.url;
 
         {
           currentURL.pathname === "/" ||
-          currentURL.pathname.startsWith("/blog") ? (
+          currentURL.pathname.startsWith("/blog") ||
+          currentURL.pathname.startsWith("/about") ? (
             <div class="flex w-full flex-col items-center gap-4">
               <a
                 href="/"
@@ -90,7 +94,7 @@ const currentURL = Astro.url;
               </a>
 
               <a
-                href="/#about-us"
+                href="/about"
                 class="w-full rounded-full py-2 text-center text-white"
               >
                 About Us

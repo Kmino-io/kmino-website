@@ -13,7 +13,7 @@ const { showNav = true } = Astro.props;
 ---
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("astro:page-load", () => {
     // Move the menu overlay to the end of <body> for portal-like behavior
     const menuOverlay = document.getElementById("mobile-menu-overlay");
     if (menuOverlay && menuOverlay.parentNode !== document.body) {
@@ -120,7 +120,6 @@ const { showNav = true } = Astro.props;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background: var(--color-primary);
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -131,7 +130,9 @@ const { showNav = true } = Astro.props;
   }
 </style>
 
-<nav class="bg-primary py-4 text-white md:min-h-[80px] md:py-8">
+<nav
+  class="bg-primary/80 fixed top-0 z-[100] w-full py-4 text-white backdrop-blur-[100px] md:py-6"
+>
   <div
     class="mx-auto flex max-w-[1240px] items-center justify-between px-4 lg:px-0"
   >
@@ -151,10 +152,10 @@ const { showNav = true } = Astro.props;
           </>
         ) : (
           <>
+            <a href="/">Home</a>
             <a href="/#what-we-do">What We Do</a>
             <a href="/#how-we-work">How We Work</a>
-            <a href="/#projects">Projects</a>
-            <a href="/#about-us">About Us</a>
+            <a href="/about">About Us</a>
             <a
               href="/blog"
               class={

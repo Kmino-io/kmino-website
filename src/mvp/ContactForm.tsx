@@ -1,9 +1,9 @@
 import { addToast, Button, ToastProvider } from "@heroui/react";
 import { useAppForm } from "~/lib/form.ts";
-import { z } from "astro:schema";
 import { actions } from "astro:actions";
 import type { ContactRequest } from "~/actions";
 import { useMemo } from "react";
+import { z } from "astro/zod";
 
 type ContactFormProps = {
   onClose?: () => void;
@@ -83,10 +83,7 @@ export function ContactForm({ onClose, mode = "modal" }: ContactFormProps) {
         <form.AppField
           name="email"
           validators={{
-            onChange: z
-              .string()
-              .min(1, "Email is required")
-              .email("Invalid email"),
+            onChange: z.email("Invalid email"),
           }}
           children={(field) => (
             <field.TextField

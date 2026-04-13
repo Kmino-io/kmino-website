@@ -1,89 +1,204 @@
 ---
 import CTA from "./CTA";
 import { Icon } from "astro-icon/components";
-import Pathways from "../assets/pathways.svg";
+import { FooterScene } from "./FooterScene";
+import { FadeIn } from "./FadeIn";
 
 interface Props {
   callout?: string;
   description?: string;
+  footerClass?: string;
 }
 
-const {
-  callout = "Ready to build something exceptional?",
-  description = "Book a 30‑min fit call. We’ll review goals, identify risks, and return a scoped plan in 48 hours",
-} = Astro.props;
+const { callout = "Ready to build something exceptional?", footerClass } =
+  Astro.props;
+
+const navLinksLeft = [
+  { label: "Home", href: "/" },
+  { label: "What We Do", href: "/#what-we-do" },
+  { label: "How We Work", href: "/#how-we-work" },
+  { label: "About Us", href: "/about" },
+];
+
+const navLinksRight = [
+  { label: "FAQ", href: "/#faq" },
+  { label: "Blog", href: "/blog" },
+];
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/Kmino-io",
+    icon: "ri:github-fill",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/kminotech/",
+    icon: "ri:linkedin-fill",
+  },
+];
 ---
 
-<footer class="relative z-50 overflow-hidden bg-white">
-  <div
-    class="relative z-10 mt-[66px] mb-[66px] flex flex-col items-center bg-black py-12 text-center text-white"
+<footer
+  class={"relative z-50 overflow-hidden" +
+    (footerClass ? ` ${footerClass}` : "")}
+>
+  <!-- Curved top edge SVG -->
+  <svg
+    class="relative z-10 block w-full translate-y-1"
+    viewBox="0 0 1980 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    style="height: clamp(80px, 10vw, 200px);"
   >
-    {
-      Astro.slots.has("children") ? (
-        <slot name="children" />
-      ) : (
-        <h2 class="font-alt text-primary mb-6 text-[22px] tracking-tight lg:text-[65px] xl:text-[81px]">
-          {callout}
-        </h2>
-      )
-    }
+    <defs>
+      <!-- Clip path using the footer shape -->
+      <clipPath id="footerClip">
+        <path
+          d="M0 200V171.573C0 164.924 0 161.6 0.975 158.449C1.84 155.655 3.27 152.969 5.21 150.479C7.4 147.673 10.48 145.217 16.62 140.306L136.26 44.668C143.24 39.089 146.73 36.299 150.9 34.299C154.6 32.525 158.68 31.213 162.97 30.417C167.81 29.518 172.99 29.518 183.36 29.518H374.72C378.92 29.518 381.03 29.518 383.1 29.677C384.95 29.818 386.78 30.053 388.58 30.38C390.6 30.749 392.58 31.272 396.53 32.32L594.53 84.849C602.49 86.961 606.47 88.017 610.56 88.444C614.2 88.823 617.89 88.834 621.52 88.478C625.62 88.075 629.62 87.042 637.62 84.976L832.24 34.696C839.67 32.774 843.39 31.814 847.21 31.4C850.6 31.034 854.04 30.986 857.44 31.26C861.28 31.569 865.04 32.427 872.57 34.143L1036.31 71.47C1042.96 72.986 1046.29 73.743 1049.68 74.07C1052.69 74.361 1055.74 74.401 1058.77 74.187C1062.17 73.946 1065.53 73.273 1072.24 71.929L1422.93 1.662C1426.03 1.04 1427.59 0.729 1429.16 0.511C1430.56 0.317 1431.98 0.177 1433.4 0.094C1435 0 1436.6 0 1439.81 0H1796.52C1799.89 0 1801.57 0 1803.24 0.103C1804.72 0.194 1806.2 0.345 1807.66 0.557C1809.31 0.795 1810.92 1.134 1814.16 1.813L1934.87 27.14C1950.04 30.323 1957.63 31.914 1963.58 35.221C1968.71 38.074 1973.07 42.07 1975.72 46.357C1978.8 51.326 1979.2 56.887 1980 68.007V200H0Z"
+        ></path>
+      </clipPath>
+      <!-- Left vignette gradient -->
+      <linearGradient id="leftVignette" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#000000"></stop>
+        <stop offset="100%" stop-color="#1D1D1B"></stop>
+      </linearGradient>
+      <!-- Right vignette gradient -->
+      <linearGradient id="rightVignette" x1="100%" y1="0%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#000000"></stop>
+        <stop offset="100%" stop-color="#1D1D1B"></stop>
+      </linearGradient>
+    </defs>
+    <!-- Main fill -->
+    <path
+      d="M0 200V171.573C0 164.924 0 161.6 0.975 158.449C1.84 155.655 3.27 152.969 5.21 150.479C7.4 147.673 10.48 145.217 16.62 140.306L136.26 44.668C143.24 39.089 146.73 36.299 150.9 34.299C154.6 32.525 158.68 31.213 162.97 30.417C167.81 29.518 172.99 29.518 183.36 29.518H374.72C378.92 29.518 381.03 29.518 383.1 29.677C384.95 29.818 386.78 30.053 388.58 30.38C390.6 30.749 392.58 31.272 396.53 32.32L594.53 84.849C602.49 86.961 606.47 88.017 610.56 88.444C614.2 88.823 617.89 88.834 621.52 88.478C625.62 88.075 629.62 87.042 637.62 84.976L832.24 34.696C839.67 32.774 843.39 31.814 847.21 31.4C850.6 31.034 854.04 30.986 857.44 31.26C861.28 31.569 865.04 32.427 872.57 34.143L1036.31 71.47C1042.96 72.986 1046.29 73.743 1049.68 74.07C1052.69 74.361 1055.74 74.401 1058.77 74.187C1062.17 73.946 1065.53 73.273 1072.24 71.929L1422.93 1.662C1426.03 1.04 1427.59 0.729 1429.16 0.511C1430.56 0.317 1431.98 0.177 1433.4 0.094C1435 0 1436.6 0 1439.81 0H1796.52C1799.89 0 1801.57 0 1803.24 0.103C1804.72 0.194 1806.2 0.345 1807.66 0.557C1809.31 0.795 1810.92 1.134 1814.16 1.813L1934.87 27.14C1950.04 30.323 1957.63 31.914 1963.58 35.221C1968.71 38.074 1973.07 42.07 1975.72 46.357C1978.8 51.326 1979.2 56.887 1980 68.007V200H0Z"
+      fill="#1D1D1B"></path>
+    <!-- Vignette overlays clipped to footer shape -->
+    <g clip-path="url(#footerClip)" class="hidden lg:block">
+      <rect x="0" y="0" width="495" height="200" fill="url(#leftVignette)"
+      ></rect>
+      <rect x="1485" y="0" width="495" height="200" fill="url(#rightVignette)"
+      ></rect>
+    </g>
+  </svg>
 
-    {
-      description && (
-        <p class="mx-auto mb-6 max-w-[600px] px-4 text-white lg:text-lg">
-          {description}
-        </p>
-      )
-    }
-
-    {
-      Astro.slots.has("cta") ? (
-        <slot name="cta" />
-      ) : Astro.slots.has("children") ? null : (
-        <CTA
-          href="https://calendar.app.google/bptKpG7DXXLZve3r5"
-          color="inverted"
-        >
-          Book a discovery call
-        </CTA>
-      )
-    }
-  </div>
-
-  <Pathways
-    class="absolute -top-[432px] -left-[343px] w-[1440px] lg:-top-[400px] lg:left-0 lg:w-full"
-  />
-
-  <div class="relative z-10 flex flex-col items-center py-10">
-    <a
-      href="mailto:contact@kmino.io"
-      class="mb-6 text-sm font-medium text-black/80"
+  <!-- Main footer container -->
+  <div class="relative bg-[#1D1D1B] pb-52 sm:pb-0">
+    <!-- Left vignette gradient -->
+    <div
+      class="pointer-events-none absolute inset-y-0 left-0 z-0 hidden w-1/4 bg-gradient-to-r from-[#000] to-transparent lg:block"
     >
-      contact@kmino.io
-    </a>
-
-    <div class="mb-6 flex gap-6">
-      <a
-        href="https://github.com/Kmino-io"
-        aria-label="GitHub"
-        class="bg-primary/20 text-primary flex items-center rounded-full border p-2 transition hover:opacity-80"
-        target="_blank"
-      >
-        <Icon name="ri:github-fill" size={19} />
-      </a>
-
-      <a
-        href="https://www.linkedin.com/company/kminotech/"
-        aria-label="LinkedIn"
-        target="_blank"
-        class="bg-primary/20 text-primary flex items-center rounded-full border p-2 transition hover:opacity-80"
-      >
-        <Icon name="ri:linkedin-fill" size={19} />
-      </a>
     </div>
 
-    <div class="text-center text-sm text-black/80">
-      ©KMINO 2025, All rights reserved.
+    <!-- Right vignette gradient -->
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-1/4 bg-gradient-to-l from-[#000] to-transparent lg:block"
+    >
+    </div>
+
+    <!-- Parallax scene (React component) -->
+    <FooterScene client:visible />
+
+    <!-- Content -->
+    <div
+      class="relative z-10 container grid gap-8 py-16 lg:grid-cols-2 lg:gap-8 lg:py-20"
+    >
+      <!-- Left: CTA section -->
+      <div
+        class="flex flex-col items-center pb-8 text-center lg:items-start lg:pb-24 lg:text-left"
+      >
+        <FadeIn client:visible delay={0} once={false}>
+          {
+            Astro.slots.has("children") ? (
+              <slot name="children" />
+            ) : (
+              <h2 class="font-alt mb-4 text-[30px] tracking-tight text-[#F4F1D2] lg:mb-10 lg:text-[50px] xl:text-[65px]">
+                {callout}
+              </h2>
+            )
+          }
+
+          {
+            Astro.slots.has("cta") ? (
+              <slot name="cta" />
+            ) : Astro.slots.has("children") ? null : (
+              <CTA
+                href="https://calendar.app.google/bptKpG7DXXLZve3r5"
+                color="inverted"
+                className="mx-auto md:mx-0"
+              >
+                Book a discovery call
+              </CTA>
+            )
+          }
+        </FadeIn>
+      </div>
+
+      <!-- Right: Navigation + Social -->
+      <FadeIn client:visible delay={0} once={false} className="mb-10">
+        <div class="flex flex-col items-center gap-8 lg:items-end">
+          <div class="flex flex-col items-center gap-8">
+            <div class="grid grid-cols-2 gap-8 lg:gap-16">
+              <nav class="flex flex-col gap-3">
+                {
+                  navLinksLeft.map((link) => (
+                    <a
+                      href={link.href}
+                      class="hover:text-primary text-[#F4F1D2] underline-offset-4 transition-colors hover:underline"
+                    >
+                      {link.label}
+                    </a>
+                  ))
+                }
+              </nav>
+
+              <nav class="flex flex-col gap-3">
+                {
+                  navLinksRight.map((link) => (
+                    <a
+                      href={link.href}
+                      class="hover:text-primary text-[#F4F1D2] underline-offset-4 transition-colors hover:underline"
+                    >
+                      {link.label}
+                    </a>
+                  ))
+                }
+                <a
+                  href="mailto:contact@kmino.io"
+                  class="hover:text-primary text-[#F4F1D2] underline-offset-4 transition-colors hover:underline"
+                >
+                  contact@kmino.io
+                </a>
+              </nav>
+            </div>
+
+            <!-- Social icons -->
+            <div class="flex gap-4">
+              {
+                socialLinks.map((link) => (
+                  <a
+                    href={link.href}
+                    aria-label={link.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 flex items-center rounded-full border p-2 transition"
+                  >
+                    <Icon name={link.icon} size={19} />
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+
+    <!-- Copyright -->
+    <div class="absolute bottom-0 z-10 container mt-auto py-6 md:relative">
+      <div class="text-center text-sm text-[#F4F1D2]">
+        ©KMINO {new Date().getFullYear()}, All rights reserved.
+      </div>
     </div>
   </div>
 </footer>

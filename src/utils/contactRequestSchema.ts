@@ -1,10 +1,8 @@
-import { z } from "astro:schema";
+import { z } from "astro/zod";
 
 export const contactRequestSchema = z.object({
   name: z.string({ message: "Name is required" }),
-  email: z
-    .string({ message: "Email is required" })
-    .email("Invalid email address"),
+  email: z.email("Invalid email address"),
   projectDescription: z.string({
     message: "Project description is required",
   }),
